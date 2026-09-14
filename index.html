@@ -1,0 +1,1275 @@
+<!doctype html>
+<html lang="hu"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>:root{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Suliválasztó Rákosmente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#F6F5F1; --surface:#FFFFFF; --surface-2:#EFEEE8; --surface-3:#E4E3DC;
+  --ink:#171A1E; --ink-2:#4C5158; --ink-3:#767B82;
+  --line:#DAD9D1; --line-2:#C6C5BC;
+  --accent:#1C5CAB; --accent-deep:#0D366B; --accent-soft:#E3ECF8;
+  --ochre:#9A6200; --ochre-soft:#F6ECD9;
+  --good:#0A7D0A; --warn:#B07C00; --crit:#C0392B;
+  --s1:#CDE2FB; --s2:#9EC5F4; --s3:#6DA7EC; --s4:#3987E5; --s5:#256ABF; --s6:#0D366B;
+  --shadow:0 1px 2px rgba(23,26,30,.06), 0 6px 18px -8px rgba(23,26,30,.18);
+  --r:6px;
+  --disp:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --paper:#14171A; --surface:#1B1F24; --surface-2:#232830; --surface-3:#2C323B;
+    --ink:#EDEEF0; --ink-2:#B2B8C0; --ink-3:#858C95;
+    --line:#2E343D; --line-2:#3C434E;
+    --accent:#5598E7; --accent-deep:#9EC5F4; --accent-soft:#1D2B3E;
+    --ochre:#D9A23A; --ochre-soft:#2E2617;
+    --good:#3FB53F; --warn:#E0A82A; --crit:#E06B5D;
+    --s1:#184F95; --s2:#1C5CAB; --s3:#256ABF; --s4:#3987E5; --s5:#6DA7EC; --s6:#9EC5F4;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -10px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --paper:#14171A; --surface:#1B1F24; --surface-2:#232830; --surface-3:#2C323B;
+  --ink:#EDEEF0; --ink-2:#B2B8C0; --ink-3:#858C95;
+  --line:#2E343D; --line-2:#3C434E;
+  --accent:#5598E7; --accent-deep:#9EC5F4; --accent-soft:#1D2B3E;
+  --ochre:#D9A23A; --ochre-soft:#2E2617;
+  --good:#3FB53F; --warn:#E0A82A; --crit:#E06B5D;
+  --s1:#184F95; --s2:#1C5CAB; --s3:#256ABF; --s4:#3987E5; --s5:#6DA7EC; --s6:#9EC5F4;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -10px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:18px;padding-block:0 64px}
+h1,h2,h3{font-family:var(--disp);font-weight:600;margin:0;text-wrap:balance;letter-spacing:-.015em}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ---------- masthead ---------- */
+header.mast{border-bottom:1px solid var(--line);background:var(--surface);}
+.mast-in{max-width:1240px;margin:0 auto;padding:18px 18px 0;display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between}
+.brand h1{font-size:clamp(21px,3.4vw,27px);line-height:1.15}
+.brand p{margin:3px 0 0;color:var(--ink-2);font-size:13.5px;max-width:52ch}
+.sync{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-3);font-family:var(--mono)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ink-3);flex:none}
+.dot.on{background:var(--good)}.dot.off{background:var(--warn)}
+
+/* summary rail */
+.summary{display:flex;gap:0;flex-wrap:wrap;margin:16px 0 0;border-top:1px solid var(--line)}
+.sm{padding:11px 16px 13px;border-right:1px solid var(--line);flex:1 1 auto;min-width:118px}
+.sm:last-child{border-right:0}
+.sm b{display:block;font-family:var(--mono);font-size:19px;font-weight:600;letter-spacing:-.02em;margin-top:1px}
+.sm .lead{font-family:var(--disp);font-size:15px;font-weight:600;line-height:1.25;margin-top:2px;letter-spacing:-.01em}
+
+/* ---------- toolbar ---------- */
+.bar{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line);padding-block:9px;margin-bottom:18px}
+.bar-in{max-width:1240px;margin:0 auto;padding-inline:18px;display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.seg button{background:none;border:0;padding:6px 13px;cursor:pointer;color:var(--ink-2);font-weight:500;font-size:13.5px;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.field{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r);padding:4px 9px}
+.field label{font-size:11px;color:var(--ink-3);font-family:var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.field input[type=text],.field input[type=search]{border:0;background:none;outline:none;width:150px;font-size:13.5px}
+.field input[type=range]{width:96px;accent-color:var(--accent)}
+.field select{border:0;background:none;outline:none;font-size:13.5px}
+.btn{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r);padding:5px 11px;cursor:pointer;font-size:13.5px;font-weight:500}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
+.btn.danger:hover{border-color:var(--crit);color:var(--crit)}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{border:1px solid var(--line-2);background:var(--surface);border-radius:100px;padding:3px 10px;font-size:12.5px;cursor:pointer;font-family:var(--mono);letter-spacing:.02em}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-deep)}
+.toggle{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-2);cursor:pointer}
+.toggle input{accent-color:var(--accent)}
+
+/* ---------- table ---------- */
+table.noscore .c-score{display:none}
+td.num.best{color:var(--accent);font-weight:600}
+.own{color:var(--ochre);font-size:9px;vertical-align:top;margin-left:2px}
+.ttgrid{display:grid;grid-template-columns:auto 1fr 1fr;gap:6px 8px;align-items:center}
+.ttgrid .hd{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:center}
+.ttgrid label{font-size:13px;color:var(--ink-2)}
+.ttgrid input{width:100%;background:var(--surface-2);border:1px solid var(--line-2);border-radius:4px;padding:4px 6px;font-family:var(--mono);font-size:13px;text-align:right}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:1060px}
+thead th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:10px 12px;border-bottom:1px solid var(--line-2);white-space:nowrap;background:var(--surface);position:sticky;top:0}
+thead th.sortable{cursor:pointer;user-select:none}
+thead th.sortable:hover{color:var(--accent)}
+thead th .ar{color:var(--accent)}
+tbody tr{border-bottom:1px solid var(--line);cursor:pointer}
+tbody tr:last-child{border-bottom:0}
+tbody tr:hover{background:var(--surface-2)}
+tbody tr.sel{background:var(--accent-soft)}
+td{padding:9px 12px;vertical-align:middle}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;font-size:13px}
+.rank{font-family:var(--mono);font-size:12px;color:var(--ink-3);width:26px}
+.nm{font-weight:600;font-size:14px;line-height:1.25;display:block;max-width:42ch}
+.prof-in{display:block;font-size:11.5px;color:var(--ink-3);margin-top:3px;max-width:52ch;line-height:1.35}
+.sub{font-size:11.5px;color:var(--ink-3);font-family:var(--mono);margin-top:2px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+tr.out .nm{text-decoration:line-through;text-decoration-thickness:1.5px;color:var(--ink-3)}
+tr.out{opacity:.58}
+.tag{border:1px solid var(--line-2);border-radius:3px;padding:0 4px;font-size:10.5px;letter-spacing:.04em}
+.tag.short{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.tag.zone{border-color:var(--good);color:var(--good)}
+.tag.open{border-color:var(--ochre);color:var(--ochre);background:var(--ochre-soft)}
+
+/* score meter */
+.meter{display:flex;align-items:center;gap:8px;min-width:132px}
+.track{position:relative;flex:1;height:7px;background:var(--surface-3);border-radius:4px;overflow:hidden}
+.fill{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;background:var(--s4)}
+.mval{font-family:var(--mono);font-size:13px;font-weight:600;width:26px;text-align:right}
+.cov{font-family:var(--mono);font-size:10px;color:var(--ink-3);width:30px}
+
+.stars{display:inline-flex;gap:2.5px}
+.stars i{width:8px;height:8px;border-radius:50%;background:var(--surface-3);display:block}
+.stars i.on{background:var(--s5)}
+
+.share textarea{font-family:var(--mono);font-size:11px;min-height:120px;word-break:break-all}
+.share .step{display:flex;gap:9px;align-items:baseline}
+.share .step b{font-family:var(--mono);font-size:11px;color:var(--accent);flex:none;width:14px}
+.share p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.5}
+.okmsg{font-size:12.5px;color:var(--good);font-family:var(--mono)}
+.errmsg{font-size:12.5px;color:var(--crit);font-family:var(--mono)}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.links a{font-size:11.5px;font-family:var(--mono);letter-spacing:.02em;text-decoration:none;border:1px solid var(--line-2);border-radius:100px;padding:3px 9px;color:var(--ink-2);background:var(--surface-2)}
+.links a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.tlink{font-family:var(--mono);font-size:10.5px;text-decoration:none;color:var(--accent);border-bottom:1px dotted var(--accent)}
+.tlink:hover{background:var(--accent-soft)}
+.empty{padding:40px 18px;text-align:center;color:var(--ink-3);background:var(--surface);border:1px dashed var(--line-2);border-radius:var(--r)}
+
+/* ---------- map ---------- */
+.mapcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px;overflow:hidden;max-width:920px;margin-inline:auto}
+.maphead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--ink-2);font-family:var(--mono);align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.swatch{width:10px;height:10px;border-radius:50%;display:inline-block;border:1.5px solid var(--surface)}
+svg.map{width:100%;height:auto;display:block;touch-action:manipulation}
+svg.map text{font-family:var(--mono);font-size:9px;fill:var(--ink-2)}
+svg.map .ring{fill:none;stroke:var(--line-2);stroke-width:1;stroke-dasharray:3 4}
+svg.map .rlab{fill:var(--ink-3);font-size:8.5px}
+svg.map .pin{cursor:pointer}
+svg.map .pin circle{stroke:var(--surface);stroke-width:2}
+svg.map .pin.out circle{fill:var(--surface-3)!important;stroke-dasharray:2 2}
+svg.map .pin.sel circle{stroke:var(--ink);stroke-width:2.5}
+svg.map .plab{fill:var(--ink);font-weight:500;paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
+
+/* ---------- compare ---------- */
+.cmp{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.ccard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:9px}
+.ccard.win{border-color:var(--accent);box-shadow:var(--shadow)}
+.ccard h3{font-size:15px;line-height:1.25}
+.crow{display:flex;justify-content:space-between;gap:10px;font-size:13px;border-top:1px solid var(--line);padding-top:6px}
+.crow span:first-child{color:var(--ink-3);font-size:12px}
+.crow span:last-child{font-family:var(--mono);text-align:right}
+
+/* ---------- drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(15,18,22,.42);z-index:40;opacity:0;pointer-events:none;transition:opacity .18s}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(430px,100%);background:var(--surface);border-left:1px solid var(--line);z-index:50;transform:translateX(100%);transition:transform .22s ease;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.drawer.open{transform:none}
+@media (prefers-reduced-motion:reduce){.drawer,.scrim{transition:none}}
+.dhead{padding:16px 18px 12px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:flex-start}
+.dhead h2{font-size:17px;line-height:1.22;flex:1}
+.dbody{padding:14px 18px 30px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:16px}
+.grp{display:flex;flex-direction:column;gap:8px}
+.grp>.eyebrow{padding-bottom:4px;border-bottom:1px solid var(--line)}
+.row{display:flex;align-items:center;gap:10px;justify-content:space-between}
+.row>label{font-size:13px;color:var(--ink-2);flex:1}
+.row input[type=number],.row input[type=text],.row input[type=date]{width:112px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:4px;padding:4px 7px;font-family:var(--mono);font-size:13px;text-align:right}
+.row input[type=text].wide{width:150px;text-align:left;font-family:var(--body)}
+textarea{width:100%;min-height:76px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:4px;padding:8px;resize:vertical;font-size:13.5px}
+.rate{display:inline-flex;gap:3px}
+.rate button{width:22px;height:22px;border-radius:50%;border:1px solid var(--line-2);background:var(--surface-2);cursor:pointer;padding:0;font-size:10px;color:var(--ink-3);font-family:var(--mono)}
+.rate button[aria-pressed="true"]{background:var(--s4);border-color:var(--s4);color:#fff}
+.rate button.clr{width:auto;padding:0 6px;border-radius:4px}
+.statusbtns{display:flex;gap:6px}
+.statusbtns button{flex:1;padding:6px;border-radius:var(--r);border:1px solid var(--line-2);background:var(--surface-2);cursor:pointer;font-size:12.5px}
+.statusbtns button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.statusbtns button.no[aria-pressed="true"]{background:var(--crit);border-color:var(--crit)}
+.note{font-size:11.5px;color:var(--ink-3);line-height:1.45}
+.prof{font-size:13px;color:var(--ink-2);background:var(--surface-2);border-radius:4px;padding:9px 10px;border-left:2px solid var(--line-2)}
+.subscores{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.ss{background:var(--surface-2);border-radius:4px;padding:7px 9px}
+.ss b{display:block;font-family:var(--mono);font-size:16px;font-weight:600;line-height:1.1;margin-top:2px}
+.ss em{font-style:normal;font-size:10.5px;color:var(--ink-3);font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.foot{color:var(--ink-3);font-size:12px;line-height:1.6;margin-top:28px;border-top:1px solid var(--line);padding-top:14px}
+.foot b{color:var(--ink-2);font-weight:600}
+@media (max-width:560px){
+  .drawer{width:100%;top:auto;height:88vh;border-left:0;border-top:1px solid var(--line);border-radius:12px 12px 0 0;transform:translateY(100%)}
+  .drawer.open{transform:none}
+  .sm{min-width:50%;border-right:0}
+  .field input[type=text],.field input[type=search]{width:112px}
+}
+</style>
+
+</head><body>
+<header class="mast">
+  <div class="mast-in">
+    <div class="brand">
+      <h1>Suliválasztó – Rákosmente és környéke</h1>
+      <p>52 általános iskola a XVII., XVI. és X. kerületből, Pécelről, Ecserről, Maglódról és Vecsésről. Pontozd, szűrd, húzd ki, ami nem jön be.</p>
+    </div>
+    <div class="sync"><span class="dot" id="syncDot"></span><span id="syncTxt">kapcsolódás…</span><button class="btn" id="loginBtn" style="margin-left:8px;padding:3px 10px;font-size:12.5px">Belépés</button></div>
+  </div>
+  <div class="mast-in" style="padding-top:0;padding-bottom:0;display:block">
+    <div class="summary" id="summary"></div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="seg" role="group" aria-label="Nézet">
+      <button id="vList" aria-pressed="true">Lista</button>
+      <button id="vMap" aria-pressed="false">Térkép</button>
+      <button id="vCmp" aria-pressed="false">Összevetés</button>
+    </div>
+    <div class="field"><label for="q">Keresés</label><input type="search" id="q" placeholder="név, utca, tagozat…"></div>
+    <div class="seg" role="group" aria-label="Napszak">
+      <button id="slotAm" aria-pressed="true">H 8:00</button>
+      <button id="slotPm" aria-pressed="false">H 16:00</button>
+    </div>
+    <div class="field"><label for="dist">Max út</label><input type="range" id="dist" min="5" max="90" step="5" value="30"><span class="mono" id="distV" style="font-size:12.5px;width:46px">30 perc</span></div>
+    <div class="chips" id="dChips" role="group" aria-label="Kerület"></div>
+    <div class="chips" id="oChips" role="group" aria-label="Fenntartó"></div>
+    <label class="toggle"><input type="checkbox" id="showScore"> pontszám</label>
+    <label class="toggle"><input type="checkbox" id="onlyShort"> csak rövidlista</label>
+    <label class="toggle"><input type="checkbox" id="showOut" checked> kihúzottak</label>
+    <button class="btn" id="addBtn">+ Iskola</button>
+    <button class="btn" id="setupBtn">Otthon &amp; súlyok</button>
+    <button class="btn primary" id="shareBtn">Megosztás</button>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="listView">
+    <div class="tablewrap">
+      <table>
+        <thead><tr>
+          <th></th>
+          <th class="sortable" data-s="name">Iskola</th>
+          <th class="sortable c-score" data-s="score">Összpont</th>
+          <th class="sortable" data-s="dist">Táv</th>
+          <th class="sortable" data-s="bike">Bicikli</th>
+          <th class="sortable" data-s="car">Autó</th>
+          <th class="sortable" data-s="bkv">BKV</th>
+          <th class="sortable" data-s="komp">Kompetencia</th>
+          <th class="sortable" data-s="fit">Profil</th>
+          <th class="sortable" data-s="soft">Puha</th>
+          <th>Nyílt nap</th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <div id="listEmpty" class="empty" hidden>Erre a szűrésre nincs iskola. Told feljebb a max távot, vagy kapcsolj vissza egy kerületet.</div>
+  </section>
+
+  <section id="mapView" hidden>
+    <div class="mapcard">
+      <div class="maphead">
+        <div>
+          <div class="eyebrow">Légvonalbeli helyzet az otthonhoz képest</div>
+          <div class="note" id="mapNote"></div>
+        </div>
+<div class="legend" id="mapLegend"></div>
+      </div>
+      <svg class="map" id="svgMap" viewBox="0 0 920 620" role="img" aria-label="Iskolák elhelyezkedése az otthonhoz képest"></svg>
+    </div>
+  </section>
+
+  <section id="cmpView" hidden>
+    <div class="cmp" id="cmpGrid"></div>
+    <div id="cmpEmpty" class="empty" hidden>Még nincs rövidlistád. Nyiss meg egy iskolát, és tedd rövidlistára – itt egymás mellett látod majd őket.</div>
+  </section>
+
+  <p class="foot">
+    <b>Honnan jönnek az adatok?</b> A nevek, címek, fenntartók és profilok nyilvános forrásokból származnak (tankerületi intézménylisták, önkormányzati oldalak, iskolai honlapok) – 2026 szeptemberi állapot, érdemes a nyílt napon visszaellenőrizni.
+    <b>Honnan jönnek a menetidők?</b> A közúti távolság és a szabad forgalmú menetidő valódi útvonaltervezésből származik (OSRM, OpenStreetMap úthálózat) – ez az 52 iskolára egyenként kiszámolt szám, nem becslés. Amit rárakok, az modellezett: az <b>autónál</b> budapesti csúcsidei szorzó (a TomTom 2025-ös budapesti indexe reggel +89%, délután +106% városi átlagot mér; itt ennél visszafogottabb külső kerületi értékekkel számolok, 1,25–1,70 között a táv függvényében) plusz 2 perc parkolás. A <b>biciklinél</b> 15 km/h átlag a közúti táv 92%-án, plusz 2 perc lezárás – napszaktól függetlenül. A <b>BKV-nál</b> nincs nyilvános útvonaltervező, amit elérnék, ezért modell: 9 perc gyaloglás a két végén, 6–7 perc várakozás, 18 km/h a kerületen belül és 22 km/h azon kívül, plusz 7 perc átszállás más kerületbe és 10 perc az agglomerációba; 5 perces kerekítéssel. <b>Pontosság:</b> bicikli ±15%, autó ±20%, BKV ±30%. A rövidlistásoknál érdemes az Útvonal linkekkel visszaellenőrizni, és a kapott értéket beírni – a beírt szám felülírja a modellt (pöttyöt kap a táblázatban).<br><br>A koordináták nagy része <b>cím alapján becsült</b>, nem geokódolt: az itteni térkép a távolságviszonyokat mutatja, nem a méteres pontosságot – utca szintű képért használd az iskoláknál a Google Maps, Utcakép és Útvonal linkeket. A drawerben bármelyik iskola koordinátája javítható.
+    <b>Kompetenciamérés, gimnáziumi továbbtanulás, osztálylétszám: ezeket szándékosan üresen hagytam</b> – ezek évről évre változnak, és az oktatas.hu/iskolai adatlapokról érdemes bemásolni. Ami nincs kitöltve, az nem rontja az iskola pontszámát, csak csökkenti az „adatlefedettséget”.
+    Gyógypedagógiai és EGYMI intézményeket (Gyurkovics, Göllesz, Éltes, Komplex) kihagytam; ha kell, a <b>+ Iskola</b> gombbal felvehető.<br><br><b>Hol vannak az adatok?</b> Amit beírsz, ennek a böngészőnek a tárolójában marad – nem megy szerverre, és nem látja más. Másik eszközre vagy másik embernek a <b>Megosztás</b> gombbal adott kóddal viheted át.
+  </p>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Iskola adatlap">
+  <div class="dhead">
+    <h2 id="dTitle">—</h2>
+    <button class="btn" id="dClose" aria-label="Bezárás">✕</button>
+  </div>
+  <div class="dbody" id="dBody"></div>
+</aside>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
+
+<script>
+const CATALOG = [
+// --- XVII. kerület, Rákosmente ---
+{id:"c01",n:"Czimra Gyula Általános Iskola",a:"1174 Kép utca 14.",d:"XVII",sd:"Rákoshegy",o:"t",lat:47.4645,lon:19.2730,ce:0,w:"https://czimra.com/",p:"Művészeti orientációjú osztály; alsó tagozat a Kép u. 4. alatt",rd:2706,ff:303},
+{id:"c02",n:"Gregor József Általános Iskola",a:"1172 Hősök tere 19-20.",d:"XVII",sd:"Rákosliget",o:"t",lat:47.4818,lon:19.2472,ce:0,w:"https://www.gregorsuli.hu/",p:"Ének-zene tagozat (55+ év); 5. évftől emelt matematika vagy humán irány; Tehetségpont",rd:4565,ff:426},
+{id:"c03",n:"Kossuth Lajos Általános Iskola",a:"1171 Erzsébet körút 56.",d:"XVII",sd:"Rákoskert",o:"t",lat:47.4600,lon:19.3010,ce:0,w:"https://www.kossuthiskolarakoskert.hu/",p:"Emelt szintű angol; hangsúlyos magyar és matematika; Örökös Ökoiskola",rd:672,ff:75},
+{id:"c04",n:"Kőrösi Csoma Sándor Általános Iskola és Gimnázium",a:"1173 Akácvirág utca 49.",d:"XVII",sd:"Rákoskeresztúr",o:"t",lat:47.4770,lon:19.2620,ce:0,w:"https://www.kcss.hu/",p:"8+4 rendszer egy helyen; a gimnáziumi részen két tanítási nyelvű angol, német, orosz és kínai",rd:3398,ff:326},
+{id:"c05",n:"Zrínyi Miklós Általános Iskola",a:"1171 Sisakos sáska utca 3.",d:"XVII",sd:"Rákoscsaba-Újtelep",o:"t",lat:47.4880,lon:19.2830,ce:0,w:"https://www.zrinyi.net/",p:"Általános tanterv, humán és reál egyenrangú; Ökoiskola, MÜPA partneriskola",rd:3188,ff:316},
+{id:"c06",n:"Diadal Úti Általános Iskola",a:"1172 Diadal út 43-49.",d:"XVII",sd:"Rákosliget",o:"t",lat:47.4840,lon:19.2415,ce:0,w:"https://diadal.hu/",p:"Sportorientált; zene, tánc, színjátszás, nyelv és matematika tehetséggondozás",rd:5251,ff:522},
+{id:"c07",n:"Szabadság Sugárúti Általános Iskola",a:"1171 Szabadság sugárút 32-34.",d:"XVII",sd:"Rákoscsaba",o:"t",lat:47.4838,lon:19.2950,ce:0,w:"https://sugarsuli.edu.hu/",p:"A kerület egyik legkisebb iskolája (~360 fő, három épület); általános tanterv",rd:2565,ff:299},
+{id:"c08",n:"Újlak Utcai Általános, Német Nemzetiségi és Két Tanítási Nyelvű Iskola",a:"1173 Újlak utca 110.",d:"XVII",sd:"Rákoskeresztúr",o:"t",lat:47.4688,lon:19.2665,ce:0,w:"https://ujlak.com/",p:"Három irány: német nemzetiségi, magyar-angol két tanítási nyelvű, általános tanterv; ~900 fő",rd:3312,ff:391},
+{id:"c09",n:"Rákoscsabai Jókai Mór Református Általános Iskola",a:"1171 Szánthó Géza utca 60.",d:"XVII",sd:"Rákoscsaba",o:"e",lat:47.4845,lon:19.2905,ce:0,w:"https://jokaim.edu.hu/",p:"Református fenntartású, hitéleti neveléssel",rd:2448,ff:236},
+{id:"c10",n:"Pál Apostol Katolikus Óvoda, Általános Iskola és Gimnázium",a:"1173 Pesti út 84.",d:"XVII",sd:"Rákoskeresztúr",o:"e",lat:47.4730,lon:19.2560,ce:0,w:"http://www.palapostol.hu/",p:"Óvoda + 8 évfolyam + hatosztályos gimnázium egy intézményben; nyelvi labor",rd:4699,ff:456},
+{id:"c11",n:"Podmaniczky János Evangélikus Óvoda és Általános Iskola",a:"1173 Ferihegyi út 115.",d:"XVII",sd:"Rákoshegy",o:"e",lat:47.4660,lon:19.2565,ce:0,w:"https://www.podi.edu.hu/",p:"Óvoda + általános iskola; Tehetségpont, Zöld óvoda, Határtalanul",rd:6056,ff:621},
+// --- XVI. kerület ---
+{id:"c20",n:"Arany János Általános Iskola",a:"1162 Bekecs utca 78.",d:"XVI",sd:"Mátyásföld",o:"t",lat:47.53511,lon:19.205021,ce:1,w:"http://www.bekecs78.hu",p:"Emelt angol 1. osztálytól; emelt magyar drámapedagógiával; sakk és logikai játékok 1-8.",rd:14286,ff:1144},
+{id:"c21",n:"Batthyány Ilona Általános Iskola",a:"1164 Georgina utca 23.",d:"XVI",sd:"Cinkota",o:"t",lat:47.520374,lon:19.227402,ce:1,w:"http://www.cinkota23.edu.hu",p:"Kiváló Tehetségpont; angol/német 1. osztálytól, orosz-francia 7.-től; atlétika utánpótlás",rd:11275,ff:911},
+{id:"c22",n:"Centenáriumi Általános Iskola",a:"1165 Sasvár utca 101.",d:"XVI",sd:"Sashalom",o:"t",lat:47.518166,lon:19.183439,ce:1,w:"https://www.centi.hu/",p:"Emelt óraszámú angol vagy német 1.-től; kézilabda utánpótlás-központ, kiemelt atlétika és foci",rd:12593,ff:1176},
+{id:"c23",n:"Herman Ottó Általános Iskola",a:"1161 Regele János utca 43-45.",d:"XVI",sd:"Rákosszentmihály",o:"t",lat:47.521954,lon:19.16193,ce:1,w:"https://www.hermanbp.edu.hu/",p:"Emelt nyelv 5.-től heti 5 óra; második nyelv 5.-től (angol, német, spanyol); néptánc 1-8.",rd:14765,ff:1370},
+{id:"c24",n:"Jókai Mór Általános Iskola (XVI.)",a:"1163 Tiszakömlő utca 29-35.",d:"XVI",sd:"Sashalom",o:"t",lat:47.507137,lon:19.187918,ce:1,w:"http://www.jokai16.hu",p:"Felső tagozaton emelt angol és megnövelt óraszámú természettudomány",rd:11740,ff:1085},
+{id:"c25",n:"Kölcsey Ferenc Általános Iskola",a:"1161 Hősök tere 1.",d:"XVI",sd:"Rákosszentmihály",o:"t",lat:47.523647,lon:19.162657,ce:1,w:"https://kolcseybp16.hu/",p:"1.-től választható emelt ének-zene, természettudomány, angol vagy német; 5.-től emelt matek",rd:20870,ff:1367},
+{id:"c26",n:"Lemhényi Dezső Általános Iskola",a:"1163 Hősök fasora 30.",d:"XVI",sd:"Mátyásföld",o:"t",lat:47.505917,lon:19.181713,ce:1,w:"https://www.lemhenyi16.hu/",p:"A kerület egyetlen magyar-angol két tanítási nyelvű iskolája; anyanyelvi tanár, egész napos alsó",rd:12213,ff:1110},
+{id:"c27",n:"Móra Ferenc Általános Iskola",a:"1162 Ida utca 108-110.",d:"XVI",sd:"Mátyásföld",o:"t",lat:47.52763,lon:19.184931,ce:1,w:"https://mora16.hu/",p:"Kiemelt matematika és idegen nyelv; matematika nívócsoport 5.-től",rd:15085,ff:1260},
+{id:"c28",n:"Sashalmi Tanoda Általános Iskola",a:"1163 Metró utca 3-7.",d:"XVI",sd:"Sashalom",o:"t",lat:47.516121,lon:19.172434,ce:1,w:"https://sastanoda.edu.hu/",p:"Nyelv 1.-től: angol, német vagy francia; széles csoportbontás 5.-től",rd:13528,ff:1240},
+{id:"c29",n:"Szent-Györgyi Albert Általános Iskola",a:"1161 Csömöri út 20. (alsó: 142.)",d:"XVI",sd:"Rákosszentmihály",o:"t",lat:47.520996,lon:19.15053,ce:1,w:"https://www.szgyaiskola.hu/",p:"Emelt angol és matematika; két tannyelvű képzési lehetőség; széles sportkínálat, két tornaterem",rd:21205,ff:1362},
+{id:"c30",n:"Táncsics Mihály Általános Iskola és Gimnázium",a:"1165 Táncsics utca 7-9.",d:"XVI",sd:"Sashalom",o:"t",lat:47.513256,lon:19.205038,ce:1,w:"https://tancsics16.hu/",p:"Négy induló osztálytípus: általános, emelt ének-zene, angol tagozat, német nemzetiségi; nyolcosztályos gimnázium is",rd:10594,ff:956},
+{id:"c31",n:"Néri Szent Fülöp Katolikus Általános Iskola",a:"1161 Béla utca 23.",d:"XVI",sd:"Rákosszentmihály",o:"e",lat:47.51973,lon:19.160513,ce:1,w:"https://www.neriiskola.hu/",p:"Katolikus, 1-8. évfolyam; Örökös Ökoiskola, kiemelt környezeti nevelés",rd:14853,ff:1380},
+{id:"c32",n:"Bornemisza Péter Iskola – Újszász utcai telephely",a:"1165 Újszász utca 45/B",d:"XVI",sd:"Mátyásföld",o:"e",lat:47.504093,lon:19.198336,ce:1,w:"https://ujszasz.bpg.hu/",p:"Évfolyamonként négy osztály; hatosztályos gimnázium, művészeti és sportiskolai képzés az intézménycsoportban",rd:10899,ff:1003},
+{id:"c33",n:"Müller György Óvoda, Általános és Alapfokú Művészeti Iskola",a:"1165 Újszász utca 47/A",d:"XVI",sd:"Mátyásföld",o:"e",lat:47.505329,lon:19.198952,ce:1,w:"https://www.mullergyorgyiskola.hu/",p:"Kis létszámú osztályok (8-16 fő); művészeti oktatás; bibliai alapú erkölcsi nevelés",rd:10691,ff:965},
+{id:"c34",n:"Új Suli Alapítványi Általános Iskola",a:"1165 Baross Gábor utca 38/A",d:"XVI",sd:"Sashalom",o:"a",lat:47.51601,lon:19.190002,ce:1,w:"https://ujsuli.hu/",p:"Max. 8-10 fős csoportok; integrált oktatás, emelt angol, projektalapú tanulás, nyújtott első osztály",rd:11874,ff:1070},
+{id:"c35",n:"Sashalmi Waldorf Általános és Alapfokú Művészeti Iskola",a:"1163 Thököly út 13.",d:"XVI",sd:"Sashalom",o:"a",lat:47.510075,lon:19.169943,ce:1,w:"https://www.waldorfsuli.hu/",p:"Waldorf-pedagógia; zene, képzőművészet, színjáték, tánc; erős szülői közösség",rd:13379,ff:1220},
+// --- X. kerület, Kőbánya ---
+{id:"c40",n:"Keresztury Dezső Általános Iskola",a:"1106 Keresztúri út 7-9.",d:"X",sd:"Kőbánya",o:"t",lat:47.4993,lon:19.1372,ce:0,w:"http://www.kereszturysuli.shp.hu",p:"Nincs adat kiemelt tagozatról",rd:14153,ff:1261},
+{id:"c41",n:"Kertvárosi Általános Iskola",a:"1106 Jászberényi út 89.",d:"X",sd:"Kőbánya-Kertváros",o:"t",lat:47.4930,lon:19.1560,ce:0,w:"https://kertvarosi.edu.hu/",p:"Ökoiskola, Állatbarát Iskola; közvetlenül a XVII. kerület határánál",rd:12427,ff:1221},
+{id:"c42",n:"Fekete István Általános Iskola",a:"1108 Harmat utca 196-198.",d:"X",sd:"Újhegy",o:"t",lat:47.4718,lon:19.1503,ce:0,w:"https://fekete-bp10.edu.hu/",p:"Logopédiai osztályok 1995 óta; mindennapos úszás alsó tagozaton",rd:14399,ff:1331},
+{id:"c43",n:"Széchenyi István Magyar-Német Két Tanítási Nyelvű Általános Iskola",a:"1108 Újhegyi sétány 1-3.",d:"X",sd:"Újhegy",o:"t",lat:47.4752,lon:19.1458,ce:0,w:"https://szechenyibp10.hu/",p:"Magyar-német két tanítási nyelvű",rd:13703,ff:1253},
+{id:"c44",n:"Harmat Általános Iskola",a:"1104 Harmat utca 88.",d:"X",sd:"Kőbánya",o:"t",lat:47.4787,lon:19.1327,ce:0,w:"https://harmat88.hu/",p:"Emelt szintű ének-zene tagozat; emelt angol; „Aktív tanulás – aktív mozgás” program",rd:14485,ff:1331},
+{id:"c45",n:"Kada Mihály Általános Iskola",a:"1103 Kada utca 27-29.",d:"X",sd:"Kőbánya",o:"t",lat:47.4767,lon:19.1262,ce:0,w:"https://www.kadasuli.hu/",p:"Nincs adat kiemelt tagozatról",rd:15045,ff:1350},
+{id:"c46",n:"Janikovszky Éva Magyar-Angol Két Tanítási Nyelvű Általános Iskola",a:"1103 Kápolna tér 4.",d:"X",sd:"Kőbánya",o:"t",lat:47.4822,lon:19.1237,ce:0,w:"https://janikovszky.net/",p:"Magyar-angol két tanítási nyelvű",rd:14976,ff:1368},
+{id:"c47",n:"Szent László Általános Iskola",a:"1102 Szent László tér 1.",d:"X",sd:"Kőbánya",o:"t",lat:47.4864,lon:19.1175,ce:0,w:"https://szentlaszlo1.hu/",p:"Nincs adat kiemelt tagozatról",rd:15938,ff:1506},
+{id:"c48",n:"Bem József Általános Iskola",a:"1101 Hungária körút 5-7.",d:"X",sd:"Kőbánya",o:"t",lat:47.4855,lon:19.1005,ce:0,w:"https://www.bem-iskola.hu/",p:"Nincs adat kiemelt tagozatról",rd:17260,ff:1577},
+{id:"c49",n:"Szervátiusz Jenő Általános Iskola",a:"1101 Kőbányai út 38.",d:"X",sd:"Kőbánya",o:"t",lat:47.4842,lon:19.0966,ce:0,w:"https://szervatiusz.net/",p:"Nincs adat kiemelt tagozatról",rd:17592,ff:1707},
+{id:"c50",n:"Csukás István Magyar-Angol Két Tanítási Nyelvű Általános Iskola",a:"1101 Üllői út 118.",d:"X",sd:"Kőbánya",o:"t",lat:47.4685,lon:19.1005,ce:0,w:"https://ulloiiskola.hu/",p:"Magyar-angol két tanítási nyelvű",rd:20591,ff:2230},
+{id:"c51",n:"Orchidea Magyar-Angol Két Tanítási Nyelvű Óvoda, Általános Iskola és Gimnázium",a:"1105 Cserkesz utca 10-14.",d:"X",sd:"Kőbánya",o:"a",lat:47.4869,lon:19.1195,ce:0,w:"https://www.orchideaiskola.hu/",p:"Óvodától gimnáziumig, magyar-angol két tanítási nyelvű",rd:15641,ff:1421},
+{id:"c52",n:"Reménység Katolikus Általános Iskola és Óvoda",a:"1105 Mádi utca 4-6.",d:"X",sd:"Kőbánya",o:"e",lat:47.4846,lon:19.1230,ce:0,w:"https://www.rekaisk.hu/",p:"Katolikus általános iskola és óvoda",rd:15226,ff:1413},
+{id:"c53",n:"Pannonhalmi Béla Baptista Általános Iskola",a:"1103 Kőér utca 7/b-9.",d:"X",sd:"Kőbánya",o:"e",lat:47.4747,lon:19.1178,ce:0,w:"https://pannonhalmi-bela.baptistaoktatas.hu/",p:"Baptista fenntartású",rd:15994,ff:1453},
+{id:"c54",n:"Christophorus Waldorf Általános Iskola és Gimnázium",a:"1108 Sibrik Miklós út 66-68.",d:"X",sd:"Újhegy",o:"a",lat:47.4702,lon:19.1380,ce:0,w:"https://christophoruswaldorf.hu/",p:"Waldorf-pedagógia óvodától gimnáziumig; 2019-ben költözött ide a XVII. kerületből",rd:15097,ff:1447},
+{id:"c55",n:"Kreatív Általános Iskola",a:"1108 Sibrik Miklós út 66-68.",d:"X",sd:"Újhegy",o:"a",lat:47.4702,lon:19.1380,ce:0,w:"http://kreativiskola.eu",p:"Max. 15 fős osztályok; 6-8. évfolyamon középiskolai felvételi felkészítés",rd:15097,ff:1447},
+// --- Pest megye ---
+{id:"c60",n:"PIOK Szemere Pál Általános Iskola",a:"2119 Pécel, Kossuth tér 7.",d:"Pécel",sd:"Pécel",o:"t",lat:47.4880,lon:19.3430,ce:0,w:"https://www.piok.hu/",p:"A Péceli Integrált Oktatási Központ általános iskolai intézményegysége, gimnáziummal egy intézményben",rd:9298,ff:666},
+{id:"c61",n:"PIOK Petőfi Sándor Általános Iskola",a:"2119 Pécel, Petőfi Sándor utca 15.",d:"Pécel",sd:"Pécel",o:"t",lat:47.4830,lon:19.3320,ce:0,w:"https://petofisuli.hu/",p:"A PIOK tagintézménye",rd:9718,ff:998},
+{id:"c62",n:"Szent Erzsébet Katolikus Általános Iskola és Óvoda",a:"2119 Pécel, Kossuth tér 7.",d:"Pécel",sd:"Pécel",o:"e",lat:47.4880,lon:19.3430,ce:0,w:"https://pecel.ekif.hu/",p:"Katolikus, ~300 tanuló, alsó tagozaton két párhuzamos osztály; Ökoiskola",rd:9298,ff:666},
+{id:"c63",n:"Laky Ilonka Általános Iskola",a:"2233 Ecser, Rákóczi utca 1-3.",d:"Ecser",sd:"Ecser",o:"t",lat:47.4370,lon:19.3220,ce:0,w:"https://laky.ecser.hu/",p:"Ecser egyetlen általános iskolája; kis létszám, integrált nevelés",rd:4356,ff:440},
+{id:"c64",n:"Vermesy Péter Általános és Alapfokú Művészeti Iskola",a:"2234 Maglód, Fő utca 1-9.",d:"Maglód",sd:"Maglód",o:"t",lat:47.4470,lon:19.3620,ce:0,w:"https://www.maglodis.hu/",p:"Általános iskola + alapfokú művészetoktatás; alsó tagozat a József Attila krt. 33-35. alatt",rd:6010,ff:449},
+{id:"c65",n:"Andrássy Gyula Általános Iskola",a:"2220 Vecsés, Erzsébet tér 1.",d:"Vecsés",sd:"Vecsés",o:"t",lat:47.4130,lon:19.2740,ce:0,w:"https://andrassy-vecses.hu/",p:"„Békés Iskola” program; egy épületben a vecsési zeneiskolával",rd:13682,ff:861},
+{id:"c66",n:"Halmi Telepi Általános Iskola",a:"2220 Vecsés, Halmy József tér 1/H",d:"Vecsés",sd:"Vecsés",o:"t",lat:47.4020,lon:19.2670,ce:0,w:"https://halmisuli.hu/",p:"Ökoiskola",rd:14089,ff:892},
+{id:"c67",n:"Grassalkovich Antal Német Nemzetiségi és Kétnyelvű Általános Iskola",a:"2220 Vecsés, Fő út 90-92.",d:"Vecsés",sd:"Vecsés",o:"n",lat:47.4090,lon:19.2790,ce:0,w:"http://grassalkovich-vecses.hu/hu/",p:"Német nemzetiségi és kétnyelvű oktatás; nemzetiségi önkormányzati fenntartás",rd:13017,ff:791},
+{id:"c68",n:"Petőfi Sándor Római Katolikus Általános Iskola és Gimnázium",a:"2220 Vecsés, Petőfi tér 1.",d:"Vecsés",sd:"Vecsés",o:"e",lat:47.4100,lon:19.2810,ce:0,w:"https://petofivecses.hu/",p:"Katolikus, 8 évfolyamos általános iskola + gimnázium",rd:13085,ff:809}
+];
+(function(){
+"use strict";
+/* Alapértelmezett otthon: a Rákoskert városrész OSM-középpontja, szándékosan városrész-
+   szintű pont. Konkrét lakcím soha ne kerüljön ide – az a bejelentkezés utáni,
+   Firestore-ból jövő beállítás dolga (Otthon & súlyok). */
+var DEF = {v:2, home:{lat:47.4640,lon:19.2976,label:"Rákoskert, Budapest XVII."},
+           w:{res:3,dst:4,fit:3,soft:4}, maxMin:30, showScore:false};
+var SOFT = [["teach","Tanári gárda"],["vibe","Hangulat, nyílt nap"],["build","Épület, felszereltség"],["after","Napközi, délutáni"],["food","Étkezés"]];
+var OPS = {t:"tankerületi",e:"egyházi",a:"alapítványi",n:"nemzetiségi"};
+var DISTRICTS = ["XVII","XVI","X","Pécel","Ecser","Maglód","Vecsés"];
+var LS = "sulivalaszto.v1";
+
+var settings = JSON.parse(JSON.stringify(DEF));
+var recs = Object.create(null);
+var SYNC = null, dl = null, authUser = null;
+var ui = {view:"list", q:"", dist:new Set(DISTRICTS), ops:new Set(["t","e","a","n"]),
+          onlyShort:false, showOut:true, sort:"dist", dir:1, sel:null, hover:null, slot:"am"};
+
+var $ = function(id){return document.getElementById(id);};
+var esc = function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});};
+var num = function(v){ if(v===""||v==null) return null; var n=parseFloat(String(v).replace(",",".")); return isFinite(n)?n:null; };
+var fmt = function(n,d){ return n==null?"–":n.toFixed(d==null?0:d).replace(".",","); };
+
+/* ---------- storage ---------- */
+function loadLocal(){
+  try{ var raw = localStorage.getItem(LS); if(!raw) return;
+    var o = JSON.parse(raw);
+    if(o.settings) settings = Object.assign(settings, o.settings);
+    if(settings.v !== 2){ settings.home = JSON.parse(JSON.stringify(DEF.home)); settings.v = 2; }
+    if(o.recs) recs = o.recs;
+  }catch(e){}
+}
+function saveLocal(){
+  try{ localStorage.setItem(LS, JSON.stringify({settings:settings, recs:recs})); }catch(e){}
+}
+function rec(id){ if(!recs[id]) recs[id] = {}; return recs[id]; }
+var pending = {};
+function clean(o){ return JSON.parse(JSON.stringify(o||{})); }
+function persist(id){
+  saveLocal();
+  if(!SYNC) return;
+  pending[id] = Date.now();
+  clearTimeout(persist["t"+id]);
+  persist["t"+id] = setTimeout(function(){
+    var body = recs[id];
+    var p = (body && Object.keys(body).length) ? SYNC.saveSchool(id, clean(body)) : SYNC.deleteSchool(id);
+    p.then(function(){ delete pending[id]; }, function(e){ flagSync(false, "mentés nem sikerült"); console.warn(e); });
+  }, 350);
+}
+var setTimer = null;
+function persistSettings(){
+  saveLocal();
+  if(!SYNC) return;
+  clearTimeout(setTimer);
+  setTimer = setTimeout(function(){
+    SYNC.saveSettings(clean(settings)).catch(function(e){ console.warn(e); });
+  }, 400);
+}
+function flagSync(ok, msg){
+  var d = $("syncDot"), t = $("syncTxt");
+  d.className = "dot " + (ok ? "on" : "off");
+  t.textContent = msg;
+}
+
+/* ---------- model ---------- */
+var BASE = {};
+CATALOG.forEach(function(s){ BASE[s.id] = s; });
+function all(){
+  var out = CATALOG.slice();
+  Object.keys(recs).forEach(function(id){
+    if(recs[id] && recs[id].base && !BASE[id]) out.push(Object.assign({id:id, custom:true}, recs[id].base));
+  });
+  return out;
+}
+function coord(s){ var r = recs[s.id]||{}; return {lat: r.lat!=null?r.lat:s.lat, lon: r.lon!=null?r.lon:s.lon}; }
+function haversine(a,b){
+  var R=6371, t=Math.PI/180;
+  var dLa=(b.lat-a.lat)*t, dLo=(b.lon-a.lon)*t;
+  var x = Math.sin(dLa/2)*Math.sin(dLa/2) + Math.cos(a.lat*t)*Math.cos(b.lat*t)*Math.sin(dLo/2)*Math.sin(dLo/2);
+  return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
+}
+function airOf(s){ return haversine(settings.home, coord(s)); }
+function roadKm(s){
+  var r = recs[s.id]||{};
+  if(r.distO!=null) return r.distO;
+  if(s.rd!=null) return s.rd/1000;
+  return airOf(s)*1.35;
+}
+function distOf(s){ return roadKm(s); }
+/* Menetidő-modell. Alap: OSRM közúti távolság + szabad forgalmú menetidő,
+   arra rakva budapesti csúcsidei szorzó (TomTom 2025: reggel +89%, délután +106% városi átlag;
+   itt konzervatívabb külső kerületi értékek). Bicikli és BKV modellezett. */
+var CARF = {am:{s:1.25,m:1.40,l:1.55}, pm:{s:1.30,m:1.50,l:1.70}};
+function freeMin(s){
+  if(s.ff!=null) return s.ff/60;
+  return roadKm(s)/38*60;
+}
+function travel(s, mode, slot){
+  var r = recs[s.id]||{}, key = mode+"_"+slot;
+  if(r.tt && r.tt[key]!=null) return r.tt[key];
+  var km = roadKm(s);
+  if(mode==="bike") return Math.round(km*0.92/15*60 + 2);
+  if(mode==="car"){
+    var f = CARF[slot], mult = km<2.5 ? f.s : (km<6 ? f.m : f.l);
+    return Math.round(freeMin(s)*mult + 2);
+  }
+  var far = s.d!=="XVII";
+  var suburb = (s.d==="Ecser"||s.d==="Maglód"||s.d==="Vecsés"||s.d==="Pécel");
+  var wait = slot==="am" ? 6 : 7;
+  var speed = far ? 22 : 18;
+  var transfer = far ? (suburb ? 10 : 7) : 0;
+  var t = 9 + wait + (km*1.10)/speed*60 + transfer;
+  return Math.round(t/5)*5;
+}
+function bestMin(s){
+  return Math.min(travel(s,"bike",ui.slot), travel(s,"car",ui.slot), travel(s,"bkv",ui.slot));
+}
+function clamp(v,a,b){ return v<a?a:(v>b?b:v); }
+function gq(s){ return encodeURIComponent(s.n + (s.a?", "+s.a:"")); }
+function mapUrl(s){ return "https://www.google.com/maps/search/?api=1&query="+gq(s); }
+function panoUrl(s){ var c=coord(s); return "https://www.google.com/maps/@?api=1&map_action=pano&viewpoint="+c.lat+","+c.lon; }
+function dirUrl(s,mode){ var h=settings.home; return "https://www.google.com/maps/dir/?api=1&origin="+h.lat+","+h.lon+"&destination="+gq(s)+"&travelmode="+mode; }
+function linkRow(s){
+  return '<div class="links">'+
+    '<a href="'+mapUrl(s)+'" target="_blank" rel="noopener">Google Maps</a>'+
+    '<a href="'+panoUrl(s)+'" target="_blank" rel="noopener">Utcakép</a>'+
+    '<a href="'+dirUrl(s,"walking")+'" target="_blank" rel="noopener">Útvonal gyalog</a>'+
+    '<a href="'+dirUrl(s,"transit")+'" target="_blank" rel="noopener">Útvonal BKK</a>'+
+  '</div>';
+}
+
+function scores(s){
+  var r = recs[s.id]||{}, out = {};
+  var kM = r.kMat, kS = r.kSzo, g = r.gimn, parts = [];
+  if(kM!=null) parts.push(clamp((kM-1400)/4,0,100));
+  if(kS!=null) parts.push(clamp((kS-1400)/4,0,100));
+  if(g!=null) parts.push(clamp(g,0,100));
+  out.res = parts.length ? parts.reduce(function(a,b){return a+b;},0)/parts.length : null;
+  var t = bestMin(s), md = settings.maxMin;
+  out.dst = clamp(100*(1 - t/(md*1.6)), 0, 100);
+  if(r.zoned) out.dst = clamp(out.dst + 8, 0, 100);
+  out.fit = r.fit ? (r.fit-1)/4*100 : null;
+  var sv = [];
+  SOFT.forEach(function(p){ var v = r.soft && r.soft[p[0]]; if(v) sv.push(v); });
+  out.soft = sv.length ? (sv.reduce(function(a,b){return a+b;},0)/sv.length - 1)/4*100 : null;
+  var wn = 0, ws = 0, wtot = 0;
+  ["res","dst","fit","soft"].forEach(function(k){
+    var w = settings.w[k]||0; wtot += w;
+    if(out[k]!=null && w>0){ wn += w*out[k]; ws += w; }
+  });
+  out.total = ws>0 ? wn/ws : 0;
+  out.cov = wtot>0 ? ws/wtot : 0;
+  out.km = roadKm(s);
+  out.min = t;
+  return out;
+}
+function statusOf(id){ var r = recs[id]||{}; return r.status || "none"; }
+
+function visible(){
+  var q = ui.q.trim().toLowerCase();
+  return all().filter(function(s){
+    var r = recs[s.id]||{};
+    if(r.hidden) return false;
+    if(!ui.dist.has(s.d)) return false;
+    if(!ui.ops.has(s.o)) return false;
+    var st = statusOf(s.id);
+    if(ui.onlyShort && st!=="short") return false;
+    if(!ui.showOut && st==="out") return false;
+    if(bestMin(s) > settings.maxMin && st!=="short") return false;
+    if(q){
+      var hay = (s.n+" "+s.a+" "+(s.p||"")+" "+(s.sd||"")+" "+(r.lang||"")+" "+(r.note||"")).toLowerCase();
+      if(hay.indexOf(q)<0) return false;
+    }
+    return true;
+  });
+}
+function ranked(list){
+  var arr = list.map(function(s){ return {s:s, k:scores(s), st:statusOf(s.id)}; });
+  var key = ui.sort, dir = ui.dir;
+  arr.sort(function(a,b){
+    var av, bv;
+    if(key==="name"){ return a.s.n.localeCompare(b.s.n,"hu") * (dir>0?1:-1); }
+    if(key==="dist"){ av=a.k.km; bv=b.k.km; }
+    else if(key==="bike"){ av=travel(a.s,"bike",ui.slot); bv=travel(b.s,"bike",ui.slot); }
+    else if(key==="car"){ av=travel(a.s,"car",ui.slot); bv=travel(b.s,"car",ui.slot); }
+    else if(key==="bkv"){ av=travel(a.s,"bkv",ui.slot); bv=travel(b.s,"bkv",ui.slot); }
+    else if(key==="komp"){ av=a.k.res==null?-1:a.k.res; bv=b.k.res==null?-1:b.k.res; }
+    else if(key==="fit"){ av=a.k.fit==null?-1:a.k.fit; bv=b.k.fit==null?-1:b.k.fit; }
+    else if(key==="soft"){ av=a.k.soft==null?-1:a.k.soft; bv=b.k.soft==null?-1:b.k.soft; }
+    else { av=a.k.total; bv=b.k.total; }
+    if(a.st==="out" && b.st!=="out") return 1;
+    if(b.st==="out" && a.st!=="out") return -1;
+    return (av-bv)*(dir>0?1:-1);
+  });
+  return arr;
+}
+function rampColor(v){
+  var steps = ["--s1","--s2","--s3","--s4","--s5","--s6"];
+  var i = clamp(Math.floor(v/100*steps.length),0,steps.length-1);
+  return "var("+steps[i]+")";
+}
+
+/* ---------- render ---------- */
+function renderSummary(){
+  var list = all().filter(function(s){ return !(recs[s.id]||{}).hidden; });
+  var short = list.filter(function(s){ return statusOf(s.id)==="short"; });
+  var out = list.filter(function(s){ return statusOf(s.id)==="out"; });
+  var inRange = list.filter(function(s){ return bestMin(s) <= settings.maxMin; });
+  var vis = ranked(visible()).filter(function(x){ return x.st!=="out"; });
+  var top = settings.showScore
+    ? vis.slice().sort(function(a,b){ return b.k.total-a.k.total; })[0]
+    : vis.slice().sort(function(a,b){ return a.k.min-b.k.min; })[0];
+  var nextOpen = null;
+  list.forEach(function(s){ var d=(recs[s.id]||{}).openDay; if(d && d>=todayISO() && (!nextOpen || d<nextOpen.d)) nextOpen={d:d,n:s.n}; });
+  var cells = [
+    ["Szűrésben", inRange.length + " <span style=\"font-size:12px;color:var(--ink-3)\">/ "+list.length+"</span>", null],
+    ["Rövidlista", short.length, null],
+    ["Kihúzva", out.length, null],
+    [settings.showScore ? "Jelenlegi éllovas" : "Leggyorsabban elérhető", null,
+      top ? esc(top.s.n.split(" Általános")[0]) + " <span class=\"mono\" style=\"color:var(--ink-3);font-size:12px\">"+(settings.showScore?fmt(top.k.total):fmt(top.k.min)+" perc")+"</span>" : "—"],
+    ["Következő nyílt nap", null, nextOpen ? "<span class=\"mono\" style=\"color:var(--ochre)\">"+huDate(nextOpen.d)+"</span> · "+esc(nextOpen.n.split(" Általános")[0]) : "nincs beírva"]
+  ];
+  $("summary").innerHTML = cells.map(function(c){
+    return '<div class="sm"><div class="eyebrow">'+c[0]+'</div>'+(c[2]!=null?'<div class="lead">'+c[2]+'</div>':'<b>'+c[1]+'</b>')+'</div>';
+  }).join("");
+}
+function exportCode(){
+  var r = {};
+  Object.keys(recs).forEach(function(id){ var o=recs[id]; if(o && Object.keys(o).length) r[id]=o; });
+  var payload = JSON.stringify({v:2, t:new Date().toISOString().slice(0,16).replace("T"," "), s:settings, r:r});
+  if(window.LZString && LZString.compressToBase64) return "SULI1:"+LZString.compressToBase64(payload);
+  return "SULI0:"+btoa(unescape(encodeURIComponent(payload)));
+}
+function importCode(code){
+  code = String(code||"").trim().replace(/\s+/g,"");
+  var json = null;
+  if(code.indexOf("SULI1:")===0 && window.LZString) json = LZString.decompressFromBase64(code.slice(6));
+  else if(code.indexOf("SULI0:")===0) json = decodeURIComponent(escape(atob(code.slice(6))));
+  else throw new Error("Ez nem suliválasztó-kód. A másik gépen a Megosztás gombnál látható teljes szöveget másold ide.");
+  if(!json) throw new Error("A kód sérült vagy hiányos – másold ki újra, az elejétől a végéig.");
+  var o = JSON.parse(json);
+  if(!o || !o.r) throw new Error("A kód nem tartalmaz adatot.");
+  recs = Object.create(null);
+  Object.keys(o.r).forEach(function(id){ recs[id]=o.r[id]; });
+  if(o.s){ settings = Object.assign(JSON.parse(JSON.stringify(DEF)), o.s); settings.v = 2; }
+  saveLocal();
+  return {count:Object.keys(recs).length, when:o.t||""};
+}
+function csvText(){
+  var arr = ranked(all().filter(function(s){ return !(recs[s.id]||{}).hidden; }));
+  var head = ["Iskola","Kerület","Fenntartó","Cím","Státusz","Összpont","Adat%","Táv km","Bicikli p","Autó 8h p","Autó 16h p","BKV 8h p","BKV 16h p","Körzetes","Komp mat","Komp szöv","Gimi %","Osztálylétszám","Nyelv/tagozat","Profil 1-5","Puha átlag","Nyílt nap","Jegyzet"];
+  var rows = arr.map(function(x){
+    var s=x.s,k=x.k,r=recs[s.id]||{};
+    return [s.n,s.d,OPS[s.o],s.a,{short:"rövidlista",out:"kihúzva",none:""}[x.st],
+      k.total.toFixed(1), Math.round(k.cov*100), k.km.toFixed(2),
+      travel(s,"bike","am"), travel(s,"car","am"), travel(s,"car","pm"), travel(s,"bkv","am"), travel(s,"bkv","pm"),
+      r.zoned?"igen":"",
+      r.kMat!=null?r.kMat:"", r.kSzo!=null?r.kSzo:"", r.gimn!=null?r.gimn:"", r.classSize!=null?r.classSize:"",
+      r.lang||"", r.fit||"", softAvg(r)!=null?softAvg(r).toFixed(1):"", r.openDay||"", (r.note||"").replace(/\n/g," ")];
+  });
+  return "\ufeff" + [head].concat(rows).map(function(rw){
+    return rw.map(function(c){ c=String(c); return /[";\n]/.test(c) ? '"'+c.replace(/"/g,'""')+'"' : c; }).join(";");
+  }).join("\r\n");
+}
+function todayISO(){ var d=new Date(); return d.toISOString().slice(0,10); }
+function huDate(iso){ if(!iso) return "–"; var p=iso.split("-"); return p[0].slice(2)+". "+(+p[1])+". "+(+p[2])+"."; }
+
+function renderTable(){
+  var arr = ranked(visible());
+  $("tbody").parentNode.className = settings.showScore ? "" : "noscore";
+  $("listEmpty").hidden = arr.length>0;
+  $("tbody").innerHTML = arr.map(function(x,i){
+    var s=x.s, k=x.k, r=recs[s.id]||{};
+    var tags = "";
+    if(x.st==="short") tags += '<span class="tag short">rövidlista</span>';
+    if(r.zoned) tags += '<span class="tag zone">körzetes</span>';
+    if(r.openDay && r.openDay>=todayISO()) tags += '<span class="tag open">nyílt nap '+huDate(r.openDay)+'</span>';
+    if(s.custom) tags += '<span class="tag">saját</span>';
+    return '<tr data-id="'+s.id+'" class="'+(x.st==="out"?"out ":"")+(ui.sel===s.id?"sel":"")+'">'+
+      '<td class="rank mono">'+(x.st==="out"?"–":(i+1))+'</td>'+
+      '<td><span class="nm">'+esc(s.n)+'</span><span class="sub">'+esc(s.d)+(s.sd?" · "+esc(s.sd):"")+' · '+OPS[s.o]+' '+tags+' <a class="tlink" href="'+mapUrl(s)+'" target="_blank" rel="noopener" title="Megnyitás a Google Mapsben">térkép ↗</a></span>'+
+      '<span class="prof-in">'+esc(snip(r.lang||s.p||"",78))+'</span></td>'+
+      '<td class="c-score"><div class="meter"><div class="track"><div class="fill" style="width:'+k.total.toFixed(1)+'%;background:'+rampColor(k.total)+'"></div></div><span class="mval">'+fmt(k.total)+'</span><span class="cov" title="adatlefedettség">'+Math.round(k.cov*100)+'%</span></div></td>'+
+      '<td class="num">'+fmt(k.km,1)+' km</td>'+
+      tcell(s,"bike")+tcell(s,"car")+tcell(s,"bkv")+
+      '<td class="num">'+(r.kMat!=null||r.kSzo!=null ? (r.kMat!=null?r.kMat:"–")+" / "+(r.kSzo!=null?r.kSzo:"–") : '<span style="color:var(--ink-3)">nincs</span>')+
+        (r.gimn!=null?'<div style="color:var(--ink-3);font-size:11px">'+r.gimn+'% gimi</div>':'')+'</td>'+
+      '<td>'+dots(r.fit)+'</td>'+
+      '<td>'+dots(softAvg(r))+'</td>'+
+      '<td class="num" style="color:'+(r.openDay?'var(--ochre)':'var(--ink-3)')+'">'+(r.openDay?huDate(r.openDay):"–")+'</td>'+
+    '</tr>';
+  }).join("");
+}
+function snip(t,n){ t=String(t||""); return t.length>n ? t.slice(0,n-1).replace(/[ ,;]+$/,"")+"…" : t; }
+function tcell(s,mode){
+  var r = recs[s.id]||{}, key = mode+"_"+ui.slot;
+  var own = r.tt && r.tt[key]!=null;
+  var v = travel(s,mode,ui.slot);
+  var all3 = [travel(s,"bike",ui.slot),travel(s,"car",ui.slot),travel(s,"bkv",ui.slot)].sort(function(a,b){return a-b;});
+  var best = v===all3[0] && (all3[1]-all3[0]) >= 3 && all3[0] < all3[1]*0.8;
+  return '<td class="num'+(best?" best":"")+'"'+(own?' title="saját mérés"':'')+'>'+v+(own?'<span class="own">•</span>':'')+'</td>';
+}
+function softAvg(r){
+  var sv=[]; SOFT.forEach(function(p){ var v=r.soft&&r.soft[p[0]]; if(v) sv.push(v); });
+  return sv.length ? sv.reduce(function(a,b){return a+b;},0)/sv.length : null;
+}
+function dots(v){
+  if(v==null) return '<span style="color:var(--ink-3);font-size:12px">–</span>';
+  var h=''; for(var i=1;i<=5;i++) h += '<i class="'+(i<=Math.round(v)?"on":"")+'"></i>';
+  return '<span class="stars" title="'+v.toFixed(1)+' / 5">'+h+'</span>';
+}
+
+/* ---------- map ---------- */
+function renderMap(){
+  var arr = ranked(visible());
+  var W=920, H=620, PAD=54;
+  var home = settings.home;
+  var kx = 111.32*Math.cos(home.lat*Math.PI/180), ky = 110.57;
+  var pts = arr.map(function(x){
+    var c = coord(x.s);
+    return {x:(c.lon-home.lon)*kx, y:-(c.lat-home.lat)*ky, d:x};
+  });
+  var maxR = 1.2;
+  pts.forEach(function(p){ maxR = Math.max(maxR, Math.abs(p.x), Math.abs(p.y)); });
+  maxR *= 1.12;
+  var sc = Math.min((W-2*PAD)/(2*maxR), (H-2*PAD)/(2*maxR));
+  var cx = W/2, cy = H/2;
+  var P = function(p){ return [cx+p.x*sc, cy+p.y*sc]; };
+  var g = [];
+  g.push('<defs><clipPath id="mclip"><rect x="1" y="1" width="'+(W-2)+'" height="'+(H-2)+'" rx="4"></rect></clipPath></defs>');
+  g.push('<rect x="0.5" y="0.5" width="'+(W-1)+'" height="'+(H-1)+'" rx="4" fill="var(--surface-2)" stroke="var(--line)"></rect>');
+  g.push('<g clip-path="url(#mclip)">');
+  [1,2,3,5,8,12,20].forEach(function(km){
+    if(km*sc < 18 || km > maxR*1.45) return;
+    g.push('<circle class="ring" cx="'+cx+'" cy="'+cy+'" r="'+(km*sc).toFixed(1)+'"></circle>');
+    var q=0.7071*km*sc;
+    g.push('<text class="rlab" x="'+(cx-q).toFixed(1)+'" y="'+(cy-q-4).toFixed(1)+'" text-anchor="middle">'+km+' km</text>');
+  });
+  pts.forEach(function(p){
+    var xy = P(p), x=xy[0], y=xy[1], k=p.d.k, st=p.d.st, s=p.d.s;
+    var sel = ui.sel===s.id;
+    var r = st==="short" ? 8 : 6.5;
+    var cls = "pin"+(st==="out"?" out":"")+(sel?" sel":"");
+    var fillC = settings.showScore ? rampColor(k.total) : (st==="short" ? "var(--accent)" : "var(--s3)");
+    g.push('<g class="'+cls+'" data-id="'+s.id+'" tabindex="0" role="button" aria-label="'+esc(s.n)+'">'+
+      '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+r+'" fill="'+fillC+'"></circle>'+
+      (st==="short"?'<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+(r+3.5)+'" fill="none" stroke="var(--accent)" stroke-width="1.5"></circle>':'')+
+      '<title>'+esc(s.n)+' — '+fmt(k.km,1)+' km'+(settings.showScore?', '+fmt(k.total)+' pont':'')+'</title></g>');
+    if(st==="short" || sel){
+      var lab = s.n.replace(/ (Általános|Ált\.).*$/,"");
+      if(lab.length>26) lab = lab.slice(0,25)+"…";
+      g.push('<text class="plab" x="'+x.toFixed(1)+'" y="'+(y-r-6).toFixed(1)+'" text-anchor="middle">'+esc(lab)+'</text>');
+    }
+  });
+  g.push('<g transform="translate('+cx+','+cy+')"><rect x="-7" y="-7" width="14" height="14" transform="rotate(45)" fill="var(--ochre)" stroke="var(--surface)" stroke-width="2"></rect>'+
+    '<text y="27" text-anchor="middle" class="plab" style="fill:var(--ochre);font-weight:600">OTTHON</text></g>');
+  g.push('</g>');
+  $("svgMap").innerHTML = g.join("");
+  $("mapLegend").innerHTML = (settings.showScore
+      ? '<span><i class="swatch" style="background:var(--s1)"></i><i class="swatch" style="background:var(--s3)"></i><i class="swatch" style="background:var(--s6)"></i> gyenge → erős összpont</span>'
+      : '<span><i class="swatch" style="background:var(--accent)"></i> rövidlista</span><span><i class="swatch" style="background:var(--s3)"></i> még nyitott</span>')
+    + '<span><i class="swatch" style="background:var(--surface-3);border-style:dashed"></i> kihúzva</span>'
+    + '<span><svg width="11" height="11" aria-hidden="true"><rect x="1.5" y="1.5" width="8" height="8" fill="var(--ochre)" transform="rotate(45 5.5 5.5)"></rect></svg> otthon</span>';
+  $("mapNote").innerHTML = esc(settings.home.label) + ' · a körök légvonalbeli távolságot jelölnek. '+arr.length+' iskola fér bele a '+settings.maxMin+' perces szűrésbe.';
+}
+
+/* ---------- compare ---------- */
+function renderCmp(){
+  var arr = ranked(all().filter(function(s){ return statusOf(s.id)==="short" && !(recs[s.id]||{}).hidden; }));
+  $("cmpEmpty").hidden = arr.length>0;
+  var best = {};
+  ["total","km","res","fit","soft"].forEach(function(k){
+    var vals = arr.map(function(x){ return x.k[k]; }).filter(function(v){ return v!=null; });
+    if(!vals.length) return;
+    best[k] = k==="km" ? Math.min.apply(null,vals) : Math.max.apply(null,vals);
+  });
+  $("cmpGrid").innerHTML = arr.map(function(x,i){
+    var s=x.s,k=x.k,r=recs[s.id]||{};
+    function row(lab,val,isBest){ return '<div class="crow"><span>'+lab+'</span><span'+(isBest?' style="color:var(--accent);font-weight:600"':'')+'>'+val+'</span></div>'; }
+    return '<div class="ccard'+(i===0?" win":"")+'" data-id="'+s.id+'">'+
+      '<div class="eyebrow">'+esc(s.d)+' · '+OPS[s.o]+'</div>'+
+      '<h3>'+esc(s.n)+'</h3>'+
+      '<div class="meter"><div class="track"><div class="fill" style="width:'+k.total.toFixed(1)+'%;background:'+rampColor(k.total)+'"></div></div><span class="mval">'+fmt(k.total)+'</span></div>'+
+      row("Távolság", fmt(k.km,1)+" km"+(r.travel?" · "+esc(r.travel):""), k.km===best.km)+
+      row("Kompetencia", k.res==null?"–":fmt(k.res), k.res!=null&&k.res===best.res)+
+      row("Profil illeszkedés", k.fit==null?"–":fmt(k.fit/20,1)+"/5", k.fit!=null&&k.fit===best.fit)+
+      row("Puha tényezők", k.soft==null?"–":fmt(k.soft/20,1)+"/5", k.soft!=null&&k.soft===best.soft)+
+      row("Körzetes", r.zoned?"igen":"nem", !!r.zoned)+
+      row("Osztálylétszám", r.classSize!=null?r.classSize+" fő":"–", false)+
+      row("Nyílt nap", r.openDay?huDate(r.openDay):"–", false)+
+      row("Adatlefedettség", Math.round(k.cov*100)+"%", false)+
+      (r.note?'<div class="prof">'+esc(r.note)+'</div>':'')+
+      linkRow(s)+
+    '</div>';
+  }).join("");
+}
+
+function renderAll(){
+  renderSummary();
+  if(ui.view==="list") renderTable();
+  else if(ui.view==="map") renderMap();
+  else renderCmp();
+  if($("drawer").classList.contains("open") && ui.sel && ui.sel!=="__share__") renderDrawer(ui.sel);
+}
+
+/* ---------- drawer ---------- */
+function openDrawer(id){
+  ui.sel = id;
+  $("drawer").classList.add("open"); $("drawer").setAttribute("aria-hidden","false");
+  $("scrim").classList.add("open");
+  renderDrawer(id); renderAll();
+}
+function closeDrawer(){
+  $("drawer").classList.remove("open"); $("drawer").setAttribute("aria-hidden","true");
+  $("scrim").classList.remove("open"); ui.sel = null; renderAll();
+}
+function baseOf(id){
+  if(BASE[id]) return BASE[id];
+  var r = recs[id]||{};
+  return Object.assign({id:id,custom:true}, r.base||{});
+}
+function renderDrawer(id){
+  if(id==="__setup__") return renderSetup();
+  if(id==="__share__") return renderShare();
+  if(id==="__login__") return renderLogin();
+  var s = baseOf(id), r = rec(id), k = scores(s), st = statusOf(id);
+  $("dTitle").textContent = s.n;
+  var h = [];
+  h.push('<div class="statusbtns" role="group" aria-label="Státusz">'+
+    '<button data-st="short" aria-pressed="'+(st==="short")+'">★ Rövidlista</button>'+
+    '<button data-st="none" aria-pressed="'+(st==="none")+'">Semleges</button>'+
+    '<button class="no" data-st="out" aria-pressed="'+(st==="out")+'">Kihúzva</button></div>');
+  h.push('<div class="subscores">'+
+    ss("Összpont", fmt(k.total), Math.round(k.cov*100)+"% adat")+
+    ss("Leggyorsabb", fmt(k.min)+" perc", ui.slot==="am"?"hétfő 8:00":"hétfő 16:00")+
+    ss("Eredmények", k.res==null?"–":fmt(k.res), "kompetencia")+
+    ss("Puha", k.soft==null?"–":fmt(k.soft/20,1)+"/5", "átlag")+'</div>');
+  h.push('<div class="prof"><b>'+esc(s.d)+(s.sd?" · "+esc(s.sd):"")+' · '+OPS[s.o]+'</b><br>'+esc(s.a)+
+    (s.p?'<br><br>'+esc(s.p):"")+
+    (s.w?'<br><br><a href="'+esc(s.w)+'" target="_blank" rel="noopener">'+esc(s.w.replace(/^https?:\/\//,"").replace(/\/$/,""))+'</a>':"")+'</div>');
+  h.push(linkRow(s));
+
+  h.push(grp("Menetidő (perc)",
+    '<div class="ttgrid">'+
+      '<span></span><span class="hd">H 8:00</span><span class="hd">H 16:00</span>'+
+      ttRow(s,"bike","Bicikli")+ttRow(s,"car","Autó")+ttRow(s,"bkv","BKV")+
+    '</div>'+
+    '<p class="note">A mezők a modell becslését mutatják. Ha az Útvonal linkkel megnézed a valódit, írd be – onnantól az a szám szerepel mindenhol (a táblázatban pötty jelzi). Üresre törölve visszaáll a becslés.</p>'));
+  h.push(grp("Elérés", [
+    rowChk("zoned","Ez a körzetes iskolánk", !!r.zoned),
+    rowNum("distO","Közúti táv kézzel (km)", r.distO, "auto: "+fmt(k.km,1)),
+    rowTxt("travel","Megjegyzés az útról", r.travel, true)
+  ].join("")));
+
+  h.push(grp("Eredmények", [
+    rowNum("kMat","Kompetencia – matematika", r.kMat, "pl. 1620"),
+    rowNum("kSzo","Kompetencia – szövegértés", r.kSzo, "pl. 1585"),
+    rowNum("gimn","Gimnáziumba felvettek (%)", r.gimn, "0–100"),
+    rowNum("classSize","Osztálylétszám (fő)", r.classSize, "")
+  ].join("")+'<p class="note">Az oktatas.hu intézményi adatlapjáról vagy a nyílt napon kérdezve töltsd ki. Üresen hagyva nem rontja a pontszámot, csak csökkenti az adatlefedettséget.</p>'));
+
+  h.push(grp("Profil és nyelv", 
+    rowTxt("lang","Nyelv, tagozat, amit választanánk", r.lang, true)+
+    rowRate("fit","Mennyire passzol a profil", r.fit)));
+
+  h.push(grp("Puha tényezők", SOFT.map(function(p){
+    return rowRate("soft."+p[0], p[1], r.soft && r.soft[p[0]]);
+  }).join("")));
+
+  h.push(grp("Nyílt nap és jegyzet",
+    '<div class="row"><label for="f_openDay">Nyílt nap dátuma</label><input type="date" id="f_openDay" data-f="openDay" value="'+esc(r.openDay||"")+'"></div>'+
+    rowChk("visited","Voltunk már ott", !!r.visited)+
+    '<textarea id="f_note" data-f="note" placeholder="Mi tetszett, mi nem, kit kérdeztünk meg…">'+esc(r.note||"")+'</textarea>'));
+
+  h.push(grp("Pozíció a térképen",
+    rowNum("lat","Szélesség (lat)", r.lat!=null?r.lat:s.lat, "")+
+    rowNum("lon","Hosszúság (lon)", r.lon!=null?r.lon:s.lon, "")+
+    '<p class="note">'+(s.ce? "Ez a koordináta az intézményi katalógusból jön." : "Ez a koordináta cím alapján becsült (±300–500 m). Térképről kimásolt pontosabb értékkel felülírható.")+'</p>'));
+
+  h.push('<div class="row" style="gap:8px"><button class="btn danger" id="delBtn" style="flex:1">'+(s.custom?"Végleges törlés":"Eltüntetés a listáról")+'</button></div>');
+  $("dBody").innerHTML = h.join("");
+}
+function ttRow(s,mode,lab){
+  var r = recs[s.id]||{};
+  function cell(slot){
+    var own = r.tt && r.tt[mode+"_"+slot]!=null;
+    return '<input type="number" min="0" step="1" id="f_tt_'+mode+'_'+slot+'" data-tt="'+mode+'_'+slot+'" value="'+(own?r.tt[mode+"_"+slot]:"")+'" placeholder="'+travel(s,mode,slot)+'" aria-label="'+lab+' '+(slot==="am"?"reggel":"délután")+'">';
+  }
+  return '<label>'+lab+'</label>'+cell("am")+cell("pm");
+}
+function ss(lab,val,sub){ return '<div class="ss"><em>'+lab+'</em><b>'+val+'</b><em style="letter-spacing:0;text-transform:none">'+sub+'</em></div>'; }
+function grp(title, inner){ return '<div class="grp"><div class="eyebrow">'+title+'</div>'+inner+'</div>'; }
+function rowChk(f,lab,on){ return '<div class="row"><label for="f_'+f+'">'+lab+'</label><input type="checkbox" id="f_'+f+'" data-f="'+f+'" '+(on?"checked":"")+' style="accent-color:var(--accent);width:16px;height:16px"></div>'; }
+function rowNum(f,lab,v,ph){ return '<div class="row"><label for="f_'+f+'">'+lab+'</label><input type="number" step="any" id="f_'+f+'" data-f="'+f+'" value="'+(v==null?"":v)+'" placeholder="'+esc(ph)+'"></div>'; }
+function rowTxt(f,lab,v,wide){ return '<div class="row"><label for="f_'+f+'">'+lab+'</label><input type="text" class="'+(wide?"wide":"")+'" id="f_'+f+'" data-f="'+f+'" value="'+esc(v||"")+'"></div>'; }
+function rowRate(f,lab,v){
+  var b=''; for(var i=1;i<=5;i++) b += '<button type="button" data-rate="'+f+'" data-v="'+i+'" aria-pressed="'+(v===i)+'" aria-label="'+lab+' '+i+'">'+i+'</button>';
+  b += '<button type="button" class="clr" data-rate="'+f+'" data-v="0" aria-label="törlés">×</button>';
+  return '<div class="row"><label>'+lab+'</label><span class="rate">'+b+'</span></div>';
+}
+function renderShare(){
+  $("dTitle").textContent = "Megosztás és átvitel";
+  var filled = Object.keys(recs).filter(function(i){ return recs[i] && Object.keys(recs[i]).length; }).length;
+  var h = [];
+  h.push('<div class="grp share"><p>Amit beírsz, ennek a böngészőnek a tárolójában marad – nem megy szerverre. Másik eszközre vagy másik embernek az alábbi kóddal viheted át. A kód mindent visz: pontozás, jegyzet, rövidlista, kihúzások, otthon és súlyok.</p></div>');
+  h.push('<div class="grp share"><div class="eyebrow">1 · Innen viszed</div>'+
+    '<div class="step"><b>a</b><p>Másold ki az egész kódot, és küldd el üzenetben vagy e-mailben. Jelenleg <b>'+filled+'</b> iskolánál van beírt adat.</p></div>'+
+    '<textarea id="outCode" readonly aria-label="Kimenő kód"></textarea>'+
+    '<div class="row" style="gap:8px"><button class="btn primary" id="copyCode" style="flex:1">Kód másolása</button><span id="copyMsg" class="okmsg"></span></div></div>');
+  h.push('<div class="grp share"><div class="eyebrow">2 · Ide hozod</div>'+
+    '<div class="step"><b>b</b><p>Illeszd be a másiktól kapott kódot, és nyomd meg a Beolvasást. <b>Ez felülírja a jelenlegi adataidat</b>, ezért előbb küldd el a sajátodat, ha van benne friss dolog.</p></div>'+
+    '<textarea id="inCode" placeholder="SULI1:..." aria-label="Bejövő kód"></textarea>'+
+    '<div class="row" style="gap:8px"><button class="btn" id="loadCode" style="flex:1">Beolvasás</button><span id="loadMsg"></span></div></div>');
+  h.push('<div class="grp share"><div class="eyebrow">3 · Táblázatba</div>'+
+    '<div class="step"><b>c</b><p>Excelbe vagy Google Sheetsbe a CSV való – pontszámokkal, távolságokkal, jegyzetekkel együtt.</p></div>'+
+    '<div class="row" style="gap:8px">'+(dl?'<button class="btn" id="csvBtn2" style="flex:1">CSV letöltése</button>':'')+'<button class="btn" id="csvCopy" style="flex:1">CSV vágólapra</button></div>'+
+    '<span id="csvMsg" class="okmsg"></span></div>');
+  $("dBody").innerHTML = h.join("");
+  $("outCode").value = exportCode();
+}
+function renderSetup(){
+  $("dTitle").textContent = "Otthon és súlyozás";
+  var h = [];
+  h.push(grp("Honnan mérjük a távolságot",
+    rowTxt("home.label","Megnevezés", settings.home.label, true)+
+    rowNum("home.lat","Szélesség (lat)", settings.home.lat, "")+
+    rowNum("home.lon","Hosszúság (lon)", settings.home.lon, "")+
+    '<p class="note">Alapértelmezés: Rákoskeresztúr központja. A pontos koordinátát bármely térképen a címre jobb gombbal kattintva kimásolhatod.</p>'));
+  var WL = [["res","Eredmények (kompetencia, továbbtanulás)"],["dst","Távolság és megközelítés"],["fit","Profil, nyelv, tagozat"],["soft","Puha tényezők"]];
+  h.push(grp("Mi mennyit számít", WL.map(function(p){
+    return '<div class="row"><label for="w_'+p[0]+'">'+p[1]+'</label><input type="range" id="w_'+p[0]+'" data-w="'+p[0]+'" min="0" max="5" step="1" value="'+(settings.w[p[0]]||0)+'" style="accent-color:var(--accent);width:110px"><span class="mono" style="width:14px;text-align:right" id="wv_'+p[0]+'">'+(settings.w[p[0]]||0)+'</span></div>';
+  }).join("")+'<p class="note">0 = egyáltalán nem számít. Az összpont a kitöltött szempontok súlyozott átlaga, 0–100 skálán.</p>'));
+  h.push(grp("Adatok", '<div class="row" style="gap:8px"><button class="btn" id="resetBtn" style="flex:1">Minden saját adat törlése</button></div>'));
+  $("dBody").innerHTML = h.join("");
+}
+
+/* ---------- events ---------- */
+function setField(id, f, val){
+  var r = rec(id);
+  if(f.indexOf("soft.")===0){ if(!r.soft) r.soft = {}; var kk=f.slice(5); if(val==null) delete r.soft[kk]; else r.soft[kk]=val; }
+  else if(val==null || val==="") delete r[f];
+  else r[f]=val;
+  persist(id); renderAll();
+}
+document.addEventListener("click", function(ev){
+  var t = ev.target;
+  if(t.closest && t.closest("a[href]")) return;
+  var tr = t.closest && t.closest("tbody tr[data-id]");
+  if(tr){ openDrawer(tr.getAttribute("data-id")); return; }
+  var pin = t.closest && t.closest("svg.map .pin");
+  if(pin){ openDrawer(pin.getAttribute("data-id")); return; }
+  var cc = t.closest && t.closest(".ccard[data-id]");
+  if(cc){ openDrawer(cc.getAttribute("data-id")); return; }
+  var stb = t.closest && t.closest(".statusbtns button");
+  if(stb && ui.sel){ setField(ui.sel,"status", stb.getAttribute("data-st")); renderDrawer(ui.sel); return; }
+  var rb = t.closest && t.closest("[data-rate]");
+  if(rb && ui.sel){ var v = +rb.getAttribute("data-v"); setField(ui.sel, rb.getAttribute("data-rate"), v||null); renderDrawer(ui.sel); return; }
+  var th = t.closest && t.closest("th.sortable");
+  if(th){ var k = th.getAttribute("data-s"); if(ui.sort===k) ui.dir*=-1; else { ui.sort=k; ui.dir=(k==="dist"||k==="name")?1:-1; }
+    markSort(); renderTable(); return; }
+  if(t.id==="delBtn" && ui.sel){
+    var s = baseOf(ui.sel);
+    if(s.custom){ if(!confirm("Véglegesen törlöd? („"+s.n+"”)")) return;
+      delete recs[ui.sel]; saveLocal(); if(db) db.doc("schools/"+ui.sel).delete().catch(function(){});
+    } else { rec(ui.sel).hidden = true; persist(ui.sel); }
+    closeDrawer(); return;
+  }
+  if(t.id==="resetBtn"){
+    if(!confirm("Minden pontozás, jegyzet és beállítás törlődik. Biztos?")) return;
+    var ids = Object.keys(recs);
+    recs = Object.create(null); settings = JSON.parse(JSON.stringify(DEF)); saveLocal();
+    if(db){ ids.forEach(function(i){ db.doc("schools/"+i).delete().catch(function(){}); }); db.doc("settings/app").set(JSON.parse(JSON.stringify(settings))).catch(function(){}); }
+    closeDrawer(); syncControls(); renderAll(); return;
+  }
+});
+document.addEventListener("change", function(ev){
+  var t = ev.target, f = t.getAttribute && t.getAttribute("data-f");
+  if(f && ui.sel){
+    if(ui.sel==="__setup__"){
+      if(f.indexOf("home.")===0){ var kk=f.slice(5); settings.home[kk] = (kk==="label") ? t.value : (num(t.value)!=null?num(t.value):settings.home[kk]); persistSettings(); renderAll(); }
+      return;
+    }
+    var val = t.type==="checkbox" ? t.checked : (t.type==="number" ? num(t.value) : t.value.trim());
+    if(t.type==="checkbox" && !val) val = null;
+    setField(ui.sel, f, val);
+    return;
+  }
+  var w = t.getAttribute && t.getAttribute("data-w");
+  if(w){ settings.w[w] = +t.value; var lab=$("wv_"+w); if(lab) lab.textContent=t.value; persistSettings(); renderAll(); }
+});
+document.addEventListener("input", function(ev){
+  var t = ev.target;
+  if(t.id==="q"){ ui.q = t.value; if(ui.view==="list") renderTable(); else renderAll(); }
+  if(t.id==="dist"){ settings.maxMin = +t.value; $("distV").textContent = t.value+" perc"; persistSettings(); renderAll(); }
+  var w = t.getAttribute && t.getAttribute("data-w");
+  if(w){ var lab=$("wv_"+w); if(lab) lab.textContent=t.value; }
+});
+document.addEventListener("keydown", function(ev){
+  if(ev.key==="Escape" && $("drawer").classList.contains("open")) closeDrawer();
+  if(ev.key==="Enter" || ev.key===" "){
+    var p = ev.target.closest && ev.target.closest("svg.map .pin");
+    if(p){ ev.preventDefault(); openDrawer(p.getAttribute("data-id")); }
+  }
+});
+$("scrim").addEventListener("click", closeDrawer);
+$("dClose").addEventListener("click", closeDrawer);
+$("showScore").addEventListener("change", function(){
+  settings.showScore = this.checked;
+  if(!settings.showScore && ui.sort==="score"){ ui.sort="dist"; ui.dir=1; }
+  persistSettings(); markSort(); renderAll();
+});
+$("onlyShort").addEventListener("change", function(){ ui.onlyShort=this.checked; renderAll(); });
+$("showOut").addEventListener("change", function(){ ui.showOut=this.checked; renderAll(); });
+$("setupBtn").addEventListener("click", function(){ openDrawer("__setup__"); });
+["List","Map","Cmp"].forEach(function(v){
+  $("v"+v).addEventListener("click", function(){
+    ui.view = v.toLowerCase()==="list"?"list":(v==="Map"?"map":"cmp");
+    ["List","Map","Cmp"].forEach(function(o){ $("v"+o).setAttribute("aria-pressed", String(o===v)); });
+    $("listView").hidden = ui.view!=="list"; $("mapView").hidden = ui.view!=="map"; $("cmpView").hidden = ui.view!=="cmp";
+    renderAll();
+  });
+});
+$("addBtn").addEventListener("click", function(){
+  var n = prompt("Az iskola neve:"); if(!n) return;
+  var a = prompt("Címe (opcionális):") || "";
+  var id = "u"+Date.now().toString(36);
+  recs[id] = {base:{n:n.trim(), a:a.trim(), d:"XVII", sd:"", o:"t", lat:settings.home.lat, lon:settings.home.lon, w:"", p:"Saját felvitel.", ce:0}, status:"none"};
+  persist(id); renderAll(); openDrawer(id);
+});
+$("slotAm").addEventListener("click", function(){ ui.slot="am"; syncControls(); renderAll(); });
+$("slotPm").addEventListener("click", function(){ ui.slot="pm"; syncControls(); renderAll(); });
+$("shareBtn").addEventListener("click", function(){ openDrawer("__share__"); });
+function copyText(el, msgEl, okText){
+  function fallback(){ el.focus(); el.select(); try{ document.execCommand("copy"); msgEl.textContent = okText; }
+    catch(e){ msgEl.textContent = "Jelöld ki és másold: Ctrl+C"; } }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(el.value).then(function(){ msgEl.textContent = okText; }, fallback);
+  } else fallback();
+  setTimeout(function(){ msgEl.textContent=""; }, 4000);
+}
+function copyStr(str, msgEl, okText){
+  var ta = document.createElement("textarea");
+  ta.value = str; ta.style.position="fixed"; ta.style.top="-1000px"; ta.style.opacity="0";
+  document.body.appendChild(ta);
+  function done(){ msgEl.className="okmsg"; msgEl.textContent=okText; }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(str).then(done, function(){ ta.select(); try{document.execCommand("copy"); done();}catch(e){ msgEl.className="errmsg"; msgEl.textContent="Nem sikerült a másolás."; } });
+  } else { ta.select(); try{document.execCommand("copy"); done();}catch(e){ msgEl.className="errmsg"; msgEl.textContent="Nem sikerült a másolás."; } }
+  setTimeout(function(){ if(ta.parentNode) document.body.removeChild(ta); msgEl.textContent=""; }, 4000);
+}
+document.addEventListener("click", function(ev){
+  var t = ev.target;
+  if(t.id==="copyCode"){ copyText($("outCode"), $("copyMsg"), "másolva"); return; }
+  if(t.id==="loadCode"){
+    var m = $("loadMsg");
+    try{
+      var res = importCode($("inCode").value);
+      m.className="okmsg"; m.textContent = res.count+" iskola betöltve"+(res.when?" ("+res.when+")":"");
+      syncControls(); renderAll();
+      setTimeout(function(){ closeDrawer(); }, 1400);
+    }catch(e){ m.className="errmsg"; m.textContent = e.message; }
+    return;
+  }
+  if(t.id==="csvBtn2"){
+    var cm = $("csvMsg");
+    if(dl){ dl.save({filename:"sulivalaszto.csv", data:csvText()}).catch(function(e){
+      if(e.code!=="declined"){ cm.className="errmsg"; cm.textContent="Nem sikerült – használd a CSV vágólapra gombot."; } }); }
+    else { cm.className="errmsg"; cm.textContent="Itt nem érhető el – használd a CSV vágólapra gombot."; }
+    return;
+  }
+  if(t.id==="csvCopy"){ copyStr(csvText(), $("csvMsg"), "CSV a vágólapon"); return; }
+});
+
+function syncControls(){
+  $("dist").value = settings.maxMin; $("distV").textContent = settings.maxMin+" perc";
+  $("slotAm").setAttribute("aria-pressed", String(ui.slot==="am"));
+  $("slotPm").setAttribute("aria-pressed", String(ui.slot!=="am"));
+  $("showScore").checked = !!settings.showScore;
+  if(!settings.showScore && ui.sort==="score"){ ui.sort="dist"; ui.dir=1; }
+  markSort();
+}
+function markSort(){
+  document.querySelectorAll("th.sortable").forEach(function(e){ e.innerHTML = e.textContent.replace(/[▲▼]\s*$/,"").trim(); });
+  var th = document.querySelector('th.sortable[data-s="'+ui.sort+'"]');
+  if(th) th.innerHTML = th.textContent.trim()+' <span class="ar">'+(ui.dir>0?"▲":"▼")+'</span>';
+}
+/* chips */
+DISTRICTS.forEach(function(d){
+  var b = document.createElement("button");
+  b.className="chip"; b.textContent=d; b.setAttribute("aria-pressed","true");
+  b.addEventListener("click", function(){
+    if(ui.dist.has(d)) ui.dist.delete(d); else ui.dist.add(d);
+    b.setAttribute("aria-pressed", String(ui.dist.has(d))); renderAll();
+  });
+  $("dChips").appendChild(b);
+});
+Object.keys(OPS).forEach(function(o){
+  var b = document.createElement("button");
+  b.className="chip"; b.textContent=OPS[o]; b.setAttribute("aria-pressed","true");
+  b.addEventListener("click", function(){
+    if(ui.ops.has(o)) ui.ops.delete(o); else ui.ops.add(o);
+    b.setAttribute("aria-pressed", String(ui.ops.has(o))); renderAll();
+  });
+  $("oChips").appendChild(b);
+});
+
+/* ---------- belépés ---------- */
+function renderLogin(){
+  $("dTitle").textContent = "Belépés és szinkron";
+  var h = [];
+  if(!window.FB){
+    $("dBody").innerHTML = '<div class="grp share"><p>A közös mentés ebben a változatban nem érhető el – az oldal csak ebben a böngészőben tárol. A GitHub Pages-re kitett változatban működik a belépés és a szinkron.</p><p class="note">Ha ott vagy és mégis ezt látod: valószínűleg nem töltött be a Firebase (hálózat vagy tartalomblokkoló). Az oldal ettől még használható, csak nem szinkronizál.</p></div>';
+    return;
+  }
+  if(authUser){
+    h.push('<div class="grp share"><p>Be vagy jelentkezve mint <b>'+esc(authUser.email)+'</b>. Amit beírsz, azonnal megjelenik a másik eszközön is.</p>'+
+      '<div class="row" style="gap:8px"><button class="btn" id="signOutBtn" style="flex:1">Kilépés</button></div></div>');
+  } else {
+    h.push('<div class="grp share"><p>Belépés nélkül is használhatod – az adatok akkor ebben a böngészőben maradnak. Belépve közös adatbázisba mentődnek, és mindketten ugyanazt látjátok, bármelyik eszközről.</p></div>');
+    h.push('<div class="grp share"><div class="eyebrow">Google-fiókkal</div>'+
+      '<div class="row" style="gap:8px"><button class="btn primary" id="googleBtn" style="flex:1">Belépés Google-fiókkal</button></div></div>');
+    h.push('<div class="grp share"><div class="eyebrow">vagy e-mailes linkkel</div>'+
+      '<div class="row" style="gap:8px"><input type="email" id="loginEmail" class="wide" placeholder="pelda@email.hu" style="flex:1;text-align:left;width:auto" autocomplete="email"><button class="btn" id="mailBtn">Link kérése</button></div>'+
+      '<span id="loginMsg" class="okmsg"></span>'+
+      '<p class="note">A megadott címre küldünk egy belépési linket. A linket ugyanebben a böngészőben nyisd meg, különben újra bekéri a címet.</p></div>');
+  }
+  h.push('<div class="grp share"><div class="eyebrow">Hozzáférés</div><p class="note">Csak az a két e-mail cím fér hozzá az adatokhoz, amit a Firestore szabályban engedélyeztél. Bárki más – akár ezzel az oldallal a kezében – elutasítást kap.</p></div>');
+  $("dBody").innerHTML = h.join("");
+}
+document.addEventListener("click", function(ev){
+  var t = ev.target;
+  if(t.id==="loginBtn"){ openDrawer("__login__"); return; }
+  if(t.id==="googleBtn" && window.FB){
+    var m = $("loginMsg"); if(m){ m.className="okmsg"; m.textContent=""; }
+    window.FB.signInGoogle().catch(function(e){ alert(fbErr(e)); });
+    return;
+  }
+  if(t.id==="mailBtn" && window.FB){
+    var em = ($("loginEmail").value||"").trim(), mm = $("loginMsg");
+    if(!em){ mm.className="errmsg"; mm.textContent="Írd be az e-mail címed."; return; }
+    mm.className="okmsg"; mm.textContent="Küldés…";
+    window.FB.signInEmail(em).then(function(){
+      mm.className="okmsg"; mm.textContent="Elküldtük. Nézd meg a postafiókod (a spamet is).";
+    }, function(e){ mm.className="errmsg"; mm.textContent=fbErr(e); });
+    return;
+  }
+  if(t.id==="signOutBtn" && window.FB){ window.FB.signOut(); closeDrawer(); return; }
+});
+function fbErr(e){
+  var c = (e && e.code) || "";
+  if(c.indexOf("popup-blocked")>=0) return "A böngésző blokkolta a felugró ablakot – engedélyezd, és próbáld újra.";
+  if(c.indexOf("popup-closed")>=0) return "Bezárult a belépési ablak.";
+  if(c.indexOf("unauthorized-domain")>=0) return "Ez a domain nincs engedélyezve a Firebase Authentication → Settings → Authorized domains alatt.";
+  if(c.indexOf("invalid-email")>=0) return "Ez nem érvényes e-mail cím.";
+  if(c.indexOf("permission-denied")>=0) return "Ez az e-mail cím nincs a hozzáférési listán.";
+  if(c.indexOf("network")>=0) return "Nincs hálózati kapcsolat.";
+  return "Nem sikerült: " + (c || (e && e.message) || "ismeretlen hiba");
+}
+function setAuthUI(){
+  var b = $("loginBtn");
+  if(authUser){ b.textContent = authUser.email.split("@")[0]; b.title = authUser.email + " – belépve"; }
+  else { b.textContent = "Belépés"; b.title = "Belépés a közös mentéshez"; }
+  if($("drawer").classList.contains("open") && ui.sel==="__login__") renderLogin();
+}
+
+/* ---------- boot ---------- */
+loadLocal(); syncControls(); renderAll();
+flagSync(false, "csak ezen a böngészőben");
+setAuthUI();
+
+(async function(){
+  try{ dl = await (window.claude && window.claude.use ? window.claude.use("downloads") : null); }catch(e){}
+})();
+
+var firstSync = true;
+window.__fbReady = function(FB){
+  FB.onAuth(function(user){
+    authUser = user;
+    setAuthUI();
+    if(!user){
+      SYNC = null; firstSync = true;
+      flagSync(false, "csak ezen a böngészőben");
+      return;
+    }
+    SYNC = FB.store;
+    flagSync(true, "szinkronban · " + user.email.split("@")[0]);
+    FB.watchSettings(function(d){
+      if(!d) return;
+      if(d.home) settings.home = Object.assign({}, DEF.home, d.home);
+      if(d.w) settings.w = Object.assign({}, DEF.w, d.w);
+      if(typeof d.maxMin === "number") settings.maxMin = d.maxMin;
+      if(typeof d.showScore === "boolean") settings.showScore = d.showScore;
+      settings.v = 2;
+      saveLocal(); syncControls(); renderAll();
+    }, function(e){ flagSync(false, fbErr(e)); });
+    FB.watchSchools(function(map, empty){
+      if(firstSync){
+        firstSync = false;
+        var localCount = Object.keys(recs).filter(function(i){ return recs[i] && Object.keys(recs[i]).length; }).length;
+        if(empty && localCount){
+          /* a felhő üres, itt van adat -> feltöltjük */
+          Object.keys(recs).forEach(function(id){ if(recs[id] && Object.keys(recs[id]).length) SYNC.saveSchool(id, clean(recs[id])); });
+          SYNC.saveSettings(clean(settings));
+          flagSync(true, "feltöltve · " + authUser.email.split("@")[0]);
+          setTimeout(function(){ flagSync(true, "szinkronban · " + authUser.email.split("@")[0]); }, 2500);
+          return;
+        }
+      }
+      var next = Object.create(null);
+      Object.keys(map).forEach(function(id){ next[id] = map[id]; });
+      Object.keys(pending).forEach(function(id){ if(recs[id] && !next[id]) next[id] = recs[id]; });
+      recs = next; saveLocal(); renderAll();
+    }, function(e){ flagSync(false, fbErr(e)); });
+  });
+};
+})();
+
+</script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import {
+  getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut,
+  sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink, setPersistence, browserLocalPersistence
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import {
+  getFirestore, doc, collection, setDoc, deleteDoc, onSnapshot
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAaCOw5ZtOFQuOvkA8MapyFgaxO1l6y58g",
+  authDomain: "rakosmente-suli.firebaseapp.com",
+  projectId: "rakosmente-suli",
+  storageBucket: "rakosmente-suli.firebasestorage.app",
+  messagingSenderId: "647402243361",
+  appId: "1:647402243361:web:58f244a117372d1b792a60"
+};
+
+const HOUSEHOLD = "fo";
+const app  = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db   = getFirestore(app);
+
+const schoolsCol  = () => collection(db, "haztartas", HOUSEHOLD, "iskolak");
+const schoolDoc   = (id) => doc(db, "haztartas", HOUSEHOLD, "iskolak", id);
+const settingsDoc = () => doc(db, "haztartas", HOUSEHOLD, "beallitasok", "app");
+
+const pageUrl = () => location.href.split("#")[0].split("?")[0];
+const EMAIL_KEY = "sulivalaszto.signInEmail";
+
+const FB = {
+  store: {
+    saveSchool:   (id, data) => setDoc(schoolDoc(id), data),
+    deleteSchool: (id)       => deleteDoc(schoolDoc(id)),
+    saveSettings: (data)     => setDoc(settingsDoc(), data)
+  },
+  signInGoogle() {
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: "select_account" });
+    return setPersistence(auth, browserLocalPersistence).then(() => signInWithPopup(auth, provider));
+  },
+  signInEmail(email) {
+    try { localStorage.setItem(EMAIL_KEY, email); } catch (e) {}
+    return sendSignInLinkToEmail(auth, email, { url: pageUrl(), handleCodeInApp: true });
+  },
+  signOut() { return signOut(auth); },
+  onAuth(cb) { onAuthStateChanged(auth, (u) => cb(u ? { email: u.email, uid: u.uid } : null)); },
+  watchSchools(cb, err) {
+    return onSnapshot(schoolsCol(), (snap) => {
+      const map = {};
+      snap.forEach((d) => { map[d.id] = d.data() || {}; });
+      cb(map, snap.empty);
+    }, err);
+  },
+  watchSettings(cb, err) {
+    return onSnapshot(settingsDoc(), (snap) => cb(snap.exists() ? snap.data() : null), err);
+  }
+};
+
+/* e-mailes link befejezése */
+(async function completeEmailLink() {
+  if (!isSignInWithEmailLink(auth, location.href)) return;
+  let email = null;
+  try { email = localStorage.getItem(EMAIL_KEY); } catch (e) {}
+  if (!email) email = window.prompt("Erősítsd meg az e-mail címed a belépéshez:");
+  if (!email) return;
+  try {
+    await setPersistence(auth, browserLocalPersistence);
+    await signInWithEmailLink(auth, email, location.href);
+    try { localStorage.removeItem(EMAIL_KEY); } catch (e) {}
+    history.replaceState(null, "", pageUrl());
+  } catch (e) {
+    console.warn("Belépés az e-mailes linkkel nem sikerült:", e);
+    alert("A belépési link nem érvényes vagy lejárt. Kérj újat.");
+  }
+})();
+
+window.FB = FB;
+if (typeof window.__fbReady === "function") window.__fbReady(FB);
+
+</script>
+</body></html>

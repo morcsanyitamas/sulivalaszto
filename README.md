@@ -1,0 +1,55 @@
+# Suliválasztó – Rákosmente és környéke
+
+Általános iskola választását segítő egyoldalas dashboard: 52 iskola a XVII., XVI. és X. kerületből,
+Pécelről, Ecserről, Maglódról és Vecsésről – menetidőkkel, pontozással, térképnézettel.
+
+## Közzététel GitHub Pages-en
+
+1. Új repó a GitHubon (publikus, ha ingyenes fiókod van).
+2. Töltsd fel az `index.html` fájlt (a repó főoldalán az **Add file → Upload files** működik, nem kell git).
+3. **Settings → Pages → Build and deployment → Source: Deploy from a branch**, branch: `main`, mappa: `/ (root)`, **Save**.
+4. 1–2 perc múlva él: `https://<felhasznalonev>.github.io/<repo-nev>/`
+
+## Adatkezelés és szinkron
+
+Belépés nélkül az oldal semmit nem küld sehová: amit beírsz, a böngésződ `localStorage`-ában marad.
+
+A kitett fájlban nincs személyes adat. Az alapértelmezett otthon városrész-szintű pont
+(Rákoskert, Budapest XVII.), és a menetidők is ehhez készültek – konkrét lakcím csak
+bejelentkezés után, a Firestore-ból jön, az **Otthon & súlyok** alatt. Ha lakcímet írsz be,
+azt bejelentkezve tedd, hogy a felhőbe kerüljön és ne csak ebben a böngészőben létezzen.
+
+Belépve (Google-fiók vagy e-mailes link) az adatok a `rakosmente-suli` Firestore adatbázisba
+mentődnek, és minden eszközön ugyanaz látszik. A hozzáférést a `firestore.rules` fájlban felsorolt
+e-mail címek korlátozzák – a szabály a Google szerverén fut, nem megkerülhető.
+
+Az `index.html`-ben szereplő Firebase `apiKey` **szándékosan nyilvános**: a projektet azonosítja,
+nem ad hozzáférést. A védelmet a Security Rules adja.
+[Firebase dokumentáció](https://firebase.google.com/docs/projects/api-keys)
+
+A **Megosztás** gomb (kód-alapú átvitel) továbbra is működik, tartaléknak.
+
+## Firebase beállítás
+
+1. Firestore Database → production mode, `europe-west3`
+2. Rules fül → a `firestore.rules` tartalmának bemásolása, a második e-mail cím kitöltve → Publish
+3. Authentication → Sign-in method → **Google** és **Email link (passwordless)** bekapcsolva
+4. Authentication → Settings → **Authorized domains** → `<felhasznalonev>.github.io` hozzáadása
+   (enélkül a belépés `auth/unauthorized-domain` hibával áll meg)
+
+## Külső hivatkozások
+
+Az oldal két dolgot tölt be CDN-ről, mindkettő opcionális:
+
+- Google Fonts (Bricolage Grotesque, Source Sans 3, IBM Plex Mono) – ha nem érhető el, rendszerbetűvel jelenik meg
+- `lz-string` a cdnjs-ről – csak a megosztókódot rövidíti; ha nem tölt be, hosszabb, de működő kódot készít
+
+Minden más – az 52 iskola adatai, a menetidő-modell, a térkép, a teljes logika – benne van az `index.html`-ben.
+
+## Az adatok eredete
+
+- Iskolanevek, címek, fenntartók, profilok: tankerületi intézménylisták, önkormányzati oldalak, iskolai honlapok (2026. szeptemberi állapot)
+- Közúti távolság és szabad forgalmú menetidő: OSRM útvonaltervezés az OpenStreetMap úthálózatán,
+  a Rákoskert városrész OSM-középpontjából mint kiindulópontból
+- Csúcsidei szorzók: TomTom Traffic Index, Budapest, 2025
+- Bicikli és BKV menetidő: modellezett becslés (±15%, illetve ±30%) – a rövidlistásoknál érdemes visszaellenőrizni és beírni a valódit
