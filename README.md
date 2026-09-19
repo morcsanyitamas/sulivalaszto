@@ -19,6 +19,15 @@ A kitett fájlban nincs személyes adat. Az alapértelmezett otthon városrész-
 bejelentkezés után, a Firestore-ból jön, az **Otthon & súlyok** alatt. Ha lakcímet írsz be,
 azt bejelentkezve tedd, hogy a felhőbe kerüljön és ne csak ebben a böngészőben létezzen.
 
+A pontos címet az **Otthon & súlyok** panelben add meg: beírod, megkeresed, kiválasztod a
+találatot. Ilyenkor az oldal egyetlen kéréssel újraszámolja mind az 52 iskola közúti távját és
+menetidejét az új pontról (OSRM), tehát nem csak a térkép mozdul el, hanem minden szám. Belépve
+ez a cím és a hozzá tartozó útvonaltábla a közös adatbázisba kerül, tehát mindketten ugyanahhoz
+a ponthoz mért adatokat látjátok.
+
+Ha az útvonaltervező épp nem érhető el, a közúti táv légvonalból becsült érték – ezt a panel ki
+is írja, és az **Útvonalak frissítése** gombbal bármikor újrapróbálható.
+
 Belépve (Google-fiók vagy e-mailes link) az adatok a `rakosmente-suli` Firestore adatbázisba
 mentődnek, és minden eszközön ugyanaz látszik. A hozzáférést a `firestore.rules` fájlban felsorolt
 e-mail címek korlátozzák – a szabály a Google szerverén fut, nem megkerülhető.
@@ -43,6 +52,14 @@ Az oldal két dolgot tölt be CDN-ről, mindkettő opcionális:
 
 - Google Fonts (Bricolage Grotesque, Source Sans 3, IBM Plex Mono) – ha nem érhető el, rendszerbetűvel jelenik meg
 - `lz-string` a cdnjs-ről – csak a megosztókódot rövidíti; ha nem tölt be, hosszabb, de működő kódot készít
+
+Ezen kívül két szolgáltatást hív, de csak akkor, ha címet állítasz be – magától egyik sem fut:
+
+- **Nominatim** (OpenStreetMap címkereső): a beírt címet elküldi, és koordinátát ad vissza
+- **OSRM** (útvonaltervező): az új otthonhoz újraszámolja az 52 iskola közúti távját
+
+Ha bármelyik nem érhető el, a koordináta kézzel is megadható, a távolság pedig légvonalas
+becslésre vált – az oldal használható marad, csak pontatlanabb, és ezt jelzi is.
 
 Minden más – az 52 iskola adatai, a menetidő-modell, a térkép, a teljes logika – benne van az `index.html`-ben.
 

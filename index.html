@@ -378,7 +378,7 @@ const CATALOG = [
    szintű pont. Konkrét lakcím soha ne kerüljön ide – az a bejelentkezés utáni,
    Firestore-ból jövő beállítás dolga (Otthon & súlyok). */
 var DEF = {v:2, home:{lat:47.4640,lon:19.2976,label:"Rákoskert, Budapest XVII."},
-           w:{res:3,dst:4,fit:3,soft:4}, maxMin:30, showScore:false};
+           w:{res:3,dst:4,fit:3,soft:4}, maxMin:30, showScore:false, route:null, routeFor:null};
 var SOFT = [["teach","Tanári gárda"],["vibe","Hangulat, nyílt nap"],["build","Épület, felszereltség"],["after","Napközi, délutáni"],["food","Étkezés"]];
 var OPS = {t:"tankerületi",e:"egyházi",a:"alapítványi",n:"nemzetiségi"};
 var DISTRICTS = ["XVII","XVI","X","Pécel","Ecser","Maglód","Vecsés"];
@@ -454,10 +454,24 @@ function haversine(a,b){
   return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));
 }
 function airOf(s){ return haversine(settings.home, coord(s)); }
+/* A katalógus rd/ff értékei az alapértelmezett otthonra (Rákoskert középpontja) érvényesek.
+   Ha az otthon máshová kerül, azokat nem szabad használni: helyettük a settings.route
+   tábla jön, amit refreshRoutes() számol OSRM-mel. Ha az sincs, légvonalas becslés marad
+   (átlag 17%, Pécel felé 50%+ hibával) – ezért jelzi a beállítás-panel, ha ez a helyzet. */
+function homeKey(h){ h = h || settings.home; return (+h.lat).toFixed(5)+","+(+h.lon).toFixed(5); }
+function homeIsDefault(){ return haversine(settings.home, DEF.home) < 0.05; }
+function routeOf(id){
+  var R = settings.route;
+  if(!R || settings.routeFor !== homeKey()) return null;
+  var v = R[id];
+  return (v && v.length === 2 && v[0] != null && v[1] != null) ? v : null;
+}
 function roadKm(s){
   var r = recs[s.id]||{};
   if(r.distO!=null) return r.distO;
-  if(s.rd!=null) return s.rd/1000;
+  var rt = routeOf(s.id);
+  if(rt) return rt[0]/1000;
+  if(homeIsDefault() && s.rd!=null) return s.rd/1000;
   return airOf(s)*1.35;
 }
 function distOf(s){ return roadKm(s); }
@@ -466,7 +480,9 @@ function distOf(s){ return roadKm(s); }
    itt konzervatívabb külső kerületi értékek). Bicikli és BKV modellezett. */
 var CARF = {am:{s:1.25,m:1.40,l:1.55}, pm:{s:1.30,m:1.50,l:1.70}};
 function freeMin(s){
-  if(s.ff!=null) return s.ff/60;
+  var rt = routeOf(s.id);
+  if(rt) return rt[1]/60;
+  if(homeIsDefault() && s.ff!=null) return s.ff/60;
   return roadKm(s)/38*60;
 }
 function travel(s, mode, slot){
@@ -892,20 +908,139 @@ function renderShare(){
   $("dBody").innerHTML = h.join("");
   $("outCode").value = exportCode();
 }
+/* ---------- útvonalak az aktuális otthonhoz ----------
+   Egyetlen OSRM table-kérés, 1 forrás + minden iskola. Csak otthonváltáskor vagy kézi
+   kérésre fut, nem magától – a nyilvános demószerver nem nagy terhelésre való. */
+var routeState = {busy:false, msg:""};
+var routeTimer = null;
+function scheduleRoutes(ms){ clearTimeout(routeTimer); routeTimer = setTimeout(refreshRoutes, ms||400); }
+function refreshRoutes(){
+  if(routeState.busy) return;
+  var list = all(), key = homeKey();
+  var coords = [settings.home.lon+","+settings.home.lat].concat(list.map(function(s){
+    var c = coord(s); return c.lon+","+c.lat;
+  }));
+  routeState.busy = true; routeState.msg = ""; renderRouteMsg();
+  fetch("https://router.project-osrm.org/table/v1/driving/"+coords.join(";")+"?sources=0&annotations=duration,distance")
+    .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+    .then(function(d){
+      if(!d || d.code!=="Ok" || !d.distances || !d.durations) throw new Error("hibás válasz");
+      var di = d.distances[0], du = d.durations[0], out = Object.create(null), n = 0;
+      list.forEach(function(sc,i){
+        if(di[i+1]!=null && du[i+1]!=null){ out[sc.id] = [Math.round(di[i+1]), Math.round(du[i+1])]; n++; }
+      });
+      routeState.busy = false;
+      if(!n) throw new Error("nincs útvonal");
+      settings.route = out; settings.routeFor = key;
+      routeState.msg = n+" iskolához frissültek a közúti távok.";
+      persistSettings(); renderAll();
+    })
+    .catch(function(){
+      routeState.busy = false;
+      routeState.msg = "Az útvonaltervező most nem érhető el – a közúti táv addig légvonalból becsült.";
+      renderRouteMsg();
+    });
+}
+function renderRouteMsg(){
+  var e = $("routeMsg");
+  if(e) e.textContent = routeState.busy ? "útvonalak számolása…" : routeState.msg;
+}
+function routeNote(){
+  if(settings.route && settings.routeFor === homeKey()) return "A közúti távok és menetidők ehhez a ponthoz készültek.";
+  if(homeIsDefault()) return "A beépített közúti távok az alapértelmezett pontra érvényesek.";
+  return "Ehhez a ponthoz még nincs kiszámolt útvonal, ezért a közúti táv most légvonalból becsült – ez átlagosan 17%-ot, a Pécel felé eső iskoláknál 50%-ot is tévedhet. Nyomd meg az Útvonalak frissítése gombot.";
+}
+
+/* ---------- címkeresés ----------
+   Nominatim (OpenStreetMap) geokódolás, kézi gombnyomásra – soha nem gépelés közben,
+   mert a szolgáltatás használati feltétele legfeljebb 1 kérés/másodperc. Ha nem érhető
+   el, a kézi lat/lon mező marad az út: az oldal enélkül is teljesen működik. */
+var geoState = {busy:false, hits:[], msg:"", q:""};
+function homeNote(){
+  return authUser
+    ? "Be vagy lépve – ez a cím a közös adatbázisba kerül, a másik belépő is ezt látja."
+    : "Nem vagy belépve – amit ide írsz, csak ebben a böngészőben marad, senkihez nem jut el. A közös használathoz lépj be.";
+}
+function geoLabel(o){
+  var a = o.address || {};
+  var street = [a.road, a.house_number].filter(Boolean).join(" ");
+  var city = a.city || a.town || a.village || a.municipality || "";
+  var head = [a.postcode, city].filter(Boolean).join(" ");
+  var s = [head, street].filter(Boolean).join(", ");
+  return s || snip(o.display_name || "", 60);
+}
+function renderGeo(){
+  var box = $("geoHits"), msg = $("geoMsg");
+  if(!box || !msg) return;
+  msg.textContent = geoState.busy ? "keresés…" : geoState.msg;
+  box.innerHTML = geoState.hits.map(function(g,i){
+    return '<button class="btn geo-hit" data-gi="'+i+'" style="display:block;width:100%;text-align:left;margin-top:5px">'+
+      esc(g.label)+'<span class="mono" style="display:block;font-size:11px;color:var(--ink-3)">'+g.lat.toFixed(5)+', '+g.lon.toFixed(5)+'</span></button>';
+  }).join("");
+}
+function geoSearch(q){
+  geoState.busy = true; geoState.msg = ""; geoState.hits = []; renderGeo();
+  var url = "https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=5&countrycodes=hu&accept-language=hu&q=" + encodeURIComponent(q);
+  fetch(url).then(function(r){
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    return r.json();
+  }).then(function(list){
+    geoState.busy = false;
+    geoState.hits = (list||[]).map(function(o){ return {lat:+o.lat, lon:+o.lon, label:geoLabel(o)}; })
+      .filter(function(g){ return isFinite(g.lat) && isFinite(g.lon); });
+    geoState.msg = geoState.hits.length ? "Válaszd ki a találatot:" : "Nincs találat. Próbáld így: Rákoskert sugárút 66, Budapest.";
+    renderGeo();
+  }).catch(function(){
+    geoState.busy = false; geoState.hits = [];
+    geoState.msg = "A címkereső most nem érhető el – írd be kézzel a koordinátát.";
+    renderGeo();
+  });
+}
+document.addEventListener("click", function(ev){
+  var t = ev.target;
+  if(t.id==="routeBtn"){ refreshRoutes(); return; }
+  if(t.id==="geoBtn"){
+    var q = ($("geoQ").value||"").trim();
+    geoState.q = q;
+    if(q) geoSearch(q); else { geoState.msg = "Írd be a címet."; renderGeo(); }
+    return;
+  }
+  var hit = t.closest && t.closest(".geo-hit");
+  if(hit){
+    var g = geoState.hits[+hit.getAttribute("data-gi")];
+    if(g){
+      settings.home = {lat:g.lat, lon:g.lon, label:g.label};
+      geoState.hits = []; geoState.q = ""; geoState.msg = "Beállítva: " + g.label;
+      persistSettings(); renderAll(); scheduleRoutes(200);
+    }
+    return;
+  }
+});
+document.addEventListener("keydown", function(ev){
+  if(ev.key==="Enter" && ev.target && ev.target.id==="geoQ"){ ev.preventDefault(); var b=$("geoBtn"); if(b) b.click(); }
+});
 function renderSetup(){
   $("dTitle").textContent = "Otthon és súlyozás";
   var h = [];
   h.push(grp("Honnan mérjük a távolságot",
+    '<div class="row"><label for="geoQ">Cím</label><input type="text" class="wide" id="geoQ" placeholder="pl. Rákoskert sugárút 66, Budapest" value="'+esc(geoState.q)+'"></div>'+
+    '<div class="row" style="gap:8px"><button class="btn primary" id="geoBtn" style="flex:1">Cím keresése</button></div>'+
+    '<div id="geoHits"></div><span id="geoMsg" class="note"></span>'+
+    '<p class="note">'+homeNote()+'</p>'+
     rowTxt("home.label","Megnevezés", settings.home.label, true)+
     rowNum("home.lat","Szélesség (lat)", settings.home.lat, "")+
     rowNum("home.lon","Hosszúság (lon)", settings.home.lon, "")+
-    '<p class="note">Alapértelmezés: Rákoskeresztúr központja. A pontos koordinátát bármely térképen a címre jobb gombbal kattintva kimásolhatod.</p>'));
+    '<p class="note">Alapértelmezés: Rákoskert városrész középpontja. A keresés a beírt címet elküldi az OpenStreetMap nyilvános címkeresőjének – ha ezt nem szeretnéd, a koordinátát kézzel is beírhatod (térképen a pontra jobb gombbal kattintva kimásolható).</p>'+
+    '<div class="row" style="gap:8px"><button class="btn" id="routeBtn" style="flex:1">Útvonalak frissítése</button></div>'+
+    '<span id="routeMsg" class="note"></span>'+
+    '<p class="note">'+routeNote()+'</p>'));
   var WL = [["res","Eredmények (kompetencia, továbbtanulás)"],["dst","Távolság és megközelítés"],["fit","Profil, nyelv, tagozat"],["soft","Puha tényezők"]];
   h.push(grp("Mi mennyit számít", WL.map(function(p){
     return '<div class="row"><label for="w_'+p[0]+'">'+p[1]+'</label><input type="range" id="w_'+p[0]+'" data-w="'+p[0]+'" min="0" max="5" step="1" value="'+(settings.w[p[0]]||0)+'" style="accent-color:var(--accent);width:110px"><span class="mono" style="width:14px;text-align:right" id="wv_'+p[0]+'">'+(settings.w[p[0]]||0)+'</span></div>';
   }).join("")+'<p class="note">0 = egyáltalán nem számít. Az összpont a kitöltött szempontok súlyozott átlaga, 0–100 skálán.</p>'));
   h.push(grp("Adatok", '<div class="row" style="gap:8px"><button class="btn" id="resetBtn" style="flex:1">Minden saját adat törlése</button></div>'));
   $("dBody").innerHTML = h.join("");
+  renderGeo();
 }
 
 /* ---------- events ---------- */
@@ -951,7 +1086,7 @@ document.addEventListener("change", function(ev){
   var t = ev.target, f = t.getAttribute && t.getAttribute("data-f");
   if(f && ui.sel){
     if(ui.sel==="__setup__"){
-      if(f.indexOf("home.")===0){ var kk=f.slice(5); settings.home[kk] = (kk==="label") ? t.value : (num(t.value)!=null?num(t.value):settings.home[kk]); persistSettings(); renderAll(); }
+      if(f.indexOf("home.")===0){ var kk=f.slice(5); settings.home[kk] = (kk==="label") ? t.value : (num(t.value)!=null?num(t.value):settings.home[kk]); persistSettings(); renderAll(); if(kk!=="label") scheduleRoutes(900); }
       return;
     }
     var val = t.type==="checkbox" ? t.checked : (t.type==="number" ? num(t.value) : t.value.trim());
@@ -965,6 +1100,7 @@ document.addEventListener("change", function(ev){
 document.addEventListener("input", function(ev){
   var t = ev.target;
   if(t.id==="q"){ ui.q = t.value; if(ui.view==="list") renderTable(); else renderAll(); }
+  if(t.id==="geoQ"){ geoState.q = t.value; }
   if(t.id==="dist"){ settings.maxMin = +t.value; $("distV").textContent = t.value+" perc"; persistSettings(); renderAll(); }
   var w = t.getAttribute && t.getAttribute("data-w");
   if(w){ var lab=$("wv_"+w); if(lab) lab.textContent=t.value; }
@@ -1000,6 +1136,7 @@ $("addBtn").addEventListener("click", function(){
   var id = "u"+Date.now().toString(36);
   recs[id] = {base:{n:n.trim(), a:a.trim(), d:"XVII", sd:"", o:"t", lat:settings.home.lat, lon:settings.home.lon, w:"", p:"Saját felvitel.", ce:0}, status:"none"};
   persist(id); renderAll(); openDrawer(id);
+  if(!homeIsDefault()) scheduleRoutes(1500);
 });
 $("slotAm").addEventListener("click", function(){ ui.slot="am"; syncControls(); renderAll(); });
 $("slotPm").addEventListener("click", function(){ ui.slot="pm"; syncControls(); renderAll(); });
@@ -1164,6 +1301,8 @@ window.__fbReady = function(FB){
       if(d.w) settings.w = Object.assign({}, DEF.w, d.w);
       if(typeof d.maxMin === "number") settings.maxMin = d.maxMin;
       if(typeof d.showScore === "boolean") settings.showScore = d.showScore;
+      settings.route = d.route || null;
+      settings.routeFor = d.routeFor || null;
       settings.v = 2;
       saveLocal(); syncControls(); renderAll();
     }, function(e){ flagSync(false, fbErr(e)); });

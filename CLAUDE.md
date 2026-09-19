@@ -61,7 +61,12 @@ Never write `localStorage` or Firestore directly from a handler.
 Nothing is cached — `scores(s)`, `travel()`, `visible()`, `ranked()` recompute on every render, and
 `renderAll()` re-renders the active view wholesale. Keep it that way; it is fast enough at this size.
 
-- `roadKm` prefers `recs.distO` → `CATALOG.rd` → haversine × 1.35.
+- `roadKm` prefers `recs.distO` → `settings.route[id]` → `CATALOG.rd` (only while the home is
+  still the default point) → haversine × 1.35. `freeMin` follows the same order for duration.
+  `settings.route` is an OSRM table (`{id: [metres, seconds]}`) recomputed by `refreshRoutes()`
+  whenever the home moves, tagged with `settings.routeFor` = `homeKey()` so a stale table is
+  ignored wholesale rather than mixed with fresh data. The `CATALOG.rd`/`ff` values are only
+  valid for the default home — never use them unconditionally.
 - `travel(s, mode, slot)` for `bike`/`car`/`bkv` × `am`/`pm`: a manual `tt` override wins, otherwise
   the model (car = free-flow `ff` × peak multiplier `CARF`; bike and bkv are modelled estimates).
   Rows show a `.own` marker when an override is in effect.
@@ -84,8 +89,11 @@ independent transfer path and must keep working without Firebase.
 
 ### External dependencies
 
-Google Fonts, `lz-string` (cdnjs) and the Firebase ESM CDN. All three are optional — the page must
-stay usable when any of them is blocked. Don't add dependencies that break that.
+Google Fonts, `lz-string` (cdnjs), the Firebase ESM CDN, Nominatim (address search, on button press
+only — never as-you-type, per its 1 req/s policy) and the OSRM demo server (one `table` request per
+home change, all schools in a single call). All are optional — the page must stay usable when any of
+them is blocked; the routing fallback is a haversine estimate that the setup panel flags as such.
+Don't add dependencies that break that.
 
 ## Known issues
 
