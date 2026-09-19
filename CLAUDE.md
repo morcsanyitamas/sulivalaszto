@@ -84,12 +84,13 @@ household, not per-user). `onSnapshot` listeners overwrite `recs` wholesale, exc
 triggers an upload instead of a wipe. Access is restricted by Firestore rules to an allow-list of
 e-mail addresses; the `apiKey` in the file is public by design.
 
-The share code (`exportCode`/`importCode`, `SULI1:` lz-string or `SULI0:` base64 fallback) is an
-independent transfer path and must keep working without Firebase.
+Sign-in is Google-only (`signInWithPopup`); the e-mail-link flow and the code-based share/import
+path were removed deliberately — don't reintroduce either. CSV export (`csvText`) is the remaining
+way data leaves the app, and lives in the setup panel.
 
 ### External dependencies
 
-Google Fonts, `lz-string` (cdnjs), the Firebase ESM CDN, Nominatim (address search, on button press
+Google Fonts, the Firebase ESM CDN, Nominatim (address search, on button press
 only — never as-you-type, per its 1 req/s policy) and the OSRM demo server (one `table` request per
 home change, all schools in a single call). All are optional — the page must stay usable when any of
 them is blocked; the routing fallback is a haversine estimate that the setup panel flags as such.

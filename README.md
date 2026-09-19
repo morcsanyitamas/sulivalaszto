@@ -36,22 +36,21 @@ Az `index.html`-ben szereplő Firebase `apiKey` **szándékosan nyilvános**: a 
 nem ad hozzáférést. A védelmet a Security Rules adja.
 [Firebase dokumentáció](https://firebase.google.com/docs/projects/api-keys)
 
-A **Megosztás** gomb (kód-alapú átvitel) továbbra is működik, tartaléknak.
+Az adatok CSV-ként bármikor kimenthetők az **Otthon & súlyok** panel *Adatok* szakaszából.
 
 ## Firebase beállítás
 
 1. Firestore Database → production mode, `europe-west3`
 2. Rules fül → a `firestore.rules` tartalmának bemásolása, a második e-mail cím kitöltve → Publish
-3. Authentication → Sign-in method → **Google** és **Email link (passwordless)** bekapcsolva
+3. Authentication → Sign-in method → **csak Google** bekapcsolva (az Email link maradjon kikapcsolva)
 4. Authentication → Settings → **Authorized domains** → `<felhasznalonev>.github.io` hozzáadása
    (enélkül a belépés `auth/unauthorized-domain` hibával áll meg)
 
 ## Külső hivatkozások
 
-Az oldal két dolgot tölt be CDN-ről, mindkettő opcionális:
+Az oldal egy dolgot tölt be CDN-ről, az is opcionális:
 
 - Google Fonts (Bricolage Grotesque, Source Sans 3, IBM Plex Mono) – ha nem érhető el, rendszerbetűvel jelenik meg
-- `lz-string` a cdnjs-ről – csak a megosztókódot rövidíti; ha nem tölt be, hosszabb, de működő kódot készít
 
 Ezen kívül két szolgáltatást hív, de csak akkor, ha címet állítasz be – magától egyik sem fut:
 

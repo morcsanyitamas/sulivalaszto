@@ -250,7 +250,6 @@ textarea{width:100%;min-height:76px;background:var(--surface-2);border:1px solid
     <label class="toggle"><input type="checkbox" id="showOut" checked> kihúzottak</label>
     <button class="btn" id="addBtn">+ Iskola</button>
     <button class="btn" id="setupBtn">Otthon &amp; súlyok</button>
-    <button class="btn primary" id="shareBtn">Megosztás</button>
   </div>
 </div>
 
@@ -311,7 +310,6 @@ textarea{width:100%;min-height:76px;background:var(--surface-2);border:1px solid
   </div>
   <div class="dbody" id="dBody"></div>
 </aside>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
 
 <script>
 const CATALOG = [
@@ -614,28 +612,6 @@ function renderSummary(){
     return '<div class="sm"><div class="eyebrow">'+c[0]+'</div>'+(c[2]!=null?'<div class="lead">'+c[2]+'</div>':'<b>'+c[1]+'</b>')+'</div>';
   }).join("");
 }
-function exportCode(){
-  var r = {};
-  Object.keys(recs).forEach(function(id){ var o=recs[id]; if(o && Object.keys(o).length) r[id]=o; });
-  var payload = JSON.stringify({v:2, t:new Date().toISOString().slice(0,16).replace("T"," "), s:settings, r:r});
-  if(window.LZString && LZString.compressToBase64) return "SULI1:"+LZString.compressToBase64(payload);
-  return "SULI0:"+btoa(unescape(encodeURIComponent(payload)));
-}
-function importCode(code){
-  code = String(code||"").trim().replace(/\s+/g,"");
-  var json = null;
-  if(code.indexOf("SULI1:")===0 && window.LZString) json = LZString.decompressFromBase64(code.slice(6));
-  else if(code.indexOf("SULI0:")===0) json = decodeURIComponent(escape(atob(code.slice(6))));
-  else throw new Error("Ez nem suliválasztó-kód. A másik gépen a Megosztás gombnál látható teljes szöveget másold ide.");
-  if(!json) throw new Error("A kód sérült vagy hiányos – másold ki újra, az elejétől a végéig.");
-  var o = JSON.parse(json);
-  if(!o || !o.r) throw new Error("A kód nem tartalmaz adatot.");
-  recs = Object.create(null);
-  Object.keys(o.r).forEach(function(id){ recs[id]=o.r[id]; });
-  if(o.s){ settings = Object.assign(JSON.parse(JSON.stringify(DEF)), o.s); settings.v = 2; }
-  saveLocal();
-  return {count:Object.keys(recs).length, when:o.t||""};
-}
 function csvText(){
   var arr = ranked(all().filter(function(s){ return !(recs[s.id]||{}).hidden; }));
   var head = ["Iskola","Kerület","Fenntartó","Cím","Státusz","Összpont","Adat%","Táv km","Bicikli p","Autó 8h p","Autó 16h p","BKV 8h p","BKV 16h p","Körzetes","Komp mat","Komp szöv","Gimi %","Osztálylétszám","Nyelv/tagozat","Profil 1-5","Puha átlag","Nyílt nap","Jegyzet"];
@@ -790,7 +766,7 @@ function renderAll(){
   if(ui.view==="list") renderTable();
   else if(ui.view==="map") renderMap();
   else renderCmp();
-  if($("drawer").classList.contains("open") && ui.sel && ui.sel!=="__share__") renderDrawer(ui.sel);
+  if($("drawer").classList.contains("open") && ui.sel) renderDrawer(ui.sel);
 }
 
 /* ---------- drawer ---------- */
@@ -811,7 +787,6 @@ function baseOf(id){
 }
 function renderDrawer(id){
   if(id==="__setup__") return renderSetup();
-  if(id==="__share__") return renderShare();
   if(id==="__login__") return renderLogin();
   var s = baseOf(id), r = rec(id), k = scores(s), st = statusOf(id);
   $("dTitle").textContent = s.n;
@@ -887,26 +862,6 @@ function rowRate(f,lab,v){
   var b=''; for(var i=1;i<=5;i++) b += '<button type="button" data-rate="'+f+'" data-v="'+i+'" aria-pressed="'+(v===i)+'" aria-label="'+lab+' '+i+'">'+i+'</button>';
   b += '<button type="button" class="clr" data-rate="'+f+'" data-v="0" aria-label="törlés">×</button>';
   return '<div class="row"><label>'+lab+'</label><span class="rate">'+b+'</span></div>';
-}
-function renderShare(){
-  $("dTitle").textContent = "Megosztás és átvitel";
-  var filled = Object.keys(recs).filter(function(i){ return recs[i] && Object.keys(recs[i]).length; }).length;
-  var h = [];
-  h.push('<div class="grp share"><p>Amit beírsz, ennek a böngészőnek a tárolójában marad – nem megy szerverre. Másik eszközre vagy másik embernek az alábbi kóddal viheted át. A kód mindent visz: pontozás, jegyzet, rövidlista, kihúzások, otthon és súlyok.</p></div>');
-  h.push('<div class="grp share"><div class="eyebrow">1 · Innen viszed</div>'+
-    '<div class="step"><b>a</b><p>Másold ki az egész kódot, és küldd el üzenetben vagy e-mailben. Jelenleg <b>'+filled+'</b> iskolánál van beírt adat.</p></div>'+
-    '<textarea id="outCode" readonly aria-label="Kimenő kód"></textarea>'+
-    '<div class="row" style="gap:8px"><button class="btn primary" id="copyCode" style="flex:1">Kód másolása</button><span id="copyMsg" class="okmsg"></span></div></div>');
-  h.push('<div class="grp share"><div class="eyebrow">2 · Ide hozod</div>'+
-    '<div class="step"><b>b</b><p>Illeszd be a másiktól kapott kódot, és nyomd meg a Beolvasást. <b>Ez felülírja a jelenlegi adataidat</b>, ezért előbb küldd el a sajátodat, ha van benne friss dolog.</p></div>'+
-    '<textarea id="inCode" placeholder="SULI1:..." aria-label="Bejövő kód"></textarea>'+
-    '<div class="row" style="gap:8px"><button class="btn" id="loadCode" style="flex:1">Beolvasás</button><span id="loadMsg"></span></div></div>');
-  h.push('<div class="grp share"><div class="eyebrow">3 · Táblázatba</div>'+
-    '<div class="step"><b>c</b><p>Excelbe vagy Google Sheetsbe a CSV való – pontszámokkal, távolságokkal, jegyzetekkel együtt.</p></div>'+
-    '<div class="row" style="gap:8px">'+(dl?'<button class="btn" id="csvBtn2" style="flex:1">CSV letöltése</button>':'')+'<button class="btn" id="csvCopy" style="flex:1">CSV vágólapra</button></div>'+
-    '<span id="csvMsg" class="okmsg"></span></div>');
-  $("dBody").innerHTML = h.join("");
-  $("outCode").value = exportCode();
 }
 /* ---------- útvonalak az aktuális otthonhoz ----------
    Egyetlen OSRM table-kérés, 1 forrás + minden iskola. Csak otthonváltáskor vagy kézi
@@ -1038,7 +993,11 @@ function renderSetup(){
   h.push(grp("Mi mennyit számít", WL.map(function(p){
     return '<div class="row"><label for="w_'+p[0]+'">'+p[1]+'</label><input type="range" id="w_'+p[0]+'" data-w="'+p[0]+'" min="0" max="5" step="1" value="'+(settings.w[p[0]]||0)+'" style="accent-color:var(--accent);width:110px"><span class="mono" style="width:14px;text-align:right" id="wv_'+p[0]+'">'+(settings.w[p[0]]||0)+'</span></div>';
   }).join("")+'<p class="note">0 = egyáltalán nem számít. Az összpont a kitöltött szempontok súlyozott átlaga, 0–100 skálán.</p>'));
-  h.push(grp("Adatok", '<div class="row" style="gap:8px"><button class="btn" id="resetBtn" style="flex:1">Minden saját adat törlése</button></div>'));
+  h.push(grp("Adatok",
+    '<div class="row" style="gap:8px">'+(dl?'<button class="btn" id="csvBtn2" style="flex:1">CSV letöltése</button>':'')+'<button class="btn" id="csvCopy" style="flex:1">CSV vágólapra</button></div>'+
+    '<span id="csvMsg" class="okmsg"></span>'+
+    '<p class="note">Excelbe vagy Google Sheetsbe, a pontszámokkal, távolságokkal és jegyzetekkel együtt.</p>'+
+    '<div class="row" style="gap:8px"><button class="btn danger" id="resetBtn" style="flex:1">Minden saját adat törlése</button></div>'));
   $("dBody").innerHTML = h.join("");
   renderGeo();
 }
@@ -1140,15 +1099,6 @@ $("addBtn").addEventListener("click", function(){
 });
 $("slotAm").addEventListener("click", function(){ ui.slot="am"; syncControls(); renderAll(); });
 $("slotPm").addEventListener("click", function(){ ui.slot="pm"; syncControls(); renderAll(); });
-$("shareBtn").addEventListener("click", function(){ openDrawer("__share__"); });
-function copyText(el, msgEl, okText){
-  function fallback(){ el.focus(); el.select(); try{ document.execCommand("copy"); msgEl.textContent = okText; }
-    catch(e){ msgEl.textContent = "Jelöld ki és másold: Ctrl+C"; } }
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(el.value).then(function(){ msgEl.textContent = okText; }, fallback);
-  } else fallback();
-  setTimeout(function(){ msgEl.textContent=""; }, 4000);
-}
 function copyStr(str, msgEl, okText){
   var ta = document.createElement("textarea");
   ta.value = str; ta.style.position="fixed"; ta.style.top="-1000px"; ta.style.opacity="0";
@@ -1161,17 +1111,6 @@ function copyStr(str, msgEl, okText){
 }
 document.addEventListener("click", function(ev){
   var t = ev.target;
-  if(t.id==="copyCode"){ copyText($("outCode"), $("copyMsg"), "másolva"); return; }
-  if(t.id==="loadCode"){
-    var m = $("loadMsg");
-    try{
-      var res = importCode($("inCode").value);
-      m.className="okmsg"; m.textContent = res.count+" iskola betöltve"+(res.when?" ("+res.when+")":"");
-      syncControls(); renderAll();
-      setTimeout(function(){ closeDrawer(); }, 1400);
-    }catch(e){ m.className="errmsg"; m.textContent = e.message; }
-    return;
-  }
   if(t.id==="csvBtn2"){
     var cm = $("csvMsg");
     if(dl){ dl.save({filename:"sulivalaszto.csv", data:csvText()}).catch(function(e){
@@ -1230,10 +1169,6 @@ function renderLogin(){
     h.push('<div class="grp share"><p>Belépés nélkül is használhatod – az adatok akkor ebben a böngészőben maradnak. Belépve közös adatbázisba mentődnek, és mindketten ugyanazt látjátok, bármelyik eszközről.</p></div>');
     h.push('<div class="grp share"><div class="eyebrow">Google-fiókkal</div>'+
       '<div class="row" style="gap:8px"><button class="btn primary" id="googleBtn" style="flex:1">Belépés Google-fiókkal</button></div></div>');
-    h.push('<div class="grp share"><div class="eyebrow">vagy e-mailes linkkel</div>'+
-      '<div class="row" style="gap:8px"><input type="email" id="loginEmail" class="wide" placeholder="pelda@email.hu" style="flex:1;text-align:left;width:auto" autocomplete="email"><button class="btn" id="mailBtn">Link kérése</button></div>'+
-      '<span id="loginMsg" class="okmsg"></span>'+
-      '<p class="note">A megadott címre küldünk egy belépési linket. A linket ugyanebben a böngészőben nyisd meg, különben újra bekéri a címet.</p></div>');
   }
   h.push('<div class="grp share"><div class="eyebrow">Hozzáférés</div><p class="note">Csak az a két e-mail cím fér hozzá az adatokhoz, amit a Firestore szabályban engedélyeztél. Bárki más – akár ezzel az oldallal a kezében – elutasítást kap.</p></div>');
   $("dBody").innerHTML = h.join("");
@@ -1244,15 +1179,6 @@ document.addEventListener("click", function(ev){
   if(t.id==="googleBtn" && window.FB){
     var m = $("loginMsg"); if(m){ m.className="okmsg"; m.textContent=""; }
     window.FB.signInGoogle().catch(function(e){ alert(fbErr(e)); });
-    return;
-  }
-  if(t.id==="mailBtn" && window.FB){
-    var em = ($("loginEmail").value||"").trim(), mm = $("loginMsg");
-    if(!em){ mm.className="errmsg"; mm.textContent="Írd be az e-mail címed."; return; }
-    mm.className="okmsg"; mm.textContent="Küldés…";
-    window.FB.signInEmail(em).then(function(){
-      mm.className="okmsg"; mm.textContent="Elküldtük. Nézd meg a postafiókod (a spamet is).";
-    }, function(e){ mm.className="errmsg"; mm.textContent=fbErr(e); });
     return;
   }
   if(t.id==="signOutBtn" && window.FB){ window.FB.signOut(); closeDrawer(); return; }
@@ -1333,7 +1259,7 @@ window.__fbReady = function(FB){
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 import {
   getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut,
-  sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink, setPersistence, browserLocalPersistence
+  setPersistence, browserLocalPersistence
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import {
   getFirestore, doc, collection, setDoc, deleteDoc, onSnapshot
@@ -1357,8 +1283,6 @@ const schoolsCol  = () => collection(db, "haztartas", HOUSEHOLD, "iskolak");
 const schoolDoc   = (id) => doc(db, "haztartas", HOUSEHOLD, "iskolak", id);
 const settingsDoc = () => doc(db, "haztartas", HOUSEHOLD, "beallitasok", "app");
 
-const pageUrl = () => location.href.split("#")[0].split("?")[0];
-const EMAIL_KEY = "sulivalaszto.signInEmail";
 
 const FB = {
   store: {
@@ -1370,10 +1294,6 @@ const FB = {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: "select_account" });
     return setPersistence(auth, browserLocalPersistence).then(() => signInWithPopup(auth, provider));
-  },
-  signInEmail(email) {
-    try { localStorage.setItem(EMAIL_KEY, email); } catch (e) {}
-    return sendSignInLinkToEmail(auth, email, { url: pageUrl(), handleCodeInApp: true });
   },
   signOut() { return signOut(auth); },
   onAuth(cb) { onAuthStateChanged(auth, (u) => cb(u ? { email: u.email, uid: u.uid } : null)); },
@@ -1388,24 +1308,6 @@ const FB = {
     return onSnapshot(settingsDoc(), (snap) => cb(snap.exists() ? snap.data() : null), err);
   }
 };
-
-/* e-mailes link befejezése */
-(async function completeEmailLink() {
-  if (!isSignInWithEmailLink(auth, location.href)) return;
-  let email = null;
-  try { email = localStorage.getItem(EMAIL_KEY); } catch (e) {}
-  if (!email) email = window.prompt("Erősítsd meg az e-mail címed a belépéshez:");
-  if (!email) return;
-  try {
-    await setPersistence(auth, browserLocalPersistence);
-    await signInWithEmailLink(auth, email, location.href);
-    try { localStorage.removeItem(EMAIL_KEY); } catch (e) {}
-    history.replaceState(null, "", pageUrl());
-  } catch (e) {
-    console.warn("Belépés az e-mailes linkkel nem sikerült:", e);
-    alert("A belépési link nem érvényes vagy lejárt. Kérj újat.");
-  }
-})();
 
 window.FB = FB;
 if (typeof window.__fbReady === "function") window.__fbReady(FB);
