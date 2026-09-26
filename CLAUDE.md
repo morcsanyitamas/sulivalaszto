@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project
 
 Suliválasztó – a single-page Hungarian dashboard for picking a primary school around Budapest's
-XVII. district. Everything (52 schools, travel-time model, map, scoring, sync) lives in `index.html`.
+XVII. district. Everything (57 schools, travel-time model, map, scoring, sync) lives in `index.html`.
 
 Nyelv: the UI, data and comments are Hungarian. Keep new user-facing strings and code comments in Hungarian.
 
@@ -26,7 +26,7 @@ Four parts, in file order:
 1. `<style>` – design tokens on `:root`, dark mode via `prefers-color-scheme` plus a
    `[data-theme]` override. Use the existing CSS variables (`--accent`, `--ink-2`, `--s1..--s6`, …)
    rather than literal colors.
-2. `CATALOG` (~line 317) – the 52 built-in schools as compact literals:
+2. `CATALOG` (~line 317) – the 57 built-in schools as compact literals:
    `id, n` (név), `a` (cím), `d` (kerület/település), `sd` (városrész), `o` (fenntartó: `t`
    tankerületi / `e` egyházi / `a` alapítványi / `n` nemzetiségi), `lat/lon`, `w` (weboldal),
    `p` (profil), `rd` (OSRM road distance, metres), `ff` (free-flow drive time, seconds).

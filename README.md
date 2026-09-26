@@ -1,7 +1,7 @@
 # Suliválasztó – Rákosmente és környéke
 
-Általános iskola választását segítő egyoldalas dashboard: 52 iskola a XVII., XVI. és X. kerületből,
-Pécelről, Ecserről, Maglódról és Vecsésről – menetidőkkel, pontozással, térképnézettel.
+Általános iskola választását segítő egyoldalas dashboard: 57 iskola a XVII., XVI., XVIII., XIX., X. és II. kerületből,
+Pécelről, Ecserről, Maglódról, Vecsésről és Gödöllőről – menetidőkkel, pontozással, térképnézettel.
 
 ## Közzététel GitHub Pages-en
 
@@ -20,7 +20,7 @@ bejelentkezés után, a Firestore-ból jön, az **Otthon & súlyok** alatt. Ha l
 azt bejelentkezve tedd, hogy a felhőbe kerüljön és ne csak ebben a böngészőben létezzen.
 
 A pontos címet az **Otthon & súlyok** panelben add meg: beírod, megkeresed, kiválasztod a
-találatot. Ilyenkor az oldal egyetlen kéréssel újraszámolja mind az 52 iskola közúti távját és
+találatot. Ilyenkor az oldal egyetlen kéréssel újraszámolja mind az 57 iskola közúti távját és
 menetidejét az új pontról (OSRM), tehát nem csak a térkép mozdul el, hanem minden szám. Belépve
 ez a cím és a hozzá tartozó útvonaltábla a közös adatbázisba kerül, tehát mindketten ugyanahhoz
 a ponthoz mért adatokat látjátok.
@@ -55,12 +55,12 @@ Az oldal egy dolgot tölt be CDN-ről, az is opcionális:
 Ezen kívül két szolgáltatást hív, de csak akkor, ha címet állítasz be – magától egyik sem fut:
 
 - **Nominatim** (OpenStreetMap címkereső): a beírt címet elküldi, és koordinátát ad vissza
-- **OSRM** (útvonaltervező): az új otthonhoz újraszámolja az 52 iskola közúti távját
+- **OSRM** (útvonaltervező): az új otthonhoz újraszámolja az 57 iskola közúti távját
 
 Ha bármelyik nem érhető el, a koordináta kézzel is megadható, a távolság pedig légvonalas
 becslésre vált – az oldal használható marad, csak pontatlanabb, és ezt jelzi is.
 
-Minden más – az 52 iskola adatai, a menetidő-modell, a térkép, a teljes logika – benne van az `index.html`-ben.
+Minden más – az 57 iskola adatai, a menetidő-modell, a térkép, a teljes logika – benne van az `index.html`-ben.
 
 ## Az adatok eredete
 

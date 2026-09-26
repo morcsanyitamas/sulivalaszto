@@ -221,7 +221,7 @@ textarea{width:100%;min-height:76px;background:var(--surface-2);border:1px solid
   <div class="mast-in">
     <div class="brand">
       <h1>Suliválasztó – Rákosmente és környéke</h1>
-      <p>52 általános iskola a XVII., XVI. és X. kerületből, Pécelről, Ecserről, Maglódról és Vecsésről. Pontozd, szűrd, húzd ki, ami nem jön be.</p>
+      <p>57 általános iskola a XVII., XVI., XVIII., XIX., X. és II. kerületből, Pécelről, Ecserről, Maglódról, Vecsésről és Gödöllőről. Pontozd, szűrd, húzd ki, ami nem jön be.</p>
     </div>
     <div class="sync"><span class="dot" id="syncDot"></span><span id="syncTxt">kapcsolódás…</span><button class="btn" id="loginBtn" style="margin-left:8px;padding:3px 10px;font-size:12.5px">Belépés</button></div>
   </div>
@@ -296,7 +296,7 @@ textarea{width:100%;min-height:76px;background:var(--surface-2);border:1px solid
 
   <p class="foot">
     <b>Honnan jönnek az adatok?</b> A nevek, címek, fenntartók és profilok nyilvános forrásokból származnak (tankerületi intézménylisták, önkormányzati oldalak, iskolai honlapok) – 2026 szeptemberi állapot, érdemes a nyílt napon visszaellenőrizni.
-    <b>Honnan jönnek a menetidők?</b> A közúti távolság és a szabad forgalmú menetidő valódi útvonaltervezésből származik (OSRM, OpenStreetMap úthálózat) – ez az 52 iskolára egyenként kiszámolt szám, nem becslés. Amit rárakok, az modellezett: az <b>autónál</b> budapesti csúcsidei szorzó (a TomTom 2025-ös budapesti indexe reggel +89%, délután +106% városi átlagot mér; itt ennél visszafogottabb külső kerületi értékekkel számolok, 1,25–1,70 között a táv függvényében) plusz 2 perc parkolás. A <b>biciklinél</b> 15 km/h átlag a közúti táv 92%-án, plusz 2 perc lezárás – napszaktól függetlenül. A <b>BKV-nál</b> nincs nyilvános útvonaltervező, amit elérnék, ezért modell: 9 perc gyaloglás a két végén, 6–7 perc várakozás, 18 km/h a kerületen belül és 22 km/h azon kívül, plusz 7 perc átszállás más kerületbe és 10 perc az agglomerációba; 5 perces kerekítéssel. <b>Pontosság:</b> bicikli ±15%, autó ±20%, BKV ±30%. A rövidlistásoknál érdemes az Útvonal linkekkel visszaellenőrizni, és a kapott értéket beírni – a beírt szám felülírja a modellt (pöttyöt kap a táblázatban).<br><br>A koordináták nagy része <b>cím alapján becsült</b>, nem geokódolt: az itteni térkép a távolságviszonyokat mutatja, nem a méteres pontosságot – utca szintű képért használd az iskoláknál a Google Maps, Utcakép és Útvonal linkeket. A drawerben bármelyik iskola koordinátája javítható.
+    <b>Honnan jönnek a menetidők?</b> A közúti távolság és a szabad forgalmú menetidő valódi útvonaltervezésből származik (OSRM, OpenStreetMap úthálózat) – ez az 57 iskolára egyenként kiszámolt szám, nem becslés. Amit rárakok, az modellezett: az <b>autónál</b> budapesti csúcsidei szorzó (a TomTom 2025-ös budapesti indexe reggel +89%, délután +106% városi átlagot mér; itt ennél visszafogottabb külső kerületi értékekkel számolok, 1,25–1,70 között a táv függvényében) plusz 2 perc parkolás. A <b>biciklinél</b> 15 km/h átlag a közúti táv 92%-án, plusz 2 perc lezárás – napszaktól függetlenül. A <b>BKV-nál</b> nincs nyilvános útvonaltervező, amit elérnék, ezért modell: 9 perc gyaloglás a két végén, 6–7 perc várakozás, 18 km/h a kerületen belül és 22 km/h azon kívül, plusz 7 perc átszállás más kerületbe és 10 perc az agglomerációba; 5 perces kerekítéssel. <b>Pontosság:</b> bicikli ±15%, autó ±20%, BKV ±30%. A rövidlistásoknál érdemes az Útvonal linkekkel visszaellenőrizni, és a kapott értéket beírni – a beírt szám felülírja a modellt (pöttyöt kap a táblázatban).<br><br>A koordináták nagy része <b>cím alapján becsült</b>, nem geokódolt: az itteni térkép a távolságviszonyokat mutatja, nem a méteres pontosságot – utca szintű képért használd az iskoláknál a Google Maps, Utcakép és Útvonal linkeket. A drawerben bármelyik iskola koordinátája javítható.
     <b>Kompetenciamérés, gimnáziumi továbbtanulás, osztálylétszám: ezeket szándékosan üresen hagytam</b> – ezek évről évre változnak, és az oktatas.hu/iskolai adatlapokról érdemes bemásolni. Ami nincs kitöltve, az nem rontja az iskola pontszámát, csak csökkenti az „adatlefedettséget”.
     Gyógypedagógiai és EGYMI intézményeket (Gyurkovics, Göllesz, Éltes, Komplex) kihagytam; ha kell, a <b>+ Iskola</b> gombbal felvehető.<br><br><b>Hol vannak az adatok?</b> Amit beírsz, ennek a böngészőnek a tárolójában marad – nem megy szerverre, és nem látja más. Másik eszközre vagy másik embernek a <b>Megosztás</b> gombbal adott kóddal viheted át.
   </p>
@@ -368,7 +368,15 @@ const CATALOG = [
 {id:"c65",n:"Andrássy Gyula Általános Iskola",a:"2220 Vecsés, Erzsébet tér 1.",d:"Vecsés",sd:"Vecsés",o:"t",lat:47.4130,lon:19.2740,ce:0,w:"https://andrassy-vecses.hu/",p:"„Békés Iskola” program; egy épületben a vecsési zeneiskolával",rd:13682,ff:861},
 {id:"c66",n:"Halmi Telepi Általános Iskola",a:"2220 Vecsés, Halmy József tér 1/H",d:"Vecsés",sd:"Vecsés",o:"t",lat:47.4020,lon:19.2670,ce:0,w:"https://halmisuli.hu/",p:"Ökoiskola",rd:14089,ff:892},
 {id:"c67",n:"Grassalkovich Antal Német Nemzetiségi és Kétnyelvű Általános Iskola",a:"2220 Vecsés, Fő út 90-92.",d:"Vecsés",sd:"Vecsés",o:"n",lat:47.4090,lon:19.2790,ce:0,w:"http://grassalkovich-vecses.hu/hu/",p:"Német nemzetiségi és kétnyelvű oktatás; nemzetiségi önkormányzati fenntartás",rd:13017,ff:791},
-{id:"c68",n:"Petőfi Sándor Római Katolikus Általános Iskola és Gimnázium",a:"2220 Vecsés, Petőfi tér 1.",d:"Vecsés",sd:"Vecsés",o:"e",lat:47.4100,lon:19.2810,ce:0,w:"https://petofivecses.hu/",p:"Katolikus, 8 évfolyamos általános iskola + gimnázium",rd:13085,ff:809}
+{id:"c68",n:"Petőfi Sándor Római Katolikus Általános Iskola és Gimnázium",a:"2220 Vecsés, Petőfi tér 1.",d:"Vecsés",sd:"Vecsés",o:"e",lat:47.4100,lon:19.2810,ce:0,w:"https://petofivecses.hu/",p:"Katolikus, 8 évfolyamos általános iskola + gimnázium",rd:13085,ff:809},
+{id:"c69",n:"Budapest School Általános Iskola és Gimnázium – Gödöllői telephely",a:"2100 Gödöllő, Rét utca 58.",d:"Gödöllő",sd:"Blaha",o:"a",lat:47.6186,lon:19.3385,ce:0,w:"https://budapestschool.org/",p:"Budapest School: személyre szabott tanulási célok, mentortanárok, kevert korosztályú tanulóközösségek",rd:23717,ff:1182},
+// --- XVIII. kerület, Pestszentlőrinc-Pestszentimre ---
+{id:"c70",n:"Kandó Téri Általános Iskola",a:"1182 Kandó tér",d:"XVIII",sd:"Ganzkertváros",o:"t",lat:47.4218,lon:19.2170,ce:0,w:"https://kandosuli.hu/",p:"Tagintézmények a Háromszéki és a Halomegyházi utcában; energetikailag felújított épület, nagy udvar",rd:18223,ff:1147},
+{id:"c71",n:"Sztehlo Gábor Evangélikus Óvoda, Általános Iskola és Gimnázium",a:"1185 Bajcsy-Zsilinszky utca 74.",d:"XVIII",sd:"Szemeretelep",o:"e",lat:47.4400,lon:19.2111,ce:0,w:"https://iskola.sztehloiskola.hu/",p:"Evangélikus, óvodától gimnáziumig; az általános iskola a Bajcsy-Zsilinszky utcában, a székhely a Kossuth téren",rd:13048,ff:1192},
+// --- XIX. kerület, Kispest ---
+{id:"c72",n:"Csillagkapu Általános Iskola",a:"1191 Berzsenyi utca 8.",d:"XIX",sd:"Kispest",o:"a",lat:47.4597,lon:19.1336,ce:0,w:"https://www.csillagkapu.suli.hu/",p:"2025 szeptemberében indult; autizmus spektrumzavarral és/vagy ADHD-val élő, ép értelmű gyerekeknek, kis létszámú, egyéni figyelmű osztályok",rd:16612,ff:1559},
+// --- II. kerület ---
+{id:"c73",n:"Gyermekek Háza Alternatív Általános Iskola és Gimnázium",a:"1021 Völgy utca 20-22.",d:"II",sd:"Hűvösvölgy",o:"a",lat:47.5367,lon:18.9749,ce:0,w:"https://www.gyermekekhaza.hu/",p:"Alternatív pedagógia, integrált nevelés; alsó és felső tagozat + négyosztályos gimnázium",rd:40060,ff:2722}
 ];
 (function(){
 "use strict";
@@ -379,7 +387,7 @@ var DEF = {v:2, home:{lat:47.4640,lon:19.2976,label:"Rákoskert, Budapest XVII."
            w:{res:3,dst:4,fit:3,soft:4}, maxMin:30, showScore:false, route:null, routeFor:null};
 var SOFT = [["teach","Tanári gárda"],["vibe","Hangulat, nyílt nap"],["build","Épület, felszereltség"],["after","Napközi, délutáni"],["food","Étkezés"]];
 var OPS = {t:"tankerületi",e:"egyházi",a:"alapítványi",n:"nemzetiségi"};
-var DISTRICTS = ["XVII","XVI","X","Pécel","Ecser","Maglód","Vecsés"];
+var DISTRICTS = ["XVII","XVI","XVIII","XIX","X","II","Pécel","Ecser","Maglód","Vecsés","Gödöllő"];
 var LS = "sulivalaszto.v1";
 
 var settings = JSON.parse(JSON.stringify(DEF));
@@ -493,7 +501,7 @@ function travel(s, mode, slot){
     return Math.round(freeMin(s)*mult + 2);
   }
   var far = s.d!=="XVII";
-  var suburb = (s.d==="Ecser"||s.d==="Maglód"||s.d==="Vecsés"||s.d==="Pécel");
+  var suburb = (s.d==="Ecser"||s.d==="Maglód"||s.d==="Vecsés"||s.d==="Pécel"||s.d==="Gödöllő");
   var wait = slot==="am" ? 6 : 7;
   var speed = far ? 22 : 18;
   var transfer = far ? (suburb ? 10 : 7) : 0;
