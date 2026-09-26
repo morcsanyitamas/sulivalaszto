@@ -126,6 +126,8 @@ tr.out{opacity:.58}
 .tag.short{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
 .tag.zone{border-color:var(--good);color:var(--good)}
 .tag.open{border-color:var(--ochre);color:var(--ochre);background:var(--ochre-soft)}
+.tag.alt{border-color:var(--ink-2);color:var(--ink-2)}
+.tag.alt.part{border-style:dashed;color:var(--ink-3)}
 
 /* score meter */
 .meter{display:flex;align-items:center;gap:8px;min-width:132px}
@@ -247,6 +249,7 @@ textarea{width:100%;min-height:76px;background:var(--surface-2);border:1px solid
     <div class="chips" id="oChips" role="group" aria-label="Fenntartó"></div>
     <label class="toggle"><input type="checkbox" id="showScore"> pontszám</label>
     <label class="toggle"><input type="checkbox" id="onlyShort"> csak rövidlista</label>
+    <label class="toggle" title="Alternatív pedagógia, kis létszám vagy projektalapú oktatás (a részben ilyenekkel együtt)"><input type="checkbox" id="onlyAlt"> csak alternatív</label>
     <label class="toggle"><input type="checkbox" id="showOut" checked> kihúzottak</label>
     <button class="btn" id="addBtn">+ Iskola</button>
     <button class="btn" id="setupBtn">Otthon &amp; súlyok</button>
@@ -320,7 +323,7 @@ const CATALOG = [
 {id:"c04",n:"Kőrösi Csoma Sándor Általános Iskola és Gimnázium",a:"1173 Akácvirág utca 49.",d:"XVII",sd:"Rákoskeresztúr",o:"t",lat:47.4770,lon:19.2620,ce:0,w:"https://www.kcss.hu/",p:"8+4 rendszer egy helyen; a gimnáziumi részen két tanítási nyelvű angol, német, orosz és kínai",rd:3398,ff:326},
 {id:"c05",n:"Zrínyi Miklós Általános Iskola",a:"1171 Sisakos sáska utca 3.",d:"XVII",sd:"Rákoscsaba-Újtelep",o:"t",lat:47.4880,lon:19.2830,ce:0,w:"https://www.zrinyi.net/",p:"Általános tanterv, humán és reál egyenrangú; Ökoiskola, MÜPA partneriskola",rd:3188,ff:316},
 {id:"c06",n:"Diadal Úti Általános Iskola",a:"1172 Diadal út 43-49.",d:"XVII",sd:"Rákosliget",o:"t",lat:47.4840,lon:19.2415,ce:0,w:"https://diadal.hu/",p:"Sportorientált; zene, tánc, színjátszás, nyelv és matematika tehetséggondozás",rd:5251,ff:522},
-{id:"c07",n:"Szabadság Sugárúti Általános Iskola",a:"1171 Szabadság sugárút 32-34.",d:"XVII",sd:"Rákoscsaba",o:"t",lat:47.4838,lon:19.2950,ce:0,w:"https://sugarsuli.edu.hu/",p:"A kerület egyik legkisebb iskolája (~360 fő, három épület); általános tanterv",rd:2565,ff:299},
+{id:"c07",n:"Szabadság Sugárúti Általános Iskola",a:"1171 Szabadság sugárút 32-34.",d:"XVII",sd:"Rákoscsaba",o:"t",lat:47.4838,lon:19.2950,ce:0,w:"https://sugarsuli.edu.hu/",p:"A kerület egyik legkisebb iskolája (~360 fő, három épület); általános tanterv",alt:"r",ai:"Részben: a kerület egyik legkisebb iskolája (~360 fő), de általános tantervvel tanít.",rd:2565,ff:299},
 {id:"c08",n:"Újlak Utcai Általános, Német Nemzetiségi és Két Tanítási Nyelvű Iskola",a:"1173 Újlak utca 110.",d:"XVII",sd:"Rákoskeresztúr",o:"t",lat:47.4688,lon:19.2665,ce:0,w:"https://ujlak.com/",p:"Három irány: német nemzetiségi, magyar-angol két tanítási nyelvű, általános tanterv; ~900 fő",rd:3312,ff:391},
 {id:"c09",n:"Rákoscsabai Jókai Mór Református Általános Iskola",a:"1171 Szánthó Géza utca 60.",d:"XVII",sd:"Rákoscsaba",o:"e",lat:47.4845,lon:19.2905,ce:0,w:"https://jokaim.edu.hu/",p:"Református fenntartású, hitéleti neveléssel",rd:2448,ff:236},
 {id:"c10",n:"Pál Apostol Katolikus Óvoda, Általános Iskola és Gimnázium",a:"1173 Pesti út 84.",d:"XVII",sd:"Rákoskeresztúr",o:"e",lat:47.4730,lon:19.2560,ce:0,w:"http://www.palapostol.hu/",p:"Óvoda + 8 évfolyam + hatosztályos gimnázium egy intézményben; nyelvi labor",rd:4699,ff:456},
@@ -339,9 +342,9 @@ const CATALOG = [
 {id:"c30",n:"Táncsics Mihály Általános Iskola és Gimnázium",a:"1165 Táncsics utca 7-9.",d:"XVI",sd:"Sashalom",o:"t",lat:47.513256,lon:19.205038,ce:1,w:"https://tancsics16.hu/",p:"Négy induló osztálytípus: általános, emelt ének-zene, angol tagozat, német nemzetiségi; nyolcosztályos gimnázium is",rd:10594,ff:956},
 {id:"c31",n:"Néri Szent Fülöp Katolikus Általános Iskola",a:"1161 Béla utca 23.",d:"XVI",sd:"Rákosszentmihály",o:"e",lat:47.51973,lon:19.160513,ce:1,w:"https://www.neriiskola.hu/",p:"Katolikus, 1-8. évfolyam; Örökös Ökoiskola, kiemelt környezeti nevelés",rd:14853,ff:1380},
 {id:"c32",n:"Bornemisza Péter Iskola – Újszász utcai telephely",a:"1165 Újszász utca 45/B",d:"XVI",sd:"Mátyásföld",o:"e",lat:47.504093,lon:19.198336,ce:1,w:"https://ujszasz.bpg.hu/",p:"Évfolyamonként négy osztály; hatosztályos gimnázium, művészeti és sportiskolai képzés az intézménycsoportban",rd:10899,ff:1003},
-{id:"c33",n:"Müller György Óvoda, Általános és Alapfokú Művészeti Iskola",a:"1165 Újszász utca 47/A",d:"XVI",sd:"Mátyásföld",o:"e",lat:47.505329,lon:19.198952,ce:1,w:"https://www.mullergyorgyiskola.hu/",p:"Kis létszámú osztályok (8-16 fő); művészeti oktatás; bibliai alapú erkölcsi nevelés",rd:10691,ff:965},
-{id:"c34",n:"Új Suli Alapítványi Általános Iskola",a:"1165 Baross Gábor utca 38/A",d:"XVI",sd:"Sashalom",o:"a",lat:47.51601,lon:19.190002,ce:1,w:"https://ujsuli.hu/",p:"Max. 8-10 fős csoportok; integrált oktatás, emelt angol, projektalapú tanulás, nyújtott első osztály",rd:11874,ff:1070},
-{id:"c35",n:"Sashalmi Waldorf Általános és Alapfokú Művészeti Iskola",a:"1163 Thököly út 13.",d:"XVI",sd:"Sashalom",o:"a",lat:47.510075,lon:19.169943,ce:1,w:"https://www.waldorfsuli.hu/",p:"Waldorf-pedagógia; zene, képzőművészet, színjáték, tánc; erős szülői közösség",rd:13379,ff:1220},
+{id:"c33",n:"Müller György Óvoda, Általános és Alapfokú Művészeti Iskola",a:"1165 Újszász utca 47/A",d:"XVI",sd:"Mátyásföld",o:"e",lat:47.505329,lon:19.198952,ce:1,w:"https://www.mullergyorgyiskola.hu/",p:"Kis létszámú osztályok (8-16 fő); művészeti oktatás; bibliai alapú erkölcsi nevelés",alt:"a",ai:"Kis létszám: 8–16 fős osztályok. Művészeti hangsúly, bibliai alapú erkölcsi nevelés; kifejezetten alternatív pedagógiát nem találtam.",rd:10691,ff:965},
+{id:"c34",n:"Új Suli Alapítványi Általános Iskola",a:"1165 Baross Gábor utca 38/A",d:"XVI",sd:"Sashalom",o:"a",lat:47.51601,lon:19.190002,ce:1,w:"https://ujsuli.hu/",p:"Max. 8-10 fős csoportok; integrált oktatás, emelt angol, projektalapú tanulás, nyújtott első osztály",alt:"a",ai:"Kis létszám: max. 8–10 fős csoportok. Projektalapú tanulás, integrált oktatás, nyújtott első osztály.",rd:11874,ff:1070},
+{id:"c35",n:"Sashalmi Waldorf Általános és Alapfokú Művészeti Iskola",a:"1163 Thököly út 13.",d:"XVI",sd:"Sashalom",o:"a",lat:47.510075,lon:19.169943,ce:1,w:"https://www.waldorfsuli.hu/",p:"Waldorf-pedagógia; zene, képzőművészet, színjáték, tánc; erős szülői közösség",alt:"a",ai:"Alternatív: Waldorf-pedagógia (epochális oktatás, művészeti hangsúly). Osztálylétszámról nem találtam adatot.",rd:13379,ff:1220},
 // --- X. kerület, Kőbánya ---
 {id:"c40",n:"Keresztury Dezső Általános Iskola",a:"1106 Keresztúri út 7-9.",d:"X",sd:"Kőbánya",o:"t",lat:47.4993,lon:19.1372,ce:0,w:"http://www.kereszturysuli.shp.hu",p:"Nincs adat kiemelt tagozatról",rd:14153,ff:1261},
 {id:"c41",n:"Kertvárosi Általános Iskola",a:"1106 Jászberényi út 89.",d:"X",sd:"Kőbánya-Kertváros",o:"t",lat:47.4930,lon:19.1560,ce:0,w:"https://kertvarosi.edu.hu/",p:"Ökoiskola, Állatbarát Iskola; közvetlenül a XVII. kerület határánál",rd:12427,ff:1221},
@@ -354,29 +357,29 @@ const CATALOG = [
 {id:"c48",n:"Bem József Általános Iskola",a:"1101 Hungária körút 5-7.",d:"X",sd:"Kőbánya",o:"t",lat:47.4855,lon:19.1005,ce:0,w:"https://www.bem-iskola.hu/",p:"Nincs adat kiemelt tagozatról",rd:17260,ff:1577},
 {id:"c49",n:"Szervátiusz Jenő Általános Iskola",a:"1101 Kőbányai út 38.",d:"X",sd:"Kőbánya",o:"t",lat:47.4842,lon:19.0966,ce:0,w:"https://szervatiusz.net/",p:"Nincs adat kiemelt tagozatról",rd:17592,ff:1707},
 {id:"c50",n:"Csukás István Magyar-Angol Két Tanítási Nyelvű Általános Iskola",a:"1101 Üllői út 118.",d:"X",sd:"Kőbánya",o:"t",lat:47.4685,lon:19.1005,ce:0,w:"https://ulloiiskola.hu/",p:"Magyar-angol két tanítási nyelvű",rd:20591,ff:2230},
-{id:"c51",n:"Orchidea Magyar-Angol Két Tanítási Nyelvű Óvoda, Általános Iskola és Gimnázium",a:"1105 Cserkesz utca 10-14.",d:"X",sd:"Kőbánya",o:"a",lat:47.4869,lon:19.1195,ce:0,w:"https://www.orchideaiskola.hu/",p:"Óvodától gimnáziumig, magyar-angol két tanítási nyelvű",rd:15641,ff:1421},
+{id:"c51",n:"Orchidea Magyar-Angol Két Tanítási Nyelvű Óvoda, Általános Iskola és Gimnázium",a:"1105 Cserkesz utca 10-14.",d:"X",sd:"Kőbánya",o:"a",lat:47.4869,lon:19.1195,ce:0,w:"https://www.orchideaiskola.hu/",p:"Óvodától gimnáziumig, magyar-angol két tanítási nyelvű",alt:"r",ai:"Részben: max. 20 fős osztályok (a gimnáziumban átlag 13 fő); kooperatív, több hetes projektmódszerek is. Alapvetően két tanítási nyelvű, nem alternatív iskola.",rd:15641,ff:1421},
 {id:"c52",n:"Reménység Katolikus Általános Iskola és Óvoda",a:"1105 Mádi utca 4-6.",d:"X",sd:"Kőbánya",o:"e",lat:47.4846,lon:19.1230,ce:0,w:"https://www.rekaisk.hu/",p:"Katolikus általános iskola és óvoda",rd:15226,ff:1413},
 {id:"c53",n:"Pannonhalmi Béla Baptista Általános Iskola",a:"1103 Kőér utca 7/b-9.",d:"X",sd:"Kőbánya",o:"e",lat:47.4747,lon:19.1178,ce:0,w:"https://pannonhalmi-bela.baptistaoktatas.hu/",p:"Baptista fenntartású",rd:15994,ff:1453},
-{id:"c54",n:"Christophorus Waldorf Általános Iskola és Gimnázium",a:"1108 Sibrik Miklós út 66-68.",d:"X",sd:"Újhegy",o:"a",lat:47.4702,lon:19.1380,ce:0,w:"https://christophoruswaldorf.hu/",p:"Waldorf-pedagógia óvodától gimnáziumig; 2019-ben költözött ide a XVII. kerületből",rd:15097,ff:1447},
-{id:"c55",n:"Kreatív Általános Iskola",a:"1108 Sibrik Miklós út 66-68.",d:"X",sd:"Újhegy",o:"a",lat:47.4702,lon:19.1380,ce:0,w:"http://kreativiskola.eu",p:"Max. 15 fős osztályok; 6-8. évfolyamon középiskolai felvételi felkészítés",rd:15097,ff:1447},
+{id:"c54",n:"Christophorus Waldorf Általános Iskola és Gimnázium",a:"1108 Sibrik Miklós út 66-68.",d:"X",sd:"Újhegy",o:"a",lat:47.4702,lon:19.1380,ce:0,w:"https://christophoruswaldorf.hu/",p:"Waldorf-pedagógia óvodától gimnáziumig; 2019-ben költözött ide a XVII. kerületből",alt:"a",ai:"Alternatív: Waldorf-pedagógia óvodától gimnáziumig. Osztálylétszámról nem találtam adatot.",rd:15097,ff:1447},
+{id:"c55",n:"Kreatív Általános Iskola",a:"1108 Sibrik Miklós út 66-68.",d:"X",sd:"Újhegy",o:"a",lat:47.4702,lon:19.1380,ce:0,w:"http://kreativiskola.eu",p:"Max. 15 fős osztályok; 6-8. évfolyamon középiskolai felvételi felkészítés",alt:"a",ai:"Kis létszám: max. 15 fős osztályok. Gyermekközpontú, stresszmentes, elfogadó légkör (Csupacsoda Alapítvány, 2020 óta). Projektoktatásra utaló adatot nem találtam.",rd:15097,ff:1447},
 // --- Pest megye ---
 {id:"c60",n:"PIOK Szemere Pál Általános Iskola",a:"2119 Pécel, Kossuth tér 7.",d:"Pécel",sd:"Pécel",o:"t",lat:47.4880,lon:19.3430,ce:0,w:"https://www.piok.hu/",p:"A Péceli Integrált Oktatási Központ általános iskolai intézményegysége, gimnáziummal egy intézményben",rd:9298,ff:666},
 {id:"c61",n:"PIOK Petőfi Sándor Általános Iskola",a:"2119 Pécel, Petőfi Sándor utca 15.",d:"Pécel",sd:"Pécel",o:"t",lat:47.4830,lon:19.3320,ce:0,w:"https://petofisuli.hu/",p:"A PIOK tagintézménye",rd:9718,ff:998},
 {id:"c62",n:"Szent Erzsébet Katolikus Általános Iskola és Óvoda",a:"2119 Pécel, Kossuth tér 7.",d:"Pécel",sd:"Pécel",o:"e",lat:47.4880,lon:19.3430,ce:0,w:"https://pecel.ekif.hu/",p:"Katolikus, ~300 tanuló, alsó tagozaton két párhuzamos osztály; Ökoiskola",rd:9298,ff:666},
-{id:"c63",n:"Laky Ilonka Általános Iskola",a:"2233 Ecser, Rákóczi utca 1-3.",d:"Ecser",sd:"Ecser",o:"t",lat:47.4370,lon:19.3220,ce:0,w:"https://laky.ecser.hu/",p:"Ecser egyetlen általános iskolája; kis létszám, integrált nevelés",rd:4356,ff:440},
+{id:"c63",n:"Laky Ilonka Általános Iskola",a:"2233 Ecser, Rákóczi utca 1-3.",d:"Ecser",sd:"Ecser",o:"t",lat:47.4370,lon:19.3220,ce:0,w:"https://laky.ecser.hu/",p:"Ecser egyetlen általános iskolája; kis létszám, integrált nevelés",alt:"r",ai:"Részben: kis iskola, együttnevelés – ez a település méretéből adódik, nem pedagógiai irány.",rd:4356,ff:440},
 {id:"c64",n:"Vermesy Péter Általános és Alapfokú Művészeti Iskola",a:"2234 Maglód, Fő utca 1-9.",d:"Maglód",sd:"Maglód",o:"t",lat:47.4470,lon:19.3620,ce:0,w:"https://www.maglodis.hu/",p:"Általános iskola + alapfokú művészetoktatás; alsó tagozat a József Attila krt. 33-35. alatt",rd:6010,ff:449},
 {id:"c65",n:"Andrássy Gyula Általános Iskola",a:"2220 Vecsés, Erzsébet tér 1.",d:"Vecsés",sd:"Vecsés",o:"t",lat:47.4130,lon:19.2740,ce:0,w:"https://andrassy-vecses.hu/",p:"„Békés Iskola” program; egy épületben a vecsési zeneiskolával",rd:13682,ff:861},
 {id:"c66",n:"Halmi Telepi Általános Iskola",a:"2220 Vecsés, Halmy József tér 1/H",d:"Vecsés",sd:"Vecsés",o:"t",lat:47.4020,lon:19.2670,ce:0,w:"https://halmisuli.hu/",p:"Ökoiskola",rd:14089,ff:892},
 {id:"c67",n:"Grassalkovich Antal Német Nemzetiségi és Kétnyelvű Általános Iskola",a:"2220 Vecsés, Fő út 90-92.",d:"Vecsés",sd:"Vecsés",o:"n",lat:47.4090,lon:19.2790,ce:0,w:"http://grassalkovich-vecses.hu/hu/",p:"Német nemzetiségi és kétnyelvű oktatás; nemzetiségi önkormányzati fenntartás",rd:13017,ff:791},
 {id:"c68",n:"Petőfi Sándor Római Katolikus Általános Iskola és Gimnázium",a:"2220 Vecsés, Petőfi tér 1.",d:"Vecsés",sd:"Vecsés",o:"e",lat:47.4100,lon:19.2810,ce:0,w:"https://petofivecses.hu/",p:"Katolikus, 8 évfolyamos általános iskola + gimnázium",rd:13085,ff:809},
-{id:"c69",n:"Budapest School Általános Iskola és Gimnázium – Gödöllői telephely",a:"2100 Gödöllő, Rét utca 58.",d:"Gödöllő",sd:"Blaha",o:"a",lat:47.6186,lon:19.3385,ce:0,w:"https://budapestschool.org/",p:"Budapest School: személyre szabott tanulási célok, mentortanárok, kevert korosztályú tanulóközösségek",rd:23717,ff:1182},
+{id:"c69",n:"Budapest School Általános Iskola és Gimnázium – Gödöllői telephely",a:"2100 Gödöllő, Rét utca 58.",d:"Gödöllő",sd:"Blaha",o:"a",lat:47.6186,lon:19.3385,ce:0,w:"https://budapestschool.org/",p:"Budapest School: személyre szabott tanulási célok, mentortanárok, kevert korosztályú tanulóközösségek",alt:"a",ai:"Kis létszám: kiscsoportos „mikroiskola” (tanulóközösség 6–60 fő, max. 6 évfolyam együtt). Projektalapú: több hetes, tantárgyközi modulok valós projektekkel, vegyes korú közösség, személyre szabott célok.",rd:23717,ff:1182},
 // --- XVIII. kerület, Pestszentlőrinc-Pestszentimre ---
 {id:"c70",n:"Kandó Téri Általános Iskola",a:"1182 Kandó tér",d:"XVIII",sd:"Ganzkertváros",o:"t",lat:47.4218,lon:19.2170,ce:0,w:"https://kandosuli.hu/",p:"Tagintézmények a Háromszéki és a Halomegyházi utcában; energetikailag felújított épület, nagy udvar",rd:18223,ff:1147},
 {id:"c71",n:"Sztehlo Gábor Evangélikus Óvoda, Általános Iskola és Gimnázium",a:"1185 Bajcsy-Zsilinszky utca 74.",d:"XVIII",sd:"Szemeretelep",o:"e",lat:47.4400,lon:19.2111,ce:0,w:"https://iskola.sztehloiskola.hu/",p:"Evangélikus, óvodától gimnáziumig; az általános iskola a Bajcsy-Zsilinszky utcában, a székhely a Kossuth téren",rd:13048,ff:1192},
 // --- XIX. kerület, Kispest ---
-{id:"c72",n:"Csillagkapu Általános Iskola",a:"1191 Berzsenyi utca 8.",d:"XIX",sd:"Kispest",o:"a",lat:47.4597,lon:19.1336,ce:0,w:"https://www.csillagkapu.suli.hu/",p:"2025 szeptemberében indult; autizmus spektrumzavarral és/vagy ADHD-val élő, ép értelmű gyerekeknek, kis létszámú, egyéni figyelmű osztályok",rd:16612,ff:1559},
+{id:"c72",n:"Csillagkapu Általános Iskola",a:"1191 Berzsenyi utca 8.",d:"XIX",sd:"Kispest",o:"a",lat:47.4597,lon:19.1336,ce:0,w:"https://www.csillagkapu.suli.hu/",p:"2025 szeptemberében indult; autizmus spektrumzavarral és/vagy ADHD-val élő, ép értelmű gyerekeknek, kis létszámú, egyéni figyelmű osztályok",alt:"a",ai:"Kis létszám: kis létszámú, egyéni figyelmű osztályok. Speciális: autizmus spektrumzavarral és/vagy ADHD-val élő, ép értelmű gyerekeknek (2025 óta).",rd:16612,ff:1559},
 // --- II. kerület ---
-{id:"c73",n:"Gyermekek Háza Alternatív Általános Iskola és Gimnázium",a:"1021 Völgy utca 20-22.",d:"II",sd:"Hűvösvölgy",o:"a",lat:47.5367,lon:18.9749,ce:0,w:"https://www.gyermekekhaza.hu/",p:"Alternatív pedagógia, integrált nevelés; alsó és felső tagozat + négyosztályos gimnázium",rd:40060,ff:2722}
+{id:"c73",n:"Gyermekek Háza Alternatív Általános Iskola és Gimnázium",a:"1021 Völgy utca 20-22.",d:"II",sd:"Hűvösvölgy",o:"a",lat:47.5367,lon:18.9749,ce:0,w:"https://www.gyermekekhaza.hu/",p:"Alternatív pedagógia, integrált nevelés; alsó és felső tagozat + négyosztályos gimnázium",alt:"a",ai:"Alternatív: aktív, problémamegoldó tanulás, csoportmunka, prezentációk; 1–6. évfolyamon egész napos, rugalmas napirend (tanulási blokkok); inkluzív, együttnevelés. Osztálylétszámról nem találtam adatot.",rd:40060,ff:2722}
 ];
 (function(){
 "use strict";
@@ -387,6 +390,8 @@ var DEF = {v:2, home:{lat:47.4640,lon:19.2976,label:"Rákoskert, Budapest XVII."
            w:{res:3,dst:4,fit:3,soft:4}, maxMin:30, showScore:false, route:null, routeFor:null};
 var SOFT = [["teach","Tanári gárda"],["vibe","Hangulat, nyílt nap"],["build","Épület, felszereltség"],["after","Napközi, délutáni"],["food","Étkezés"]];
 var OPS = {t:"tankerületi",e:"egyházi",a:"alapítványi",n:"nemzetiségi"};
+/* alt: "a" = alternatív / kis létszámú / projektalapú, "r" = részben ilyen; részletek az ai mezőben */
+var ALT = {a:"alternatív",r:"részben alternatív"};
 var DISTRICTS = ["XVII","XVI","XVIII","XIX","X","II","Pécel","Ecser","Maglód","Vecsés","Gödöllő"];
 var LS = "sulivalaszto.v1";
 
@@ -394,7 +399,7 @@ var settings = JSON.parse(JSON.stringify(DEF));
 var recs = Object.create(null);
 var SYNC = null, dl = null, authUser = null;
 var ui = {view:"list", q:"", dist:new Set(DISTRICTS), ops:new Set(["t","e","a","n"]),
-          onlyShort:false, showOut:true, sort:"dist", dir:1, sel:null, hover:null, slot:"am"};
+          onlyShort:false, onlyAlt:false, showOut:true, sort:"dist", dir:1, sel:null, hover:null, slot:"am"};
 
 var $ = function(id){return document.getElementById(id);};
 var esc = function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});};
@@ -561,10 +566,11 @@ function visible(){
     if(!ui.ops.has(s.o)) return false;
     var st = statusOf(s.id);
     if(ui.onlyShort && st!=="short") return false;
+    if(ui.onlyAlt && !s.alt) return false;
     if(!ui.showOut && st==="out") return false;
     if(bestMin(s) > settings.maxMin && st!=="short") return false;
     if(q){
-      var hay = (s.n+" "+s.a+" "+(s.p||"")+" "+(s.sd||"")+" "+(r.lang||"")+" "+(r.note||"")).toLowerCase();
+      var hay = (s.n+" "+s.a+" "+(s.p||"")+" "+(s.ai||"")+" "+(s.sd||"")+" "+(r.lang||"")+" "+(r.note||"")).toLowerCase();
       if(hay.indexOf(q)<0) return false;
     }
     return true;
@@ -622,7 +628,7 @@ function renderSummary(){
 }
 function csvText(){
   var arr = ranked(all().filter(function(s){ return !(recs[s.id]||{}).hidden; }));
-  var head = ["Iskola","Kerület","Fenntartó","Cím","Státusz","Összpont","Adat%","Táv km","Bicikli p","Autó 8h p","Autó 16h p","BKV 8h p","BKV 16h p","Körzetes","Komp mat","Komp szöv","Gimi %","Osztálylétszám","Nyelv/tagozat","Profil 1-5","Puha átlag","Nyílt nap","Jegyzet"];
+  var head = ["Iskola","Kerület","Fenntartó","Cím","Státusz","Összpont","Adat%","Táv km","Bicikli p","Autó 8h p","Autó 16h p","BKV 8h p","BKV 16h p","Körzetes","Komp mat","Komp szöv","Gimi %","Osztálylétszám","Nyelv/tagozat","Profil 1-5","Puha átlag","Alternatív","Alternatív – részletek","Nyílt nap","Jegyzet"];
   var rows = arr.map(function(x){
     var s=x.s,k=x.k,r=recs[s.id]||{};
     return [s.n,s.d,OPS[s.o],s.a,{short:"rövidlista",out:"kihúzva",none:""}[x.st],
@@ -630,7 +636,7 @@ function csvText(){
       travel(s,"bike","am"), travel(s,"car","am"), travel(s,"car","pm"), travel(s,"bkv","am"), travel(s,"bkv","pm"),
       r.zoned?"igen":"",
       r.kMat!=null?r.kMat:"", r.kSzo!=null?r.kSzo:"", r.gimn!=null?r.gimn:"", r.classSize!=null?r.classSize:"",
-      r.lang||"", r.fit||"", softAvg(r)!=null?softAvg(r).toFixed(1):"", r.openDay||"", (r.note||"").replace(/\n/g," ")];
+      r.lang||"", r.fit||"", softAvg(r)!=null?softAvg(r).toFixed(1):"", ALT[s.alt]||"", s.ai||"", r.openDay||"", (r.note||"").replace(/\n/g," ")];
   });
   return "\ufeff" + [head].concat(rows).map(function(rw){
     return rw.map(function(c){ c=String(c); return /[";\n]/.test(c) ? '"'+c.replace(/"/g,'""')+'"' : c; }).join(";");
@@ -649,6 +655,7 @@ function renderTable(){
     if(x.st==="short") tags += '<span class="tag short">rövidlista</span>';
     if(r.zoned) tags += '<span class="tag zone">körzetes</span>';
     if(r.openDay && r.openDay>=todayISO()) tags += '<span class="tag open">nyílt nap '+huDate(r.openDay)+'</span>';
+    if(s.alt) tags += '<span class="tag alt'+(s.alt==="r"?" part":"")+'" title="'+esc(s.ai||"")+'">'+ALT[s.alt]+'</span>';
     if(s.custom) tags += '<span class="tag">saját</span>';
     return '<tr data-id="'+s.id+'" class="'+(x.st==="out"?"out ":"")+(ui.sel===s.id?"sel":"")+'">'+
       '<td class="rank mono">'+(x.st==="out"?"–":(i+1))+'</td>'+
@@ -810,6 +817,7 @@ function renderDrawer(id){
     ss("Puha", k.soft==null?"–":fmt(k.soft/20,1)+"/5", "átlag")+'</div>');
   h.push('<div class="prof"><b>'+esc(s.d)+(s.sd?" · "+esc(s.sd):"")+' · '+OPS[s.o]+'</b><br>'+esc(s.a)+
     (s.p?'<br><br>'+esc(s.p):"")+
+    (s.alt?'<br><br><b>'+ALT[s.alt]+':</b> '+esc(s.ai||""):"")+
     (s.w?'<br><br><a href="'+esc(s.w)+'" target="_blank" rel="noopener">'+esc(s.w.replace(/^https?:\/\//,"").replace(/\/$/,""))+'</a>':"")+'</div>');
   h.push(linkRow(s));
 
@@ -1087,6 +1095,7 @@ $("showScore").addEventListener("change", function(){
   persistSettings(); markSort(); renderAll();
 });
 $("onlyShort").addEventListener("change", function(){ ui.onlyShort=this.checked; renderAll(); });
+$("onlyAlt").addEventListener("change", function(){ ui.onlyAlt=this.checked; renderAll(); });
 $("showOut").addEventListener("change", function(){ ui.showOut=this.checked; renderAll(); });
 $("setupBtn").addEventListener("click", function(){ openDrawer("__setup__"); });
 ["List","Map","Cmp"].forEach(function(v){

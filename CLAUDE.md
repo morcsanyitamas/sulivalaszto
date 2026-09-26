@@ -29,7 +29,7 @@ Four parts, in file order:
 2. `CATALOG` (~line 317) – the 57 built-in schools as compact literals:
    `id, n` (név), `a` (cím), `d` (kerület/település), `sd` (városrész), `o` (fenntartó: `t`
    tankerületi / `e` egyházi / `a` alapítványi / `n` nemzetiségi), `lat/lon`, `w` (weboldal),
-   `p` (profil), `rd` (OSRM road distance, metres), `ff` (free-flow drive time, seconds).
+   `p` (profil), `alt` (optional: `a` alternatív / kis létszámú / projektalapú, `r` részben) with `ai` (the supporting notes), `rd` (OSRM road distance, metres), `ff` (free-flow drive time, seconds).
    `rd`/`ff` are measured from the OSM centroid of Rákoskert — the same point as `DEF.home` —
    so they encode no private location. Recompute both together if that origin ever changes.
    `CATALOG` is read-only reference data; user input never mutates it.
