@@ -88,6 +88,17 @@ Sign-in is Google-only (`signInWithPopup`); the e-mail-link flow and the code-ba
 path were removed deliberately — don't reintroduce either. CSV export (`csvText`) is the remaining
 way data leaves the app, and lives in the setup panel.
 
+### Nyíltnap-kereső
+
+`tools/nyiltnap.mjs` (Node 20+, no dependencies) reads `CATALOG` straight out of `index.html`,
+crawls each school's `w` site plus up to 10 relevant same-host subpages (and `/feed/` on WordPress),
+and writes `nyiltnap.json` (`{v, gen, s:{id:{st, why?, url, pages, hits[{date,time,text,url,found}], rel[]}}}`,
+`st` ∈ `aktiv`/`js`/`hiba`/`nincs`). `.github/workflows/nyiltnap.yml` runs it daily and commits the file.
+The IIFE fetches it into `NY` — read-only, optional, never mutates `recs`; a hit only reaches
+`recs.openDay` via the drawer's „Átveszem” button (`setField`). Keep `w` URLs current: the crawler
+uses them as-is. Date heuristics: yearless dates are dropped when an older year precedes them or
+they are >150 days out; anything outside −1…+300 days is ignored.
+
 ### External dependencies
 
 Google Fonts, the Firebase ESM CDN, Nominatim (address search, on button press

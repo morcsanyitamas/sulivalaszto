@@ -62,6 +62,22 @@ becslésre vált – az oldal használható marad, csak pontatlanabb, és ezt je
 
 Minden más – az 57 iskola adatai, a menetidő-modell, a térkép, a teljes logika – benne van az `index.html`-ben.
 
+## Nyíltnap-kereső
+
+Egy GitHub Actions workflow (`.github/workflows/nyiltnap.yml`) minden reggel lefuttatja a
+`tools/nyiltnap.mjs` scriptet. Ez végignézi az iskolák honlapját (a kezdőlapot és a hírek,
+felvételi, leendő elsősök jellegű aloldalakat), nyílt napra, iskolakóstolgatóra stb. utaló,
+dátummal ellátott említéseket keres, és az eredményt a `nyiltnap.json` fájlba írja. Az oldal ezt
+betölti: a listában szaggatott keretes „nyílt nap?” címke jelzi a találatot, az adatlapon pedig
+látszik, hogy a kereső figyeli-e az iskolát, mit talált, és az **Átveszem** gombbal a dátum a
+saját adatok közé írható.
+
+- Kézi futtatás: GitHub → Actions → Nyíltnap-kereső → Run workflow, vagy helyben
+  `node tools/nyiltnap.mjs` (csak egy-két iskola, fájlírás nélkül: `node tools/nyiltnap.mjs c03 c46`).
+- Facebookot nem figyel (belépés nélkül nem olvasható), és a képként feltett plakátot sem látja.
+- Ahol a honlap tartalmát JavaScript tölti be, ott a kereső nem tud olvasni – az adatlap ezt kiírja.
+  Ha egy ilyen oldalnak van közvetlenül olvasható aloldala, a script `EXTRA` táblájába felvehető.
+
 ## Az adatok eredete
 
 - Iskolanevek, címek, fenntartók, profilok: tankerületi intézménylisták, önkormányzati oldalak, iskolai honlapok (2026. szeptemberi állapot)

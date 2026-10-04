@@ -126,6 +126,7 @@ tr.out{opacity:.58}
 .tag.short{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
 .tag.zone{border-color:var(--good);color:var(--good)}
 .tag.open{border-color:var(--ochre);color:var(--ochre);background:var(--ochre-soft)}
+.tag.open.found{border-style:dashed;background:none}
 .tag.alt{border-color:var(--ink-2);color:var(--ink-2)}
 .tag.alt.part{border-style:dashed;color:var(--ink-3)}
 
@@ -144,6 +145,12 @@ tr.out{opacity:.58}
 .share .step{display:flex;gap:9px;align-items:baseline}
 .share .step b{font-family:var(--mono);font-size:11px;color:var(--accent);flex:none;width:14px}
 .share p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.5}
+.nyst{font-size:12.5px;font-weight:600}
+.nyst.on{color:var(--good)}.nyst.off{color:var(--ink-3)}
+.nyhit{border-left:2px solid var(--ochre);padding:4px 0 4px 9px;margin:8px 0;font-size:12.5px;line-height:1.45}
+.nyhit b{font-family:var(--mono);color:var(--ochre)}
+.nyhit .new{font-size:10.5px;color:var(--accent);margin-left:4px}
+.nyhit .btn{padding:2px 8px;font-size:12px;margin-left:6px}
 .okmsg{font-size:12.5px;color:var(--good);font-family:var(--mono)}
 .errmsg{font-size:12.5px;color:var(--crit);font-family:var(--mono)}
 .links{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
@@ -320,7 +327,7 @@ const CATALOG = [
 {id:"c01",n:"Czimra Gyula Általános Iskola",a:"1174 Kép utca 14.",d:"XVII",sd:"Rákoshegy",o:"t",lat:47.4645,lon:19.2730,ce:0,w:"https://czimra.com/",p:"Művészeti orientációjú osztály; alsó tagozat a Kép u. 4. alatt",rd:2706,ff:303},
 {id:"c02",n:"Gregor József Általános Iskola",a:"1172 Hősök tere 19-20.",d:"XVII",sd:"Rákosliget",o:"t",lat:47.4818,lon:19.2472,ce:0,w:"https://www.gregorsuli.hu/",p:"Ének-zene tagozat (55+ év); 5. évftől emelt matematika vagy humán irány; Tehetségpont",rd:4565,ff:426},
 {id:"c03",n:"Kossuth Lajos Általános Iskola",a:"1171 Erzsébet körút 56.",d:"XVII",sd:"Rákoskert",o:"t",lat:47.4600,lon:19.3010,ce:0,w:"https://www.kossuthiskolarakoskert.hu/",p:"Emelt szintű angol; hangsúlyos magyar és matematika; Örökös Ökoiskola",rd:672,ff:75},
-{id:"c04",n:"Kőrösi Csoma Sándor Általános Iskola és Gimnázium",a:"1173 Akácvirág utca 49.",d:"XVII",sd:"Rákoskeresztúr",o:"t",lat:47.4770,lon:19.2620,ce:0,w:"https://www.kcss.hu/",p:"8+4 rendszer egy helyen; a gimnáziumi részen két tanítási nyelvű angol, német, orosz és kínai",rd:3398,ff:326},
+{id:"c04",n:"Kőrösi Csoma Sándor Általános Iskola és Gimnázium",a:"1173 Akácvirág utca 49.",d:"XVII",sd:"Rákoskeresztúr",o:"t",lat:47.4770,lon:19.2620,ce:0,w:"https://csoma.edu.hu/",p:"8+4 rendszer egy helyen; a gimnáziumi részen két tanítási nyelvű angol, német, orosz és kínai",rd:3398,ff:326},
 {id:"c05",n:"Zrínyi Miklós Általános Iskola",a:"1171 Sisakos sáska utca 3.",d:"XVII",sd:"Rákoscsaba-Újtelep",o:"t",lat:47.4880,lon:19.2830,ce:0,w:"https://www.zrinyi.net/",p:"Általános tanterv, humán és reál egyenrangú; Ökoiskola, MÜPA partneriskola",rd:3188,ff:316},
 {id:"c06",n:"Diadal Úti Általános Iskola",a:"1172 Diadal út 43-49.",d:"XVII",sd:"Rákosliget",o:"t",lat:47.4840,lon:19.2415,ce:0,w:"https://diadal.hu/",p:"Sportorientált; zene, tánc, színjátszás, nyelv és matematika tehetséggondozás",rd:5251,ff:522},
 {id:"c07",n:"Szabadság Sugárúti Általános Iskola",a:"1171 Szabadság sugárút 32-34.",d:"XVII",sd:"Rákoscsaba",o:"t",lat:47.4838,lon:19.2950,ce:0,w:"https://sugarsuli.edu.hu/",p:"A kerület egyik legkisebb iskolája (~360 fő, három épület); általános tanterv",alt:"r",ai:"Részben: a kerület egyik legkisebb iskolája (~360 fő), de általános tantervvel tanít.",rd:2565,ff:299},
@@ -329,13 +336,13 @@ const CATALOG = [
 {id:"c10",n:"Pál Apostol Katolikus Óvoda, Általános Iskola és Gimnázium",a:"1173 Pesti út 84.",d:"XVII",sd:"Rákoskeresztúr",o:"e",lat:47.4730,lon:19.2560,ce:0,w:"http://www.palapostol.hu/",p:"Óvoda + 8 évfolyam + hatosztályos gimnázium egy intézményben; nyelvi labor",rd:4699,ff:456},
 {id:"c11",n:"Podmaniczky János Evangélikus Óvoda és Általános Iskola",a:"1173 Ferihegyi út 115.",d:"XVII",sd:"Rákoshegy",o:"e",lat:47.4660,lon:19.2565,ce:0,w:"https://www.podi.edu.hu/",p:"Óvoda + általános iskola; Tehetségpont, Zöld óvoda, Határtalanul",rd:6056,ff:621},
 // --- XVI. kerület ---
-{id:"c20",n:"Arany János Általános Iskola",a:"1162 Bekecs utca 78.",d:"XVI",sd:"Mátyásföld",o:"t",lat:47.53511,lon:19.205021,ce:1,w:"http://www.bekecs78.hu",p:"Emelt angol 1. osztálytól; emelt magyar drámapedagógiával; sakk és logikai játékok 1-8.",rd:14286,ff:1144},
-{id:"c21",n:"Batthyány Ilona Általános Iskola",a:"1164 Georgina utca 23.",d:"XVI",sd:"Cinkota",o:"t",lat:47.520374,lon:19.227402,ce:1,w:"http://www.cinkota23.edu.hu",p:"Kiváló Tehetségpont; angol/német 1. osztálytól, orosz-francia 7.-től; atlétika utánpótlás",rd:11275,ff:911},
+{id:"c20",n:"Arany János Általános Iskola",a:"1162 Bekecs utca 78.",d:"XVI",sd:"Mátyásföld",o:"t",lat:47.53511,lon:19.205021,ce:1,w:"https://bekecs78.hu/",p:"Emelt angol 1. osztálytól; emelt magyar drámapedagógiával; sakk és logikai játékok 1-8.",rd:14286,ff:1144},
+{id:"c21",n:"Batthyány Ilona Általános Iskola",a:"1164 Georgina utca 23.",d:"XVI",sd:"Cinkota",o:"t",lat:47.520374,lon:19.227402,ce:1,w:"https://cinkota23.edu.hu/",p:"Kiváló Tehetségpont; angol/német 1. osztálytól, orosz-francia 7.-től; atlétika utánpótlás",rd:11275,ff:911},
 {id:"c22",n:"Centenáriumi Általános Iskola",a:"1165 Sasvár utca 101.",d:"XVI",sd:"Sashalom",o:"t",lat:47.518166,lon:19.183439,ce:1,w:"https://www.centi.hu/",p:"Emelt óraszámú angol vagy német 1.-től; kézilabda utánpótlás-központ, kiemelt atlétika és foci",rd:12593,ff:1176},
 {id:"c23",n:"Herman Ottó Általános Iskola",a:"1161 Regele János utca 43-45.",d:"XVI",sd:"Rákosszentmihály",o:"t",lat:47.521954,lon:19.16193,ce:1,w:"https://www.hermanbp.edu.hu/",p:"Emelt nyelv 5.-től heti 5 óra; második nyelv 5.-től (angol, német, spanyol); néptánc 1-8.",rd:14765,ff:1370},
-{id:"c24",n:"Jókai Mór Általános Iskola (XVI.)",a:"1163 Tiszakömlő utca 29-35.",d:"XVI",sd:"Sashalom",o:"t",lat:47.507137,lon:19.187918,ce:1,w:"http://www.jokai16.hu",p:"Felső tagozaton emelt angol és megnövelt óraszámú természettudomány",rd:11740,ff:1085},
+{id:"c24",n:"Jókai Mór Általános Iskola (XVI.)",a:"1163 Tiszakömlő utca 29-35.",d:"XVI",sd:"Sashalom",o:"t",lat:47.507137,lon:19.187918,ce:1,w:"https://jokai16.hu/",p:"Felső tagozaton emelt angol és megnövelt óraszámú természettudomány",rd:11740,ff:1085},
 {id:"c25",n:"Kölcsey Ferenc Általános Iskola",a:"1161 Hősök tere 1.",d:"XVI",sd:"Rákosszentmihály",o:"t",lat:47.523647,lon:19.162657,ce:1,w:"https://kolcseybp16.hu/",p:"1.-től választható emelt ének-zene, természettudomány, angol vagy német; 5.-től emelt matek",rd:20870,ff:1367},
-{id:"c26",n:"Lemhényi Dezső Általános Iskola",a:"1163 Hősök fasora 30.",d:"XVI",sd:"Mátyásföld",o:"t",lat:47.505917,lon:19.181713,ce:1,w:"https://www.lemhenyi16.hu/",p:"A kerület egyetlen magyar-angol két tanítási nyelvű iskolája; anyanyelvi tanár, egész napos alsó",rd:12213,ff:1110},
+{id:"c26",n:"Lemhényi Dezső Általános Iskola",a:"1163 Hősök fasora 30.",d:"XVI",sd:"Mátyásföld",o:"t",lat:47.505917,lon:19.181713,ce:1,w:"https://www.lemhenyi16.hu/index.php/hu/",p:"A kerület egyetlen magyar-angol két tanítási nyelvű iskolája; anyanyelvi tanár, egész napos alsó",rd:12213,ff:1110},
 {id:"c27",n:"Móra Ferenc Általános Iskola",a:"1162 Ida utca 108-110.",d:"XVI",sd:"Mátyásföld",o:"t",lat:47.52763,lon:19.184931,ce:1,w:"https://mora16.hu/",p:"Kiemelt matematika és idegen nyelv; matematika nívócsoport 5.-től",rd:15085,ff:1260},
 {id:"c28",n:"Sashalmi Tanoda Általános Iskola",a:"1163 Metró utca 3-7.",d:"XVI",sd:"Sashalom",o:"t",lat:47.516121,lon:19.172434,ce:1,w:"https://sastanoda.edu.hu/",p:"Nyelv 1.-től: angol, német vagy francia; széles csoportbontás 5.-től",rd:13528,ff:1240},
 {id:"c29",n:"Szent-Györgyi Albert Általános Iskola",a:"1161 Csömöri út 20. (alsó: 142.)",d:"XVI",sd:"Rákosszentmihály",o:"t",lat:47.520996,lon:19.15053,ce:1,w:"https://www.szgyaiskola.hu/",p:"Emelt angol és matematika; két tannyelvű képzési lehetőség; széles sportkínálat, két tornaterem",rd:21205,ff:1362},
@@ -347,7 +354,7 @@ const CATALOG = [
 {id:"c35",n:"Sashalmi Waldorf Általános és Alapfokú Művészeti Iskola",a:"1163 Thököly út 13.",d:"XVI",sd:"Sashalom",o:"a",lat:47.510075,lon:19.169943,ce:1,w:"https://www.waldorfsuli.hu/",p:"Waldorf-pedagógia; zene, képzőművészet, színjáték, tánc; erős szülői közösség",alt:"a",ai:"Alternatív: Waldorf-pedagógia (epochális oktatás, művészeti hangsúly). Osztálylétszámról nem találtam adatot.",rd:13379,ff:1220},
 // --- X. kerület, Kőbánya ---
 {id:"c40",n:"Keresztury Dezső Általános Iskola",a:"1106 Keresztúri út 7-9.",d:"X",sd:"Kőbánya",o:"t",lat:47.4993,lon:19.1372,ce:0,w:"http://www.kereszturysuli.shp.hu",p:"Nincs adat kiemelt tagozatról",rd:14153,ff:1261},
-{id:"c41",n:"Kertvárosi Általános Iskola",a:"1106 Jászberényi út 89.",d:"X",sd:"Kőbánya-Kertváros",o:"t",lat:47.4930,lon:19.1560,ce:0,w:"https://kertvarosi.edu.hu/",p:"Ökoiskola, Állatbarát Iskola; közvetlenül a XVII. kerület határánál",rd:12427,ff:1221},
+{id:"c41",n:"Kertvárosi Általános Iskola",a:"1106 Jászberényi út 89.",d:"X",sd:"Kőbánya-Kertváros",o:"t",lat:47.4930,lon:19.1560,ce:0,w:"https://sites.google.com/kertvarosi.edu.hu/kertvarosi-altalanos-iskola",p:"Ökoiskola, Állatbarát Iskola; közvetlenül a XVII. kerület határánál",rd:12427,ff:1221},
 {id:"c42",n:"Fekete István Általános Iskola",a:"1108 Harmat utca 196-198.",d:"X",sd:"Újhegy",o:"t",lat:47.4718,lon:19.1503,ce:0,w:"https://fekete-bp10.edu.hu/",p:"Logopédiai osztályok 1995 óta; mindennapos úszás alsó tagozaton",rd:14399,ff:1331},
 {id:"c43",n:"Széchenyi István Magyar-Német Két Tanítási Nyelvű Általános Iskola",a:"1108 Újhegyi sétány 1-3.",d:"X",sd:"Újhegy",o:"t",lat:47.4752,lon:19.1458,ce:0,w:"https://szechenyibp10.hu/",p:"Magyar-német két tanítási nyelvű",rd:13703,ff:1253},
 {id:"c44",n:"Harmat Általános Iskola",a:"1104 Harmat utca 88.",d:"X",sd:"Kőbánya",o:"t",lat:47.4787,lon:19.1327,ce:0,w:"https://harmat88.hu/",p:"Emelt szintű ének-zene tagozat; emelt angol; „Aktív tanulás – aktív mozgás” program",rd:14485,ff:1331},
@@ -355,16 +362,16 @@ const CATALOG = [
 {id:"c46",n:"Janikovszky Éva Magyar-Angol Két Tanítási Nyelvű Általános Iskola",a:"1103 Kápolna tér 4.",d:"X",sd:"Kőbánya",o:"t",lat:47.4822,lon:19.1237,ce:0,w:"https://janikovszky.net/",p:"Magyar-angol két tanítási nyelvű",rd:14976,ff:1368},
 {id:"c47",n:"Szent László Általános Iskola",a:"1102 Szent László tér 1.",d:"X",sd:"Kőbánya",o:"t",lat:47.4864,lon:19.1175,ce:0,w:"https://szentlaszlo1.hu/",p:"Nincs adat kiemelt tagozatról",rd:15938,ff:1506},
 {id:"c48",n:"Bem József Általános Iskola",a:"1101 Hungária körút 5-7.",d:"X",sd:"Kőbánya",o:"t",lat:47.4855,lon:19.1005,ce:0,w:"https://www.bem-iskola.hu/",p:"Nincs adat kiemelt tagozatról",rd:17260,ff:1577},
-{id:"c49",n:"Szervátiusz Jenő Általános Iskola",a:"1101 Kőbányai út 38.",d:"X",sd:"Kőbánya",o:"t",lat:47.4842,lon:19.0966,ce:0,w:"https://szervatiusz.net/",p:"Nincs adat kiemelt tagozatról",rd:17592,ff:1707},
+{id:"c49",n:"Szervátiusz Jenő Általános Iskola",a:"1101 Kőbányai út 38.",d:"X",sd:"Kőbánya",o:"t",lat:47.4842,lon:19.0966,ce:0,w:"https://szervatiusz.edu.hu/",p:"Nincs adat kiemelt tagozatról",rd:17592,ff:1707},
 {id:"c50",n:"Csukás István Magyar-Angol Két Tanítási Nyelvű Általános Iskola",a:"1101 Üllői út 118.",d:"X",sd:"Kőbánya",o:"t",lat:47.4685,lon:19.1005,ce:0,w:"https://ulloiiskola.hu/",p:"Magyar-angol két tanítási nyelvű",rd:20591,ff:2230},
-{id:"c51",n:"Orchidea Magyar-Angol Két Tanítási Nyelvű Óvoda, Általános Iskola és Gimnázium",a:"1105 Cserkesz utca 10-14.",d:"X",sd:"Kőbánya",o:"a",lat:47.4869,lon:19.1195,ce:0,w:"https://www.orchideaiskola.hu/",p:"Óvodától gimnáziumig, magyar-angol két tanítási nyelvű",alt:"r",ai:"Részben: max. 20 fős osztályok (a gimnáziumban átlag 13 fő); kooperatív, több hetes projektmódszerek is. Alapvetően két tanítási nyelvű, nem alternatív iskola.",rd:15641,ff:1421},
-{id:"c52",n:"Reménység Katolikus Általános Iskola és Óvoda",a:"1105 Mádi utca 4-6.",d:"X",sd:"Kőbánya",o:"e",lat:47.4846,lon:19.1230,ce:0,w:"https://www.rekaisk.hu/",p:"Katolikus általános iskola és óvoda",rd:15226,ff:1413},
+{id:"c51",n:"Orchidea Magyar-Angol Két Tanítási Nyelvű Óvoda, Általános Iskola és Gimnázium",a:"1105 Cserkesz utca 10-14.",d:"X",sd:"Kőbánya",o:"a",lat:47.4869,lon:19.1195,ce:0,w:"",p:"Óvodától gimnáziumig, magyar-angol két tanítási nyelvű. 2026: a fenntartó a kőbányai telephely bezárását jelentette be (költözés a XIII. ker. Hajdú utcába), szülői tiltakozás után átmeneti maradás is szóba került – a régi honlap nem elérhető",alt:"r",ai:"Részben: max. 20 fős osztályok (a gimnáziumban átlag 13 fő); kooperatív, több hetes projektmódszerek is. Alapvetően két tanítási nyelvű, nem alternatív iskola.",rd:15641,ff:1421},
+{id:"c52",n:"Reménység Katolikus Általános Iskola és Óvoda",a:"1105 Mádi utca 4-6.",d:"X",sd:"Kőbánya",o:"e",lat:47.4846,lon:19.1230,ce:0,w:"https://rekaisk.hu/",p:"Katolikus általános iskola és óvoda",rd:15226,ff:1413},
 {id:"c53",n:"Pannonhalmi Béla Baptista Általános Iskola",a:"1103 Kőér utca 7/b-9.",d:"X",sd:"Kőbánya",o:"e",lat:47.4747,lon:19.1178,ce:0,w:"https://pannonhalmi-bela.baptistaoktatas.hu/",p:"Baptista fenntartású",rd:15994,ff:1453},
 {id:"c54",n:"Christophorus Waldorf Általános Iskola és Gimnázium",a:"1108 Sibrik Miklós út 66-68.",d:"X",sd:"Újhegy",o:"a",lat:47.4702,lon:19.1380,ce:0,w:"https://christophoruswaldorf.hu/",p:"Waldorf-pedagógia óvodától gimnáziumig; 2019-ben költözött ide a XVII. kerületből",alt:"a",ai:"Alternatív: Waldorf-pedagógia óvodától gimnáziumig. Osztálylétszámról nem találtam adatot.",rd:15097,ff:1447},
 {id:"c55",n:"Kreatív Általános Iskola",a:"1108 Sibrik Miklós út 66-68.",d:"X",sd:"Újhegy",o:"a",lat:47.4702,lon:19.1380,ce:0,w:"http://kreativiskola.eu",p:"Max. 15 fős osztályok; 6-8. évfolyamon középiskolai felvételi felkészítés",alt:"a",ai:"Kis létszám: max. 15 fős osztályok. Gyermekközpontú, stresszmentes, elfogadó légkör (Csupacsoda Alapítvány, 2020 óta). Projektoktatásra utaló adatot nem találtam.",rd:15097,ff:1447},
 // --- Pest megye ---
 {id:"c60",n:"PIOK Szemere Pál Általános Iskola",a:"2119 Pécel, Kossuth tér 7.",d:"Pécel",sd:"Pécel",o:"t",lat:47.4880,lon:19.3430,ce:0,w:"https://www.piok.hu/",p:"A Péceli Integrált Oktatási Központ általános iskolai intézményegysége, gimnáziummal egy intézményben",rd:9298,ff:666},
-{id:"c61",n:"PIOK Petőfi Sándor Általános Iskola",a:"2119 Pécel, Petőfi Sándor utca 15.",d:"Pécel",sd:"Pécel",o:"t",lat:47.4830,lon:19.3320,ce:0,w:"https://petofisuli.hu/",p:"A PIOK tagintézménye",rd:9718,ff:998},
+{id:"c61",n:"PIOK Petőfi Sándor Általános Iskola",a:"2119 Pécel, Petőfi Sándor utca 15.",d:"Pécel",sd:"Pécel",o:"t",lat:47.4830,lon:19.3320,ce:0,w:"https://psaiweb.piok.hu/",p:"A PIOK tagintézménye",rd:9718,ff:998},
 {id:"c62",n:"Szent Erzsébet Katolikus Általános Iskola és Óvoda",a:"2119 Pécel, Kossuth tér 7.",d:"Pécel",sd:"Pécel",o:"e",lat:47.4880,lon:19.3430,ce:0,w:"https://pecel.ekif.hu/",p:"Katolikus, ~300 tanuló, alsó tagozaton két párhuzamos osztály; Ökoiskola",rd:9298,ff:666},
 {id:"c63",n:"Laky Ilonka Általános Iskola",a:"2233 Ecser, Rákóczi utca 1-3.",d:"Ecser",sd:"Ecser",o:"t",lat:47.4370,lon:19.3220,ce:0,w:"https://laky.ecser.hu/",p:"Ecser egyetlen általános iskolája; kis létszám, integrált nevelés",alt:"r",ai:"Részben: kis iskola, együttnevelés – ez a település méretéből adódik, nem pedagógiai irány.",rd:4356,ff:440},
 {id:"c64",n:"Vermesy Péter Általános és Alapfokú Művészeti Iskola",a:"2234 Maglód, Fő utca 1-9.",d:"Maglód",sd:"Maglód",o:"t",lat:47.4470,lon:19.3620,ce:0,w:"https://www.maglodis.hu/",p:"Általános iskola + alapfokú művészetoktatás; alsó tagozat a József Attila krt. 33-35. alatt",rd:6010,ff:449},
@@ -398,6 +405,7 @@ var LS = "sulivalaszto.v1";
 var settings = JSON.parse(JSON.stringify(DEF));
 var recs = Object.create(null);
 var SYNC = null, dl = null, authUser = null;
+var NY = null; /* nyiltnap.json – a nyíltnap-kereső eredménye, ha elérhető */
 var ui = {view:"list", q:"", dist:new Set(DISTRICTS), ops:new Set(["t","e","a","n"]),
           onlyShort:false, onlyAlt:false, showOut:true, sort:"dist", dir:1, sel:null, hover:null, slot:"am"};
 
@@ -654,7 +662,9 @@ function renderTable(){
     var tags = "";
     if(x.st==="short") tags += '<span class="tag short">rövidlista</span>';
     if(r.zoned) tags += '<span class="tag zone">körzetes</span>';
+    var nh = nyNext(s.id);
     if(r.openDay && r.openDay>=todayISO()) tags += '<span class="tag open">nyílt nap '+huDate(r.openDay)+'</span>';
+    else if(nh) tags += '<span class="tag open found" title="A nyíltnap-kereső találta a honlapon – ellenőrizd az adatlapon">nyílt nap? '+huDate(nh.date)+'</span>';
     if(s.alt) tags += '<span class="tag alt'+(s.alt==="r"?" part":"")+'" title="'+esc(s.ai||"")+'">'+ALT[s.alt]+'</span>';
     if(s.custom) tags += '<span class="tag">saját</span>';
     return '<tr data-id="'+s.id+'" class="'+(x.st==="out"?"out ":"")+(ui.sel===s.id?"sel":"")+'">'+
@@ -849,6 +859,7 @@ function renderDrawer(id){
   }).join("")));
 
   h.push(grp("Nyílt nap és jegyzet",
+    nyBlock(s, r)+
     '<div class="row"><label for="f_openDay">Nyílt nap dátuma</label><input type="date" id="f_openDay" data-f="openDay" value="'+esc(r.openDay||"")+'"></div>'+
     rowChk("visited","Voltunk már ott", !!r.visited)+
     '<textarea id="f_note" data-f="note" placeholder="Mi tetszett, mi nem, kit kérdeztünk meg…">'+esc(r.note||"")+'</textarea>'));
@@ -860,6 +871,41 @@ function renderDrawer(id){
 
   h.push('<div class="row" style="gap:8px"><button class="btn danger" id="delBtn" style="flex:1">'+(s.custom?"Végleges törlés":"Eltüntetés a listáról")+'</button></div>');
   $("dBody").innerHTML = h.join("");
+}
+/* ---------- nyíltnap-kereső ----------
+   A nyiltnap.json-t a GitHub Actions írja naponta (tools/nyiltnap.mjs). Csak olvassuk:
+   a találat akkor kerül a saját adatba, ha az „Átveszem” gombbal beírod. */
+function nyOf(id){ return NY && NY.s && NY.s[id] || null; }
+function nyNext(id){
+  var n = nyOf(id), t = todayISO();
+  if(!n || !n.hits) return null;
+  for(var i=0;i<n.hits.length;i++) if(n.hits[i].date>=t) return n.hits[i];
+  return null;
+}
+function nyBlock(s, r){
+  if(s.custom || !NY) return "";
+  var n = nyOf(s.id);
+  if(!n) return "";
+  var when = NY.gen ? huDate(NY.gen.slice(0,10)) : "–";
+  var h = '';
+  if(n.st==="aktiv"){
+    h += '<p class="note"><span class="nyst on">● Nyíltnap-kereső aktív</span> · naponta átnézi a honlapot ('+n.pages+' oldal) · utoljára: '+when+'</p>';
+    var t = todayISO();
+    var hits = (n.hits||[]).filter(function(x){ return x.date>=t; });
+    hits.forEach(function(x){
+      var fresh = x.found && (Date.now()-new Date(x.found).getTime()) < 3*86400000;
+      h += '<div class="nyhit"><b>'+huDate(x.date)+(x.time?" "+esc(x.time):"")+'</b>'+(fresh?'<span class="new">új</span>':'')+
+        (r.openDay===x.date ? ' <span class="okmsg">beírva</span>' : ' <button type="button" class="btn" data-nyday="'+esc(x.date)+'">Átveszem</button>')+
+        '<br><span style="color:var(--ink-2)">'+esc(x.text)+'</span> <a href="'+esc(x.url)+'" target="_blank" rel="noopener">forrás ↗</a></div>';
+    });
+    if(!hits.length) h += '<p class="note">Most nincs dátummal ellátott találat.</p>';
+    if(n.rel && n.rel.length) h += '<p class="note">Nyílt napot említő oldal: '+n.rel.map(function(u){
+      return '<a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(u.replace(/^https?:\/\/(www\.)?/,"").slice(0,48))+'</a>'; }).join(", ")+'</p>';
+    h += '<p class="note">Automatikus szövegkeresés, tévedhet – a dátumot a forráson ellenőrizd. Facebookot és képként feltett plakátot nem lát.</p>';
+  } else {
+    h += '<p class="note"><span class="nyst off">○ Nyíltnap-kereső nem figyeli</span> – '+esc(n.why||"")+'</p>';
+  }
+  return h;
 }
 function ttRow(s,mode,lab){
   var r = recs[s.id]||{};
@@ -1037,6 +1083,8 @@ document.addEventListener("click", function(ev){
   if(cc){ openDrawer(cc.getAttribute("data-id")); return; }
   var stb = t.closest && t.closest(".statusbtns button");
   if(stb && ui.sel){ setField(ui.sel,"status", stb.getAttribute("data-st")); renderDrawer(ui.sel); return; }
+  var nyb = t.closest && t.closest("[data-nyday]");
+  if(nyb && ui.sel){ setField(ui.sel, "openDay", nyb.getAttribute("data-nyday")); renderDrawer(ui.sel); return; }
   var rb = t.closest && t.closest("[data-rate]");
   if(rb && ui.sel){ var v = +rb.getAttribute("data-v"); setField(ui.sel, rb.getAttribute("data-rate"), v||null); renderDrawer(ui.sel); return; }
   var th = t.closest && t.closest("th.sortable");
@@ -1221,6 +1269,14 @@ function setAuthUI(){
 loadLocal(); syncControls(); renderAll();
 flagSync(false, "csak ezen a böngészőben");
 setAuthUI();
+/* A nyíltnap-kereső eredménye opcionális: file:// alatt vagy hiba esetén egyszerűen nincs. */
+try{
+  fetch("nyiltnap.json", {cache:"no-cache"}).then(function(r){ return r.ok ? r.json() : null; }).then(function(j){
+    if(!j || !j.s) return;
+    NY = j; renderAll();
+    if(ui.sel && ui.sel.charAt(0)!=="_" && $("drawer").classList.contains("open")) renderDrawer(ui.sel);
+  }).catch(function(){});
+}catch(e){}
 
 (async function(){
   try{ dl = await (window.claude && window.claude.use ? window.claude.use("downloads") : null); }catch(e){}
