@@ -889,7 +889,8 @@ function nyBlock(s, r){
   var when = NY.gen ? huDate(NY.gen.slice(0,10)) : "–";
   var h = '';
   if(n.st==="aktiv"){
-    h += '<p class="note"><span class="nyst on">● Nyíltnap-kereső aktív</span> · naponta átnézi a honlapot ('+n.pages+' oldal) · utoljára: '+when+'</p>';
+    h += '<p class="note"><span class="nyst on">● Nyíltnap-kereső aktív</span> · naponta átnézi a honlapot ('+n.pages+' oldal) · '+
+      (n.stale ? 'legutóbb sikeresen: '+huDate(n.okAt)+' (a '+when+' ellenőrzéskor nem volt elérhető: '+esc(n.stale)+')' : 'utoljára: '+when)+'</p>';
     var t = todayISO();
     var hits = (n.hits||[]).filter(function(x){ return x.date>=t; });
     hits.forEach(function(x){

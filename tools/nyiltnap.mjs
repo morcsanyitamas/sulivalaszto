@@ -282,6 +282,15 @@ async function main() {
       const old = Object.fromEntries((prev.s[s.id]?.hits || []).map((h) => [h.date + "|" + (h.time || ""), h.found]));
       const now = today.toISOString().slice(0, 10);
       r.hits.forEach((h) => { h.found = old[h.date + "|" + (h.time || "")] || now; });
+      const p = prev.s[s.id];
+      if (r.st === "aktiv") r.okAt = now;
+      else if (p && p.st === "aktiv" && r.st !== "nincs") {
+        // Átmeneti hiba vagy blokkolás (pl. a GitHub szerveréről nem elérhető oldal): a legutóbbi
+        // sikeres eredményt megtartjuk, csak jelöljük, hogy most nem sikerült frissíteni.
+        out[s.id] = { ...p, okAt: p.okAt || (prev.gen || "").slice(0, 10), stale: r.why };
+        console.log(`! ${s.id} ${s.n.slice(0, 48).padEnd(48)} ${r.why} – a ${out[s.id].okAt} eredmény marad`);
+        continue;
+      }
       out[s.id] = r;
       const tag = { aktiv: "✓", js: "~", hiba: "✗", nincs: "-" }[r.st];
       console.log(`${tag} ${s.id} ${s.n.slice(0, 48).padEnd(48)} ${r.st === "aktiv" ? `${r.pages} oldal, ${r.hits.length} találat` : r.why}`);
