@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-10-04T12:15:17.569Z",
+ "gen": "2026-10-04T12:42:02.721Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -29,11 +29,12 @@
    ]
   },
   "c04": {
-   "st": "aktiv",
+   "st": "hiba",
    "url": "https://csoma.edu.hu/",
-   "pages": 6,
+   "pages": 0,
    "hits": [],
-   "rel": []
+   "rel": [],
+   "why": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c05": {
    "st": "aktiv",
@@ -47,24 +48,20 @@
    ]
   },
   "c06": {
-   "st": "aktiv",
+   "st": "hiba",
    "url": "https://diadal.hu/",
-   "pages": 6,
+   "pages": 0,
    "hits": [],
-   "rel": [
-    "https://diadal.hu/elsosoknek/"
-   ]
+   "rel": [],
+   "why": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c07": {
-   "st": "aktiv",
+   "st": "hiba",
    "url": "https://sugarsuli.edu.hu/",
-   "pages": 10,
+   "pages": 0,
    "hits": [],
-   "rel": [
-    "https://sugarsuli.edu.hu/beiratkozas/",
-    "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
-    "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
-   ]
+   "rel": [],
+   "why": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c08": {
    "st": "aktiv",
@@ -125,11 +122,12 @@
    "rel": []
   },
   "c11": {
-   "st": "aktiv",
+   "st": "hiba",
    "url": "https://www.podi.edu.hu/",
-   "pages": 1,
+   "pages": 0,
    "hits": [],
-   "rel": []
+   "rel": [],
+   "why": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c20": {
    "st": "aktiv",
@@ -137,18 +135,16 @@
    "pages": 8,
    "hits": [],
    "rel": [
-    "https://bekecs78.hu/index.php/beiratkozas/",
-    "https://bekecs78.hu/index.php/2026/03/23/felhivas-tankotelesse-valo-gyermekek-altalanos-iskolai-beiratasara-a-2026-2027-es-tanevre/"
+    "https://bekecs78.hu/index.php/beiratkozas/"
    ]
   },
   "c21": {
-   "st": "aktiv",
+   "st": "hiba",
    "url": "https://cinkota23.edu.hu/",
-   "pages": 2,
+   "pages": 0,
    "hits": [],
-   "rel": [
-    "https://cinkota23.edu.hu/aktualis.htm"
-   ]
+   "rel": [],
+   "why": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c22": {
    "st": "aktiv",
@@ -160,15 +156,12 @@
    ]
   },
   "c23": {
-   "st": "aktiv",
+   "st": "hiba",
    "url": "https://www.hermanbp.edu.hu/",
-   "pages": 8,
+   "pages": 0,
    "hits": [],
-   "rel": [
-    "https://www.hermanbp.edu.hu/kitoltendo-dokumentumok/",
-    "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
-    "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
-   ]
+   "rel": [],
+   "why": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c24": {
    "st": "aktiv",
@@ -205,11 +198,12 @@
    "rel": []
   },
   "c28": {
-   "st": "aktiv",
+   "st": "hiba",
    "url": "https://sastanoda.edu.hu/",
-   "pages": 9,
+   "pages": 0,
    "hits": [],
-   "rel": []
+   "rel": [],
+   "why": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c29": {
    "st": "aktiv",
@@ -326,28 +320,12 @@
    "rel": []
   },
   "c42": {
-   "st": "aktiv",
+   "st": "hiba",
    "url": "https://fekete-bp10.edu.hu/",
-   "pages": 5,
-   "hits": [
-    {
-     "date": "2027-02-12",
-     "time": null,
-     "text": "…zeti listája: BP_X_ker_Általános iskolák felvételi körzetei_2026 Download Nyílt napok Alsó tagozat: február 12. csütörtök Felső tagozat: február 13. péntek Az első két tanórán tudnak részt venni (8:00 – 9:50) Tisztelt Szülők! Az iskolai szociális seg…",
-     "url": "https://fekete-bp10.edu.hu/",
-     "found": "2026-10-04"
-    },
-    {
-     "date": "2027-02-13",
-     "time": null,
-     "text": "…lák felvételi körzetei_2026 Download Nyílt napok Alsó tagozat: február 12. csütörtök Felső tagozat: február 13. péntek Az első két tanórán tudnak részt venni (8:00 – 9:50) Tisztelt Szülők! Az iskolai szociális segítő elérhetőségei: Tájékoztató Fekete…",
-     "url": "https://fekete-bp10.edu.hu/",
-     "found": "2026-10-04"
-    }
-   ],
-   "rel": [
-    "https://fekete-bp10.edu.hu/leendo-elsosoknek/"
-   ]
+   "pages": 0,
+   "hits": [],
+   "rel": [],
+   "why": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c43": {
    "st": "aktiv",
@@ -383,55 +361,20 @@
    ]
   },
   "c46": {
-   "st": "aktiv",
+   "st": "js",
    "url": "https://janikovszky.net/",
-   "pages": 11,
-   "hits": [
-    {
-     "date": "2026-11-03",
-     "time": "16:30",
-     "text": "…ílt órákkal és színes programokkal szeretnénk megmutatni, milyen nálunk az iskolai élet. Időpontok: 2026. november 3. – 16:30 2026. december 1. – 16:30 2027. január 12. – Farsangi mulatságok 2027. március 2. – Nyílt órák Élmény,… Tovább 🥪 +1 Szendvics Akc…",
-     "url": "https://janikovszky.net/",
-     "found": "2026-10-04"
-    },
-    {
-     "date": "2026-12-01",
-     "time": "16:30",
-     "text": "…ramokkal szeretnénk megmutatni, milyen nálunk az iskolai élet. Időpontok: 2026. november 3. – 16:30 2026. december 1. – 16:30 2027. január 12. – Farsangi mulatságok 2027. március 2. – Nyílt órák Élmény,… Tovább 🥪 +1 Szendvics Akció 🥪 2026.05.27. Az idei…",
-     "url": "https://janikovszky.net/",
-     "found": "2026-10-04"
-    },
-    {
-     "date": "2027-01-12",
-     "time": null,
-     "text": "…atni, milyen nálunk az iskolai élet. Időpontok: 2026. november 3. – 16:30 2026. december 1. – 16:30 2027. január 12. – Farsangi mulatságok 2027. március 2. – Nyílt órák Élmény,… Tovább 🥪 +1 Szendvics Akció 🥪 2026.05.27. Az idei tanévben iskolánk is csat…",
-     "url": "https://janikovszky.net/",
-     "found": "2026-10-04"
-    },
-    {
-     "date": "2027-03-02",
-     "time": null,
-     "text": "…őpontok: 2026. november 3. – 16:30 2026. december 1. – 16:30 2027. január 12. – Farsangi mulatságok 2027. március 2. – Nyílt órák Élmény,… Tovább 🥪 +1 Szendvics Akció 🥪 2026.05.27. Az idei tanévben iskolánk is csatlakozott a Plusz 1 Szendvics adománygyű…",
-     "url": "https://janikovszky.net/",
-     "found": "2026-10-04"
-    }
-   ],
-   "rel": [
-    "https://janikovszky.net/x-keruleti-iskolak-korzetei/",
-    "https://janikovszky.net/beiratkozas/",
-    "https://janikovszky.net/leendo-elsos-tanito-nenik/"
-   ]
+   "pages": 1,
+   "hits": [],
+   "rel": [],
+   "why": "a tartalmat JavaScript tölti be, szövegként nem olvasható"
   },
   "c47": {
-   "st": "aktiv",
+   "st": "hiba",
    "url": "https://szentlaszlo1.hu/",
-   "pages": 5,
+   "pages": 0,
    "hits": [],
-   "rel": [
-    "https://szentlaszlo1.hu/leendo-elsosoknek/",
-    "https://szentlaszlo1.hu/beiratkozas/",
-    "https://szentlaszlo1.hu/tanev-rendje/"
-   ]
+   "rel": [],
+   "why": "időtúllépés"
   },
   "c48": {
    "st": "aktiv",
@@ -444,15 +387,12 @@
    ]
   },
   "c49": {
-   "st": "aktiv",
-   "url": "https://szervatiusz.edu.hu/index.php/en-us/",
-   "pages": 11,
+   "st": "hiba",
+   "url": "https://szervatiusz.edu.hu/",
+   "pages": 0,
    "hits": [],
-   "rel": [
-    "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us",
-    "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
-    "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
-   ]
+   "rel": [],
+   "why": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c50": {
    "st": "aktiv",
@@ -629,15 +569,12 @@
    ]
   },
   "c69": {
-   "st": "aktiv",
+   "st": "hiba",
    "url": "https://budapestschool.org/",
-   "pages": 7,
+   "pages": 0,
    "hits": [],
-   "rel": [
-    "https://budapestschool.org/nyiltnapok",
-    "https://budapestschool.org/oldalak/kifir-felveteli/",
-    "https://budapestschool.org/blog/harom-legzogyakorlat-gyerekekkel/"
-   ]
+   "rel": [],
+   "why": "HTTP 403"
   },
   "c70": {
    "st": "aktiv",
