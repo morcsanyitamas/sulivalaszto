@@ -93,11 +93,17 @@ way data leaves the app, and lives in the setup panel.
 `tools/nyiltnap.mjs` (Node 20+, no dependencies) reads `CATALOG` straight out of `index.html`,
 crawls each school's `w` site plus up to 10 relevant same-host subpages (and `/feed/` on WordPress),
 and writes `nyiltnap.json` (`{v, gen, s:{id:{st, why?, url, pages, hits[{date,time,text,url,found}], rel[]}}}`,
-`st` ∈ `aktiv`/`js`/`hiba`/`nincs`). `.github/workflows/nyiltnap.yml` runs it daily and commits the file.
+`st` ∈ `aktiv`/`js`/`hiba`/`nincs`). `.github/workflows/nyiltnap.yml` runs it daily and commits the file;
+`tools/nyiltnap-helyi.ps1` (Windows Task Scheduler, registered by `tools/nyiltnap-utemezes.ps1`) runs it
+from the owner's machine too, in a separate clone under `%LOCALAPPDATA%`, because many school sites time out
+from GitHub runners. Both push to `main`; on a race the later run's `nyiltnap.json` wins (`rebase -X theirs`).
+Both `.ps1` files need a UTF-8 BOM (PowerShell 5.1 reads BOM-less scripts as ANSI).
 The IIFE fetches it into `NY` — read-only, optional, never mutates `recs`; a hit only reaches
 `recs.openDay` via the drawer's „Átveszem” button (`setField`). Keep `w` URLs current: the crawler
 uses them as-is. Date heuristics: yearless dates are dropped when an older year precedes them or
 they are >150 days out; anything outside −1…+300 days is ignored.
+The „Nyílt napok” view (`ui.view==="ny"`, `renderNy()`/`nyEvents()`) merges upcoming `NY` hits with
+`recs.openDay`, skipping hidden and `out` schools; the summary rail's „N nyílt nap közeleg” link opens it.
 
 ### External dependencies
 

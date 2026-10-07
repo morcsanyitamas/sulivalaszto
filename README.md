@@ -72,6 +72,16 @@ betölti: a listában szaggatott keretes „nyílt nap?” címke jelzi a talál
 látszik, hogy a kereső figyeli-e az iskolát, mit talált, és az **Átveszem** gombbal a dátum a
 saját adatok közé írható.
 
+- A felső összesítőben a **„N nyílt nap közeleg”** link (vagy a **Nyílt napok** nézetgomb) egy listát
+  nyit: dátum, iskola, forráslink, hónapok szerint csoportosítva – a kereső találatai és a kézzel
+  beírt nyílt napok együtt. A kihúzott és eltüntetett iskolák nem számítanak; a *Rövidlista* kapcsolóval
+  csak a rövidlistások látszanak. Sorra kattintva nyílik az adatlap.
+- **Helyi gépről is fut** a GitHub mellett: több iskolai honlap a GitHub szervereiről nem érhető el
+  (időtúllépés, 403), magyar otthoni netről igen. `tools/nyiltnap-helyi.ps1` egy külön klónban
+  (`%LOCALAPPDATA%\sulivalaszto-nyiltnap`) lefuttatja a keresőt, és ha változott, commitol és pushol –
+  a fejlesztői munkapéldányhoz nem nyúl. Ütemezés (egyszer): `powershell -ExecutionPolicy Bypass -File
+  tools\nyiltnap-utemezes.ps1` → naponta 7:30, kikapcsolt gépnél a következő induláskor pótolja.
+  Napló: `%LOCALAPPDATA%\sulivalaszto-nyiltnap.log`. Törlés: ugyanez `-Remove` kapcsolóval.
 - Kézi futtatás: GitHub → Actions → Nyíltnap-kereső → Run workflow, vagy helyben
   `node tools/nyiltnap.mjs` (csak egy-két iskola, fájlírás nélkül: `node tools/nyiltnap.mjs c03 c46`).
 - Facebookot nem figyel (belépés nélkül nem olvasható), és a képként feltett plakátot sem látja.

@@ -158,6 +158,22 @@ tr.out{opacity:.58}
 .links a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
 .tlink{font-family:var(--mono);font-size:10.5px;text-decoration:none;color:var(--accent);border-bottom:1px dotted var(--accent)}
 .tlink:hover{background:var(--accent-soft)}
+/* ---------- nyílt napok nézet ---------- */
+.nyhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.nylist{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.nymon{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2);padding:6px 14px;border-bottom:1px solid var(--line)}
+.nyrow{display:grid;grid-template-columns:118px 1fr auto;gap:4px 14px;align-items:baseline;padding:10px 14px;border-bottom:1px solid var(--line);cursor:pointer}
+.nyrow:last-child{border-bottom:0}
+.nyrow:hover{background:var(--accent-soft)}
+.nyrow .dt{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ochre);white-space:nowrap}
+.nyrow .dt small{display:block;font-weight:400;color:var(--ink-3);font-size:11.5px}
+.nyrow .sc{font-weight:600;font-size:14px;line-height:1.3}
+.nyrow .sc .tag{margin-left:6px;font-weight:400}
+.nyrow .tx{color:var(--ink-2);font-size:12.5px;line-height:1.45;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nyrow .lk{white-space:nowrap;text-align:right}
+.nyrow .src{display:block;font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-top:4px}
+.smlink{background:none;border:0;padding:0;font:inherit;color:var(--accent);cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;text-align:left}
+.smnote{font-family:var(--body);font-weight:400;font-size:12px;color:var(--ink-3);margin-top:2px}
 .empty{padding:40px 18px;text-align:center;color:var(--ink-3);background:var(--surface);border:1px dashed var(--line-2);border-radius:var(--r)}
 
 /* ---------- map ---------- */
@@ -221,6 +237,8 @@ textarea{width:100%;min-height:76px;background:var(--surface-2);border:1px solid
   .drawer{width:100%;top:auto;height:88vh;border-left:0;border-top:1px solid var(--line);border-radius:12px 12px 0 0;transform:translateY(100%)}
   .drawer.open{transform:none}
   .sm{min-width:50%;border-right:0}
+  .nyrow{grid-template-columns:1fr auto}
+  .nyrow .mid{grid-column:1 / -1;grid-row:2}
   .field input[type=text],.field input[type=search]{width:112px}
 }
 </style>
@@ -245,6 +263,7 @@ textarea{width:100%;min-height:76px;background:var(--surface-2);border:1px solid
       <button id="vList" aria-pressed="true">Lista</button>
       <button id="vMap" aria-pressed="false">Térkép</button>
       <button id="vCmp" aria-pressed="false">Összevetés</button>
+      <button id="vNy" aria-pressed="false">Nyílt napok</button>
     </div>
     <div class="field"><label for="q">Keresés</label><input type="search" id="q" placeholder="név, utca, tagozat…"></div>
     <div class="seg" role="group" aria-label="Napszak">
@@ -302,6 +321,21 @@ textarea{width:100%;min-height:76px;background:var(--surface-2);border:1px solid
   <section id="cmpView" hidden>
     <div class="cmp" id="cmpGrid"></div>
     <div id="cmpEmpty" class="empty" hidden>Még nincs rövidlistád. Nyiss meg egy iskolát, és tedd rövidlistára – itt egymás mellett látod majd őket.</div>
+  </section>
+
+  <section id="nyView" hidden>
+    <div class="nyhead">
+      <div>
+        <div class="eyebrow">Közelgő nyílt napok és programok leendő elsősöknek</div>
+        <div class="note" id="nyNote"></div>
+      </div>
+      <div class="seg" role="group" aria-label="Melyik iskolák">
+        <button id="nyAll" aria-pressed="true">Mind</button>
+        <button id="nyShort" aria-pressed="false">Rövidlista</button>
+      </div>
+    </div>
+    <div class="nylist" id="nyList"></div>
+    <div id="nyEmpty" class="empty" hidden></div>
   </section>
 
   <p class="foot">
@@ -407,7 +441,7 @@ var recs = Object.create(null);
 var SYNC = null, dl = null, authUser = null;
 var NY = null; /* nyiltnap.json – a nyíltnap-kereső eredménye, ha elérhető */
 var ui = {view:"list", q:"", dist:new Set(DISTRICTS), ops:new Set(["t","e","a","n"]),
-          onlyShort:false, onlyAlt:false, showOut:true, sort:"dist", dir:1, sel:null, hover:null, slot:"am"};
+          onlyShort:false, onlyAlt:false, showOut:true, nyShort:false, sort:"dist", dir:1, sel:null, hover:null, slot:"am"};
 
 var $ = function(id){return document.getElementById(id);};
 var esc = function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});};
@@ -620,15 +654,13 @@ function renderSummary(){
   var top = settings.showScore
     ? vis.slice().sort(function(a,b){ return b.k.total-a.k.total; })[0]
     : vis.slice().sort(function(a,b){ return a.k.min-b.k.min; })[0];
-  var nextOpen = null;
-  list.forEach(function(s){ var d=(recs[s.id]||{}).openDay; if(d && d>=todayISO() && (!nextOpen || d<nextOpen.d)) nextOpen={d:d,n:s.n}; });
   var cells = [
     ["Szűrésben", inRange.length + " <span style=\"font-size:12px;color:var(--ink-3)\">/ "+list.length+"</span>", null],
     ["Rövidlista", short.length, null],
     ["Kihúzva", out.length, null],
     [settings.showScore ? "Jelenlegi éllovas" : "Leggyorsabban elérhető", null,
       top ? esc(top.s.n.split(" Általános")[0]) + " <span class=\"mono\" style=\"color:var(--ink-3);font-size:12px\">"+(settings.showScore?fmt(top.k.total):fmt(top.k.min)+" perc")+"</span>" : "—"],
-    ["Következő nyílt nap", null, nextOpen ? "<span class=\"mono\" style=\"color:var(--ochre)\">"+huDate(nextOpen.d)+"</span> · "+esc(nextOpen.n.split(" Általános")[0]) : "nincs beírva"]
+    ["Nyílt napok", null, nyLead()]
   ];
   $("summary").innerHTML = cells.map(function(c){
     return '<div class="sm"><div class="eyebrow">'+c[0]+'</div>'+(c[2]!=null?'<div class="lead">'+c[2]+'</div>':'<b>'+c[1]+'</b>')+'</div>';
@@ -790,6 +822,7 @@ function renderAll(){
   renderSummary();
   if(ui.view==="list") renderTable();
   else if(ui.view==="map") renderMap();
+  else if(ui.view==="ny") renderNy();
   else renderCmp();
   if($("drawer").classList.contains("open") && ui.sel) renderDrawer(ui.sel);
 }
@@ -881,6 +914,62 @@ function nyNext(id){
   if(!n || !n.hits) return null;
   for(var i=0;i<n.hits.length;i++) if(n.hits[i].date>=t) return n.hits[i];
   return null;
+}
+/* Közelgő nyílt napok egy listában: a kereső találatai és a kézzel beírt dátum (recs.openDay)
+   együtt. Az eltüntetett és a kihúzott iskolák nem számítanak. */
+var WDAY = ["vasárnap","hétfő","kedd","szerda","csütörtök","péntek","szombat"];
+var MONTH = ["január","február","március","április","május","június","július","augusztus","szeptember","október","november","december"];
+function nyEvents(onlyShort){
+  var t = todayISO(), out = [];
+  all().forEach(function(s){
+    var r = recs[s.id]||{}, st = statusOf(s.id);
+    if(r.hidden || st==="out" || (onlyShort && st!=="short")) return;
+    var own = r.openDay && r.openDay>=t ? r.openDay : null, ownHit = false;
+    var n = s.custom ? null : nyOf(s.id);
+    if(n && n.st==="aktiv") (n.hits||[]).forEach(function(x){
+      if(x.date<t) return;
+      if(x.date===own) ownHit = true;
+      out.push({d:x.date, time:x.time, s:s, st:st, text:x.text, url:x.url, own:x.date===own,
+        fresh: x.found && (Date.now()-new Date(x.found).getTime()) < 3*86400000});
+    });
+    if(own && !ownHit) out.push({d:own, time:null, s:s, st:st, text:r.note||"", url:s.w||"", own:true, manual:true});
+  });
+  return out.sort(function(a,b){ return a.d.localeCompare(b.d) || String(a.time||"").localeCompare(String(b.time||"")) || a.s.n.localeCompare(b.s.n,"hu"); });
+}
+function nyLead(){
+  var ev = nyEvents(false);
+  if(!ev.length) return '<button type="button" class="smlink" id="nyLink">nincs közelgő</button>';
+  var f = ev[0];
+  return '<button type="button" class="smlink" id="nyLink">'+ev.length+' nyílt nap közeleg</button>'+
+    '<div class="smnote">legközelebb <span class="mono" style="color:var(--ochre)">'+huDate(f.d)+'</span> · '+esc(f.s.n.split(" Általános")[0])+'</div>';
+}
+function renderNy(){
+  var ev = nyEvents(ui.nyShort), cur = "", h = [];
+  $("nyAll").setAttribute("aria-pressed", String(!ui.nyShort));
+  $("nyShort").setAttribute("aria-pressed", String(ui.nyShort));
+  ev.forEach(function(x){
+    var p = x.d.split("-"), mk = p[0]+"-"+p[1];
+    if(mk!==cur){ cur = mk; h.push('<div class="nymon">'+p[0]+'. '+MONTH[+p[1]-1]+'</div>'); }
+    var wd = WDAY[new Date(+p[0], +p[1]-1, +p[2]).getDay()];
+    var host = x.url ? x.url.replace(/^https?:\/\/(www\.)?/,"").split("/")[0] : "";
+    h.push('<div class="nyrow" data-ny="'+x.s.id+'">'+
+      '<div class="dt">'+(+p[1])+'. '+(+p[2])+'.<small>'+wd+(x.time?' · '+esc(x.time):'')+'</small></div>'+
+      '<div class="mid"><div class="sc">'+esc(x.s.n)+
+        (x.st==="short"?'<span class="tag">★ rövidlista</span>':'')+
+        (x.own?'<span class="tag open">beírva</span>':'')+
+        (x.fresh?'<span class="tag" style="color:var(--accent)">új</span>':'')+'</div>'+
+        (x.text?'<div class="tx">'+esc(x.text.replace(/&[a-z]+;/g," "))+'</div>':'')+'</div>'+
+      '<div class="lk">'+(x.url?'<a class="tlink" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+(x.manual?'honlap':'forrás')+' ↗</a>':'')+
+        '<span class="src">'+(x.manual?'saját bejegyzés':esc(host))+'</span></div>'+
+    '</div>');
+  });
+  $("nyList").innerHTML = h.join("");
+  $("nyList").hidden = !ev.length;
+  $("nyEmpty").hidden = !!ev.length;
+  $("nyEmpty").textContent = ui.nyShort ? "A rövidlistás iskoláknál most nincs közelgő nyílt nap." :
+    (NY ? "Most nincs közelgő nyílt nap – se a kereső nem talált, se kézzel nincs beírva." : "A nyíltnap-kereső eredménye nem töltődött be, és kézzel sincs közelgő dátum beírva.");
+  $("nyNote").textContent = (NY && NY.gen ? "A kereső legutóbb "+huDate(NY.gen.slice(0,10))+" nézte át a honlapokat. " : "")+
+    "Automatikus szövegkeresés – nem minden találat nyílt nap, a dátumot a forráson ellenőrizd. Sorra kattintva nyílik az adatlap.";
 }
 function nyBlock(s, r){
   if(s.custom || !NY) return "";
@@ -1082,6 +1171,10 @@ document.addEventListener("click", function(ev){
   if(pin){ openDrawer(pin.getAttribute("data-id")); return; }
   var cc = t.closest && t.closest(".ccard[data-id]");
   if(cc){ openDrawer(cc.getAttribute("data-id")); return; }
+  var nr = t.closest && t.closest(".nyrow[data-ny]");
+  if(nr){ openDrawer(nr.getAttribute("data-ny")); return; }
+  if(t.id==="nyLink"){ setView("ny"); return; }
+  if(t.id==="nyAll" || t.id==="nyShort"){ ui.nyShort = t.id==="nyShort"; renderNy(); return; }
   var stb = t.closest && t.closest(".statusbtns button");
   if(stb && ui.sel){ setField(ui.sel,"status", stb.getAttribute("data-st")); renderDrawer(ui.sel); return; }
   var nyb = t.closest && t.closest("[data-nyday]");
@@ -1147,14 +1240,16 @@ $("onlyShort").addEventListener("change", function(){ ui.onlyShort=this.checked;
 $("onlyAlt").addEventListener("change", function(){ ui.onlyAlt=this.checked; renderAll(); });
 $("showOut").addEventListener("change", function(){ ui.showOut=this.checked; renderAll(); });
 $("setupBtn").addEventListener("click", function(){ openDrawer("__setup__"); });
-["List","Map","Cmp"].forEach(function(v){
-  $("v"+v).addEventListener("click", function(){
-    ui.view = v.toLowerCase()==="list"?"list":(v==="Map"?"map":"cmp");
-    ["List","Map","Cmp"].forEach(function(o){ $("v"+o).setAttribute("aria-pressed", String(o===v)); });
-    $("listView").hidden = ui.view!=="list"; $("mapView").hidden = ui.view!=="map"; $("cmpView").hidden = ui.view!=="cmp";
-    renderAll();
+var VIEWS = {list:"List", map:"Map", cmp:"Cmp", ny:"Ny"};
+function setView(v){
+  ui.view = v;
+  Object.keys(VIEWS).forEach(function(o){
+    $("v"+VIEWS[o]).setAttribute("aria-pressed", String(o===v));
+    $(o+"View").hidden = o!==v;
   });
-});
+  renderAll();
+}
+Object.keys(VIEWS).forEach(function(v){ $("v"+VIEWS[v]).addEventListener("click", function(){ setView(v); }); });
 $("addBtn").addEventListener("click", function(){
   var n = prompt("Az iskola neve:"); if(!n) return;
   var a = prompt("Címe (opcionális):") || "";
