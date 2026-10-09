@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-10-09T07:09:15.133Z",
+ "gen": "2026-10-09T11:22:37.780Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -48,7 +48,8 @@
     "https://csoma.edu.hu/esemenyek-eredmenyek/",
     "https://csoma.edu.hu/oko-esemenyek/"
    ],
-   "okAt": "2026-10-09"
+   "okAt": "2026-10-09",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c05": {
    "st": "aktiv",
@@ -82,7 +83,8 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-09"
+   "okAt": "2026-10-09",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c08": {
    "st": "aktiv",
@@ -158,7 +160,8 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-09"
+   "okAt": "2026-10-09",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c20": {
    "st": "aktiv",
@@ -178,7 +181,8 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-10-09"
+   "okAt": "2026-10-09",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c22": {
    "st": "aktiv",
@@ -200,7 +204,8 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-09"
+   "okAt": "2026-10-09",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c24": {
    "st": "aktiv",
@@ -246,7 +251,8 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-09"
+   "okAt": "2026-10-09",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c29": {
    "st": "aktiv",
@@ -399,7 +405,8 @@
    "rel": [
     "https://fekete-bp10.edu.hu/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-09"
+   "okAt": "2026-10-09",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c43": {
    "st": "aktiv",
@@ -488,7 +495,8 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-10-09"
+   "okAt": "2026-10-09",
+   "stale": "időtúllépés"
   },
   "c48": {
    "st": "aktiv",
@@ -511,16 +519,15 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-10-09"
+   "okAt": "2026-10-09",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c50": {
    "st": "aktiv",
    "url": "https://ulloiiskola.hu/",
    "pages": 6,
    "hits": [],
-   "rel": [
-    "https://ulloiiskola.hu/beiskolazas/?"
-   ],
+   "rel": [],
    "okAt": "2026-10-09"
   },
   "c51": {
@@ -655,10 +662,9 @@
   "c64": {
    "st": "aktiv",
    "url": "https://www.maglodis.hu/",
-   "pages": 8,
+   "pages": 7,
    "hits": [],
    "rel": [
-    "https://www.maglodis.hu/lehetoseg-elozetes-online-beiratkozasra/",
     "https://www.maglodis.hu/page/2/"
    ],
    "okAt": "2026-10-09"
@@ -719,7 +725,8 @@
     "https://budapestschool.org/oldalak/kifir-felveteli/",
     "https://budapestschool.org/blog/harom-legzogyakorlat-gyerekekkel/"
    ],
-   "okAt": "2026-10-09"
+   "okAt": "2026-10-09",
+   "stale": "HTTP 403"
   },
   "c70": {
    "st": "aktiv",
