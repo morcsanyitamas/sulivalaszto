@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-10-10T10:39:53.604Z",
+ "gen": "2026-10-10T11:03:40.798Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -34,22 +34,13 @@
    "st": "aktiv",
    "url": "https://csoma.edu.hu/",
    "pages": 6,
-   "hits": [
-    {
-     "date": "2026-10-08",
-     "time": null,
-     "text": "…lat Osztályképek Osztálynévsorok Alapítvány Kapcsolat Egyéb 2026.10.08. by Admin &middot; Published 2026.10.08. Gimnáziumi nyílt napok Egyéb 2026.10.07. by Admin &middot; Published 2026.10.07. Európai Innovatív Tanítási Díjat nyert intézményünk Örömm…",
-     "url": "https://csoma.edu.hu/",
-     "found": "2026-10-08"
-    }
-   ],
+   "hits": [],
    "rel": [
     "https://csoma.edu.hu/gimnaziumi-nyilt-napok-2/",
     "https://csoma.edu.hu/esemenyek-eredmenyek/",
     "https://csoma.edu.hu/oko-esemenyek/"
    ],
-   "okAt": "2026-10-09",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-10"
   },
   "c05": {
    "st": "aktiv",
@@ -83,8 +74,7 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-09",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-10"
   },
   "c08": {
    "st": "aktiv",
@@ -153,8 +143,7 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-09",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-10"
   },
   "c20": {
    "st": "aktiv",
@@ -162,7 +151,8 @@
    "pages": 8,
    "hits": [],
    "rel": [
-    "https://bekecs78.hu/index.php/beiratkozas/"
+    "https://bekecs78.hu/index.php/beiratkozas/",
+    "https://bekecs78.hu/index.php/2026/04/15/racz-aladar-zeneiskola-felveteli-idopontok-a-2026-27-es-tanevre/"
    ],
    "okAt": "2026-10-10"
   },
@@ -174,8 +164,7 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-10-09",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-10"
   },
   "c22": {
    "st": "aktiv",
@@ -197,8 +186,7 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-09",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-10"
   },
   "c24": {
    "st": "aktiv",
@@ -244,8 +232,7 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-09",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-10"
   },
   "c29": {
    "st": "aktiv",
@@ -394,12 +381,33 @@
    "st": "aktiv",
    "url": "https://fekete-bp10.edu.hu/",
    "pages": 8,
-   "hits": [],
+   "hits": [
+    {
+     "date": "2026-12-09",
+     "time": "16:30",
+     "text": "…Közzétételi lista Leendő elsősöknek Iskolanyitogató alkalmaink Adventi hangulat játékos foglalkozás 2026. december 9. szerda 16:30-17:30-ig Mozgolódó játékos foglalkozás 2027. január 20. szerda játékos mozgásos feladatok 16:30-17:30-ig Nyelvelő játékos fog…",
+     "url": "https://fekete-bp10.edu.hu/leendo-elsosoknek/",
+     "found": "2026-10-10"
+    },
+    {
+     "date": "2027-01-20",
+     "time": null,
+     "text": "…hangulat játékos foglalkozás 2026. december 9. szerda 16:30-17:30-ig Mozgolódó játékos foglalkozás 2027. január 20. szerda játékos mozgásos feladatok 16:30-17:30-ig Nyelvelő játékos foglalkozás 2027. február 24. szerda 16:30-17:30-ig Mesés hétpróba zárór…",
+     "url": "https://fekete-bp10.edu.hu/leendo-elsosoknek/",
+     "found": "2026-10-10"
+    },
+    {
+     "date": "2027-02-24",
+     "time": "16:30",
+     "text": "…ozás 2027. január 20. szerda játékos mozgásos feladatok 16:30-17:30-ig Nyelvelő játékos foglalkozás 2027. február 24. szerda 16:30-17:30-ig Mesés hétpróba zárórendezvény és szülői tájékoztató 2027. március 17. szerda 16:30-17:30-ig Felhívás tankötelessé vá…",
+     "url": "https://fekete-bp10.edu.hu/leendo-elsosoknek/",
+     "found": "2026-10-10"
+    }
+   ],
    "rel": [
     "https://fekete-bp10.edu.hu/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-09",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-10"
   },
   "c43": {
    "st": "aktiv",
@@ -488,8 +496,7 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-10-09",
-   "stale": "időtúllépés"
+   "okAt": "2026-10-10"
   },
   "c48": {
    "st": "aktiv",
@@ -512,8 +519,7 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-10-09",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-10"
   },
   "c50": {
    "st": "aktiv",
@@ -605,7 +611,8 @@
     "https://christophoruswaldorf.hu/2026/09/29/elsos-osztalytanito/",
     "https://christophoruswaldorf.hu/2026/05/04/bemutatkozik-a-leendo-kilencedikes-osztalyunk-osztalykiseroje/"
    ],
-   "okAt": "2026-10-10"
+   "okAt": "2026-10-10",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c55": {
    "st": "aktiv",
@@ -718,8 +725,7 @@
     "https://budapestschool.org/oldalak/kifir-felveteli/",
     "https://budapestschool.org/blog/harom-legzogyakorlat-gyerekekkel/"
    ],
-   "okAt": "2026-10-09",
-   "stale": "HTTP 403"
+   "okAt": "2026-10-10"
   },
   "c70": {
    "st": "aktiv",
