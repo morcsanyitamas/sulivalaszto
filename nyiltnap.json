@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-10-11T10:52:37.066Z",
+ "gen": "2026-10-12T07:12:36.554Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -8,7 +8,7 @@
    "pages": 3,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c02": {
    "st": "js",
@@ -28,20 +28,27 @@
     "https://www.kossuthiskolarakoskert.hu/wp/?cat=36",
     "https://www.kossuthiskolarakoskert.hu/wp/?tag=leendo-elsosoknek"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c04": {
    "st": "aktiv",
    "url": "https://csoma.edu.hu/",
-   "pages": 6,
-   "hits": [],
-   "rel": [
-    "https://csoma.edu.hu/gimnaziumi-nyilt-napok-2/",
-    "https://csoma.edu.hu/esemenyek-eredmenyek/",
-    "https://csoma.edu.hu/oko-esemenyek/"
+   "pages": 7,
+   "hits": [
+    {
+     "date": "2026-10-12",
+     "time": null,
+     "text": "…lat Osztályképek Osztálynévsorok Alapítvány Kapcsolat Egyéb 2026.10.12. by Admin &middot; Published 2026.10.12. Nyílt napok leendő elsősöknek Részletek és jelentkezés Iskolaválasztás előtt érdemes személyesen is megtapasztalni, milyen közösség várja…",
+     "url": "https://csoma.edu.hu/",
+     "found": "2026-10-12"
+    }
    ],
-   "okAt": "2026-10-10",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "rel": [
+    "https://csoma.edu.hu/nyilt-napok-leendo-elsosoknek/",
+    "https://csoma.edu.hu/gimnaziumi-nyilt-napok-2/",
+    "https://csoma.edu.hu/esemenyek-eredmenyek/"
+   ],
+   "okAt": "2026-10-12"
   },
   "c05": {
    "st": "aktiv",
@@ -53,7 +60,7 @@
     "https://www.zrinyi.net/index.php?option=com_content&view=article&id=1233:felhivas-a-tankoetelesse-valo-gyermekek-iskolai-beiratasara-a-20262027-tanevre&catid=25:the-project",
     "https://www.zrinyi.net/index.php?option=com_content&view=section&layout=blog&id=21&Itemid=141"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c06": {
    "st": "aktiv",
@@ -63,7 +70,7 @@
    "rel": [
     "https://diadal.hu/elsosoknek/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c07": {
    "st": "aktiv",
@@ -75,8 +82,7 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-10",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-12"
   },
   "c08": {
    "st": "aktiv",
@@ -117,7 +123,7 @@
     "https://ujlak.com/oko-programok",
     "https://ujlak.com/cikk/allashirdetes"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c09": {
    "st": "aktiv",
@@ -129,7 +135,7 @@
     "https://jokaim.edu.hu/programok",
     "https://jokaim.edu.hu/cikk-keres.html?k=H%C3%ADrek"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c10": {
    "st": "aktiv",
@@ -137,7 +143,7 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c11": {
    "st": "aktiv",
@@ -145,8 +151,7 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-10",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-12"
   },
   "c20": {
    "st": "aktiv",
@@ -155,9 +160,9 @@
    "hits": [],
    "rel": [
     "https://bekecs78.hu/index.php/beiratkozas/",
-    "https://bekecs78.hu/index.php/2026/03/23/felhivas-tankotelesse-valo-gyermekek-altalanos-iskolai-beiratasara-a-2026-2027-es-tanevre/"
+    "https://bekecs78.hu/index.php/2026/04/15/racz-aladar-zeneiskola-felveteli-idopontok-a-2026-27-es-tanevre/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c21": {
    "st": "aktiv",
@@ -167,8 +172,7 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-10-10",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-12"
   },
   "c22": {
    "st": "aktiv",
@@ -178,7 +182,7 @@
    "rel": [
     "https://www.centi.hu/var-az-iskola/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c23": {
    "st": "aktiv",
@@ -190,20 +194,19 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-10",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-12"
   },
   "c24": {
    "st": "aktiv",
    "url": "https://jokai16.hu/",
-   "pages": 7,
+   "pages": 8,
    "hits": [],
    "rel": [
     "https://jokai16.hu/leendo-elsosoknek/",
     "https://jokai16.hu/naptar/",
     "https://jokai16.hu/naptar/action~oneday/exact_date~10-10-2026/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c25": {
    "st": "aktiv",
@@ -211,17 +214,17 @@
    "pages": 10,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c26": {
    "st": "aktiv",
    "url": "https://www.lemhenyi16.hu/index.php/hu/",
-   "pages": 7,
+   "pages": 6,
    "hits": [],
    "rel": [
     "https://www.lemhenyi16.hu/index.php/hu/beiratkozas/nyilatkozatok-letoltese"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c27": {
    "st": "aktiv",
@@ -229,7 +232,7 @@
    "pages": 8,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c28": {
    "st": "aktiv",
@@ -237,8 +240,7 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-10",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-12"
   },
   "c29": {
    "st": "aktiv",
@@ -248,7 +250,7 @@
    "rel": [
     "https://www.szgyaiskola.hu/beiratkozas.html"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c30": {
    "st": "aktiv",
@@ -296,7 +298,7 @@
     "https://tancsics16.hu/2026/01/26/leendo-elso-osztalyosok-szulei-figyelmebe/",
     "https://tancsics16.hu/blog/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c31": {
    "st": "aktiv",
@@ -308,7 +310,7 @@
     "https://www.neriiskola.hu/category/hirek/",
     "https://www.neriiskola.hu/2026/06/nyari-iskolapszichologusi-hirlevel/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c32": {
    "st": "js",
@@ -328,7 +330,7 @@
     "https://www.mullergyorgyiskola.hu/index.php/gyermekfelvetel/iskola",
     "https://www.mullergyorgyiskola.hu/index.php/ovoda/ovodai-gyermekfelvetel"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c34": {
    "st": "aktiv",
@@ -336,7 +338,7 @@
    "pages": 2,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c35": {
    "st": "aktiv",
@@ -361,7 +363,7 @@
    "rel": [
     "https://www.waldorfsuli.hu/kozosseg/esemenyek/?id=401"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c40": {
    "st": "aktiv",
@@ -381,7 +383,7 @@
     "http://www.kereszturysuli.shp.hu/hpc/web.php?azonosito=kereszturysuli&oldalkod=hirdetesek_2mtr",
     "http://www.kereszturysuli.shp.hu/hpc/web.php?azonosito=kereszturysuli&oldalkod=programok_PoS6"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c41": {
    "st": "aktiv",
@@ -389,7 +391,7 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c42": {
    "st": "aktiv",
@@ -421,8 +423,7 @@
    "rel": [
     "https://fekete-bp10.edu.hu/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-10",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-12"
   },
   "c43": {
    "st": "aktiv",
@@ -434,7 +435,7 @@
     "https://www.szechenyibp10.hu/2026/03/a-leendo-elso-osztalyos-gyermekek-iskolavalasztasanak-igenyfelmerese/",
     "https://www.szechenyibp10.hu/hirek/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c44": {
    "st": "aktiv",
@@ -446,7 +447,7 @@
     "https://harmat88.hu/hirek/",
     "https://harmat88.hu/programok/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c45": {
    "st": "aktiv",
@@ -458,7 +459,7 @@
     "https://www.kadasuli.hu/iskolankrol/esemenynaptar",
     "https://www.kadasuli.hu/index.php/iskolankrol/esemenynaptar"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c46": {
    "st": "aktiv",
@@ -499,7 +500,7 @@
     "https://janikovszky.net/beiratkozas/",
     "https://janikovszky.net/leendo-elsos-tanito-nenik/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c47": {
    "st": "aktiv",
@@ -511,8 +512,7 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-10-10",
-   "stale": "időtúllépés"
+   "okAt": "2026-10-12"
   },
   "c48": {
    "st": "aktiv",
@@ -523,7 +523,7 @@
     "https://www.bem-iskola.hu/index.php/iskola/sulicsengo",
     "https://www.bem-iskola.hu/index.php/sulicsengo-mobil"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c49": {
    "st": "aktiv",
@@ -535,8 +535,7 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-10-10",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-12"
   },
   "c50": {
    "st": "aktiv",
@@ -544,7 +543,7 @@
    "pages": 6,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c51": {
    "st": "nincs",
@@ -601,7 +600,7 @@
     "https://pannonhalmi-bela.baptistaoktatas.hu/beiskolazasi-programok-leendo-elsosoknek",
     "https://pannonhalmi-bela.baptistaoktatas.hu/beiratkozashoz-szukseges-dokumentumok"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c54": {
    "st": "aktiv",
@@ -628,7 +627,7 @@
     "https://christophoruswaldorf.hu/2026/09/29/elsos-osztalytanito/",
     "https://christophoruswaldorf.hu/2026/05/04/bemutatkozik-a-leendo-kilencedikes-osztalyunk-osztalykiseroje/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c55": {
    "st": "aktiv",
@@ -638,7 +637,7 @@
    "rel": [
     "http://kreativiskola.eu/hu_hu/jelentkezes-es-beiratkozas/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c60": {
    "st": "aktiv",
@@ -646,7 +645,7 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c61": {
    "st": "aktiv",
@@ -654,7 +653,7 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c62": {
    "st": "aktiv",
@@ -662,7 +661,7 @@
    "pages": 3,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c63": {
    "st": "aktiv",
@@ -683,7 +682,7 @@
    "rel": [
     "https://www.maglodis.hu/page/2/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c65": {
    "st": "aktiv",
@@ -691,7 +690,7 @@
    "pages": 5,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c66": {
    "st": "aktiv",
@@ -701,7 +700,7 @@
    "rel": [
     "https://halmisuli.hu/page/2/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c67": {
    "st": "aktiv",
@@ -709,7 +708,7 @@
    "pages": 11,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c68": {
    "st": "aktiv",
@@ -729,7 +728,7 @@
     "https://petofivecses.hu/beiratkozas-leendo-elsosoknek/",
     "https://petofivecses.hu/kozepiskolai-felveteli/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c69": {
    "st": "aktiv",
@@ -741,8 +740,7 @@
     "https://budapestschool.org/oldalak/kifir-felveteli/",
     "https://budapestschool.org/blog/harom-legzogyakorlat-gyerekekkel/"
    ],
-   "okAt": "2026-10-10",
-   "stale": "HTTP 403"
+   "okAt": "2026-10-12"
   },
   "c70": {
    "st": "aktiv",
@@ -752,7 +750,7 @@
    "rel": [
     "https://kandosuli.hu/blog/2026/05/06/leendo-elsos-diakjaink/"
    ],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c71": {
    "st": "aktiv",
@@ -760,7 +758,7 @@
    "pages": 5,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c72": {
    "st": "aktiv",
@@ -768,7 +766,7 @@
    "pages": 6,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   },
   "c73": {
    "st": "aktiv",
@@ -776,7 +774,7 @@
    "pages": 8,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-11"
+   "okAt": "2026-10-12"
   }
  }
 }
