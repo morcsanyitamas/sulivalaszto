@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-10-12T07:12:36.554Z",
+ "gen": "2026-10-12T12:07:13.771Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -160,7 +160,7 @@
    "hits": [],
    "rel": [
     "https://bekecs78.hu/index.php/beiratkozas/",
-    "https://bekecs78.hu/index.php/2026/04/15/racz-aladar-zeneiskola-felveteli-idopontok-a-2026-27-es-tanevre/"
+    "https://bekecs78.hu/index.php/2026/03/23/felhivas-tankotelesse-valo-gyermekek-altalanos-iskolai-beiratasara-a-2026-2027-es-tanevre/"
    ],
    "okAt": "2026-10-12"
   },
@@ -219,7 +219,7 @@
   "c26": {
    "st": "aktiv",
    "url": "https://www.lemhenyi16.hu/index.php/hu/",
-   "pages": 6,
+   "pages": 7,
    "hits": [],
    "rel": [
     "https://www.lemhenyi16.hu/index.php/hu/beiratkozas/nyilatkozatok-letoltese"
@@ -310,7 +310,8 @@
     "https://www.neriiskola.hu/category/hirek/",
     "https://www.neriiskola.hu/2026/06/nyari-iskolapszichologusi-hirlevel/"
    ],
-   "okAt": "2026-10-12"
+   "okAt": "2026-10-12",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c32": {
    "st": "js",
@@ -740,7 +741,8 @@
     "https://budapestschool.org/oldalak/kifir-felveteli/",
     "https://budapestschool.org/blog/harom-legzogyakorlat-gyerekekkel/"
    ],
-   "okAt": "2026-10-12"
+   "okAt": "2026-10-12",
+   "stale": "HTTP 403"
   },
   "c70": {
    "st": "aktiv",
