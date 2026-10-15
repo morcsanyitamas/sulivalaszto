@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-10-15T07:18:57.489Z",
+ "gen": "2026-10-15T09:12:29.487Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -153,7 +153,8 @@
    "rel": [
     "https://bekecs78.hu/index.php/beiratkozas/"
    ],
-   "okAt": "2026-10-15"
+   "okAt": "2026-10-15",
+   "stale": "ECONNRESET"
   },
   "c21": {
    "st": "aktiv",
@@ -773,7 +774,8 @@
     "https://budapestschool.org/oldalak/kifir-felveteli/",
     "https://budapestschool.org/blog/harom-legzogyakorlat-gyerekekkel/"
    ],
-   "okAt": "2026-10-15"
+   "okAt": "2026-10-15",
+   "stale": "HTTP 403"
   },
   "c70": {
    "st": "aktiv",
