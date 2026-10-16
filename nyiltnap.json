@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-10-16T07:18:13.589Z",
+ "gen": "2026-10-16T09:05:07.920Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -40,7 +40,8 @@
     "https://csoma.edu.hu/gimnaziumi-nyilt-napok-2/",
     "https://csoma.edu.hu/esemenyek-eredmenyek/"
    ],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c05": {
    "st": "aktiv",
@@ -74,7 +75,8 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c08": {
    "st": "aktiv",
@@ -143,15 +145,25 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c20": {
    "st": "aktiv",
    "url": "https://bekecs78.hu/",
    "pages": 8,
-   "hits": [],
+   "hits": [
+    {
+     "date": "2026-10-25",
+     "time": null,
+     "text": "…&middot; 2026.04.15. You may also like... Iskolai bejárás a leendő elsős gyermekek szülei részére – október 25 2021.10.22. Felhívás tankötelessé váló gyermekek általános iskolai beíratására a 2026/2027-es tanévre 2026.03.23. Családi nap 2026. – Tanár…",
+     "url": "https://bekecs78.hu/index.php/2026/04/15/racz-aladar-zeneiskola-felveteli-idopontok-a-2026-27-es-tanevre/",
+     "found": "2026-10-16"
+    }
+   ],
    "rel": [
-    "https://bekecs78.hu/index.php/beiratkozas/"
+    "https://bekecs78.hu/index.php/beiratkozas/",
+    "https://bekecs78.hu/index.php/2026/04/15/racz-aladar-zeneiskola-felveteli-idopontok-a-2026-27-es-tanevre/"
    ],
    "okAt": "2026-10-16"
   },
@@ -163,7 +175,8 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c22": {
    "st": "aktiv",
@@ -185,7 +198,8 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c24": {
    "st": "aktiv",
@@ -231,7 +245,8 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c29": {
    "st": "aktiv",
@@ -315,7 +330,8 @@
     "https://www.neriiskola.hu/category/okoiskolai-hirek/",
     "https://www.neriiskola.hu/category/hirek/"
    ],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c32": {
    "st": "js",
@@ -351,7 +367,8 @@
    "pages": 2,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c35": {
    "st": "aktiv",
@@ -436,7 +453,8 @@
    "rel": [
     "https://fekete-bp10.edu.hu/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c43": {
    "st": "aktiv",
@@ -525,7 +543,8 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "időtúllépés"
   },
   "c48": {
    "st": "aktiv",
@@ -548,7 +567,8 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c50": {
    "st": "aktiv",
@@ -637,7 +657,7 @@
     {
      "date": "2027-01-11",
      "time": null,
-     "text": "…Waldorf-pedagógia íve 2026. december 1.A Christophorus Waldorf Iskola közössége – Gazdasági működés 2027. január 11. Művészeti nevelés a Waldorf-iskolában2027. február 2. Élet a Christophorusban Az előadások 17:00 órakor kezdődnek. Jelentkezés leendő első…",
+     "text": "…aldorf-pedagógia íve 2026. december 1. A Christophorus Waldorf Iskola közössége – Gazdasági működés 2027. január 11. Művészeti nevelés a Waldorf-iskolában 2027. február 2. Élet a Christophorusban Az előadások 17:00 órakor kezdődnek. Jelentkezés leendő els…",
      "url": "https://christophoruswaldorf.hu/nyilt-nap/",
      "found": "2026-10-16"
     },
@@ -651,7 +671,7 @@
     {
      "date": "2027-02-02",
      "time": null,
-     "text": "…rf Iskola közössége – Gazdasági működés 2027. január 11. Művészeti nevelés a Waldorf-iskolában2027. február 2. Élet a Christophorusban Az előadások 17:00 órakor kezdődnek. Jelentkezés leendő első osztályba A jelentkezési lap letöltése itt . Kérjük,…",
+     "text": "…Waldorf Iskola közössége – Gazdasági működés 2027. január 11. Művészeti nevelés a Waldorf-iskolában 2027. február 2. Élet a Christophorusban Az előadások 17:00 órakor kezdődnek. Jelentkezés leendő első osztályba A jelentkezési lap letöltése itt . Kérjük,…",
      "url": "https://christophoruswaldorf.hu/nyilt-nap/",
      "found": "2026-10-16"
     },
@@ -780,7 +800,8 @@
     "https://budapestschool.org/oldalak/kifir-felveteli/",
     "https://budapestschool.org/blog/harom-legzogyakorlat-gyerekekkel/"
    ],
-   "okAt": "2026-10-16"
+   "okAt": "2026-10-16",
+   "stale": "HTTP 403"
   },
   "c70": {
    "st": "aktiv",
