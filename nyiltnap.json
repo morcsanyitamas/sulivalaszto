@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-10-22T06:25:03.476Z",
+ "gen": "2026-10-22T09:27:55.824Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -55,6 +55,13 @@
      "found": "2026-10-22"
     },
     {
+     "date": "2026-10-22",
+     "time": null,
+     "text": "…s versenyen! Gratulálunk az összetartó csapatnak! Bővebben... Pályaorientációs nap a 3.a osztályban 2026. október 22. Fantasztikus napon vagyunk túl! A 3.a osztály tanulói izgalmas és élményekben gazdag pályaorientációs napon vehettek részt, ahol három kül…",
+     "url": "https://www.zrinyi.net/index.php?option=com_content&view=section&layout=blog&id=23&Itemid=144",
+     "found": "2026-10-22"
+    },
+    {
      "date": "2026-11-05",
      "time": "08:00",
      "text": "…álja Keresés Nyílt órák 2026. október 21. Kedves Szülők és Érdeklődők! Szeretettel meghívjuk Önöket 2026. november 5-én (csütörtökön) 8.00 és 11.45 óra között tartandó nyílt óráinkra , ahol lehetőségük nyílik betekinteni iskolánk mindennapi munkájába, tanó…",
@@ -65,7 +72,7 @@
    "rel": [
     "https://www.zrinyi.net/index.php?option=com_content&view=category&layout=blog&id=46&Itemid=58",
     "https://www.zrinyi.net/index.php?option=com_content&view=article&id=1233:felhivas-a-tankoetelesse-valo-gyermekek-iskolai-beiratasara-a-20262027-tanevre&catid=25:the-project",
-    "https://www.zrinyi.net/index.php?option=com_content&view=section&layout=blog&id=21&Itemid=141"
+    "https://www.zrinyi.net/index.php?option=com_content&view=section&layout=blog&id=23&Itemid=144"
    ],
    "okAt": "2026-10-22"
   },
@@ -213,7 +220,8 @@
     "https://jokai16.hu/naptar/",
     "https://jokai16.hu/naptar/action~oneday/exact_date~10-10-2026/"
    ],
-   "okAt": "2026-10-22"
+   "okAt": "2026-10-22",
+   "stale": "HTTP 403"
   },
   "c25": {
    "st": "aktiv",
@@ -338,7 +346,8 @@
     "https://www.neriiskola.hu/category/hirek/",
     "https://www.neriiskola.hu/category/okoiskolai-hirek/"
    ],
-   "okAt": "2026-10-22"
+   "okAt": "2026-10-22",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c32": {
    "st": "js",
@@ -442,8 +451,7 @@
    "rel": [
     "https://fekete-bp10.edu.hu/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-21",
-   "stale": "időtúllépés"
+   "okAt": "2026-10-22"
   },
   "c43": {
    "st": "aktiv",
@@ -479,7 +487,8 @@
     "https://www.kadasuli.hu/iskolankrol/esemenynaptar",
     "https://www.kadasuli.hu/index.php/iskolankrol/esemenynaptar"
    ],
-   "okAt": "2026-10-22"
+   "okAt": "2026-10-22",
+   "stale": "HTTP 403"
   },
   "c46": {
    "st": "aktiv",
@@ -575,9 +584,28 @@
   "c50": {
    "st": "aktiv",
    "url": "https://ulloiiskola.hu/",
-   "pages": 6,
-   "hits": [],
-   "rel": [],
+   "pages": 8,
+   "hits": [
+    {
+     "date": "2026-11-25",
+     "time": "08:00",
+     "text": "…rszágos kompetenciamérés Büszkeségeink Állás Kapcsolat « Összes Események Nyílt órák – alsó tagozat november 25 @ 08:00 - 10:00 « Márton napi kézműves délután Nyílt órák – felső tagozat » Hozzáadom a naptáramhoz Google Naptár iCalendar Outlook 365 Out…",
+     "url": "https://ulloiiskola.hu/event/nyilt-orak-also-tagozat/",
+     "found": "2026-10-22"
+    },
+    {
+     "date": "2026-11-26",
+     "time": "08:00",
+     "text": "…szágos kompetenciamérés Büszkeségeink Állás Kapcsolat « Összes Események Nyílt órák – felső tagozat november 26 @ 08:00 - 10:00 « Nyílt órák – alsó tagozat Behívásos fogadóóra » Hozzáadom a naptáramhoz Google Naptár iCalendar Outlook 365 Outlook Live…",
+     "url": "https://ulloiiskola.hu/event/nyilt-orak-felso-tagozat/",
+     "found": "2026-10-22"
+    }
+   ],
+   "rel": [
+    "https://ulloiiskola.hu/event/nyilt-orak-also-tagozat/",
+    "https://ulloiiskola.hu/event/nyilt-orak-felso-tagozat/",
+    "https://ulloiiskola.hu/?"
+   ],
    "okAt": "2026-10-22"
   },
   "c51": {
@@ -817,7 +845,8 @@
     "https://budapestschool.org/oldalak/kifir-felveteli/",
     "https://budapestschool.org/blog/a-bocconitol-tokioig-igy-tanulnak-tovabb-a-bps-es-gyerekek/"
    ],
-   "okAt": "2026-10-22"
+   "okAt": "2026-10-22",
+   "stale": "HTTP 403"
   },
   "c70": {
    "st": "aktiv",
