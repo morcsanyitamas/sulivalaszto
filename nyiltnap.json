@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-10-23T09:24:08.142Z",
+ "gen": "2026-10-23T09:56:50.881Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -40,8 +40,7 @@
     "https://csoma.edu.hu/gimnaziumi-nyilt-napok-2/",
     "https://csoma.edu.hu/esemenyek-eredmenyek/"
    ],
-   "okAt": "2026-10-22",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-23"
   },
   "c05": {
    "st": "aktiv",
@@ -86,11 +85,11 @@
    "pages": 11,
    "hits": [
     {
-     "date": "2026-10-21",
+     "date": "2026-10-22",
      "time": null,
-     "text": "…inkre kattintva érhető el a regisztrációs űrlap:https://forms.gle/6JKv9MtRjpmKmG1Q6 Egyéb kategória 2026.10.21. by Sugár Suli &middot; Published 2026.10.21. Kövessenek minket a TikTok és Instagram oldalunkon is! A folyamatos felújítások és iskolai mu…",
+     "text": "…inkre kattintva érhető el a regisztrációs űrlap:https://forms.gle/6JKv9MtRjpmKmG1Q6 Egyéb kategória 2026.10.22. by Sugár Suli &middot; Published 2026.10.22. Notebook regisztráció 5. 6. 7. 8. évfolyamon Ismét lehet regisztrálni az 5. 6. 7. 8. évfolyam…",
      "url": "https://sugarsuli.edu.hu/",
-     "found": "2026-10-22"
+     "found": "2026-10-23"
     }
    ],
    "rel": [
@@ -98,8 +97,7 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-22",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-23"
   },
   "c08": {
    "st": "aktiv",
@@ -161,8 +159,7 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-22",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-23"
   },
   "c20": {
    "st": "aktiv",
@@ -170,10 +167,10 @@
    "pages": 8,
    "hits": [],
    "rel": [
-    "https://bekecs78.hu/index.php/beiratkozas/"
+    "https://bekecs78.hu/index.php/beiratkozas/",
+    "https://bekecs78.hu/index.php/2026/03/23/felhivas-tankotelesse-valo-gyermekek-altalanos-iskolai-beiratasara-a-2026-2027-es-tanevre/"
    ],
-   "okAt": "2026-10-22",
-   "stale": "ETIMEDOUT"
+   "okAt": "2026-10-23"
   },
   "c21": {
    "st": "aktiv",
@@ -183,8 +180,7 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-10-22",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-23"
   },
   "c22": {
    "st": "aktiv",
@@ -206,8 +202,7 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-22",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-23"
   },
   "c24": {
    "st": "aktiv",
@@ -253,8 +248,7 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-22",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-23"
   },
   "c29": {
    "st": "aktiv",
@@ -345,8 +339,7 @@
     "https://www.neriiskola.hu/category/hirek/",
     "https://www.neriiskola.hu/category/okoiskolai-hirek/"
    ],
-   "okAt": "2026-10-22",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-23"
   },
   "c32": {
    "st": "js",
@@ -374,8 +367,7 @@
     "https://www.mullergyorgyiskola.hu/index.php/gyermekfelvetel/iskola",
     "https://www.mullergyorgyiskola.hu/index.php/ovoda/ovodai-gyermekfelvetel"
    ],
-   "okAt": "2026-10-22",
-   "stale": "ETIMEDOUT"
+   "okAt": "2026-10-23"
   },
   "c34": {
    "st": "aktiv",
@@ -424,7 +416,7 @@
   "c42": {
    "st": "aktiv",
    "url": "https://fekete-bp10.edu.hu/",
-   "pages": 8,
+   "pages": 6,
    "hits": [
     {
      "date": "2026-12-09",
@@ -451,8 +443,7 @@
    "rel": [
     "https://fekete-bp10.edu.hu/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-22",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-23"
   },
   "c43": {
    "st": "aktiv",
@@ -476,8 +467,7 @@
     "https://harmat88.hu/hirek/",
     "https://harmat88.hu/programok/"
    ],
-   "okAt": "2026-10-22",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-23"
   },
   "c45": {
    "st": "aktiv",
@@ -542,8 +532,7 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-10-22",
-   "stale": "időtúllépés"
+   "okAt": "2026-10-23"
   },
   "c48": {
    "st": "aktiv",
@@ -581,8 +570,7 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-10-22",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-10-23"
   },
   "c50": {
    "st": "aktiv",
@@ -848,8 +836,7 @@
     "https://budapestschool.org/oldalak/kifir-felveteli/",
     "https://budapestschool.org/blog/a-bocconitol-tokioig-igy-tanulnak-tovabb-a-bps-es-gyerekek/"
    ],
-   "okAt": "2026-10-22",
-   "stale": "HTTP 403"
+   "okAt": "2026-10-23"
   },
   "c70": {
    "st": "aktiv",
