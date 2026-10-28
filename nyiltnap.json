@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-10-28T08:35:20.966Z",
+ "gen": "2026-10-28T10:38:57.973Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -8,7 +8,8 @@
    "pages": 3,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c02": {
    "st": "js",
@@ -48,7 +49,8 @@
     "https://csoma.edu.hu/gimnaziumi-nyilt-napok-2/",
     "https://csoma.edu.hu/esemenyek-eredmenyek/"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c05": {
    "st": "aktiv",
@@ -90,7 +92,8 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c08": {
    "st": "aktiv",
@@ -152,7 +155,8 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c20": {
    "st": "aktiv",
@@ -162,7 +166,8 @@
    "rel": [
     "https://bekecs78.hu/index.php/beiratkozas/"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "ETIMEDOUT"
   },
   "c21": {
    "st": "aktiv",
@@ -172,7 +177,8 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c22": {
    "st": "aktiv",
@@ -194,7 +200,8 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c24": {
    "st": "aktiv",
@@ -240,7 +247,8 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c29": {
    "st": "aktiv",
@@ -324,7 +332,8 @@
     "https://www.neriiskola.hu/category/hirek/",
     "https://www.neriiskola.hu/category/okoiskolai-hirek/"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c32": {
    "st": "js",
@@ -352,7 +361,8 @@
     "https://www.mullergyorgyiskola.hu/index.php/gyermekfelvetel/iskola",
     "https://www.mullergyorgyiskola.hu/index.php/ovoda/ovodai-gyermekfelvetel"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "ETIMEDOUT"
   },
   "c34": {
    "st": "aktiv",
@@ -435,7 +445,8 @@
    "rel": [
     "https://fekete-bp10.edu.hu/leendo-elsosoknek/"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c43": {
    "st": "aktiv",
@@ -459,7 +470,8 @@
     "https://harmat88.hu/hirek/",
     "https://harmat88.hu/programok/"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c45": {
    "st": "aktiv",
@@ -512,7 +524,8 @@
     "https://janikovszky.net/beiratkozas/",
     "https://janikovszky.net/leendo-elsos-tanito-nenik/"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "a tartalmat JavaScript tölti be, szövegként nem olvasható"
   },
   "c47": {
    "st": "aktiv",
@@ -524,7 +537,8 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "időtúllépés"
   },
   "c48": {
    "st": "aktiv",
@@ -562,7 +576,8 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c50": {
    "st": "aktiv",
@@ -828,7 +843,8 @@
     "https://budapestschool.org/oldalak/kifir-felveteli/",
     "https://budapestschool.org/blog/a-bocconitol-tokioig-igy-tanulnak-tovabb-a-bps-es-gyerekek/"
    ],
-   "okAt": "2026-10-28"
+   "okAt": "2026-10-28",
+   "stale": "HTTP 403"
   },
   "c70": {
    "st": "aktiv",
