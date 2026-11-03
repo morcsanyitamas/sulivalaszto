@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-03T08:19:03.702Z",
+ "gen": "2026-11-03T12:00:03.074Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -22,7 +22,15 @@
    "st": "aktiv",
    "url": "https://www.kossuthiskolarakoskert.hu/",
    "pages": 10,
-   "hits": [],
+   "hits": [
+    {
+     "date": "2026-11-03",
+     "time": null,
+     "text": "…gató Kerti Rakoncátlanok Alapítványra. OLVASS TOVÁBB &rarr; Sütivásárral egybekötött adventi vásár! 2026-11-03 OLVASS TOVÁBB &rarr; Fórum leendő elsősők beiratkozásának segítésére 2026-11-03 A Kelet-Pesti Tankerületi Központ Rákosmentén (november 11.…",
+     "url": "https://www.kossuthiskolarakoskert.hu/",
+     "found": "2026-11-03"
+    }
+   ],
    "rel": [
     "https://www.kossuthiskolarakoskert.hu/wp/?tag=beiratkozas",
     "https://www.kossuthiskolarakoskert.hu/wp/?cat=36",
@@ -33,12 +41,12 @@
   "c04": {
    "st": "aktiv",
    "url": "https://csoma.edu.hu/",
-   "pages": 7,
+   "pages": 8,
    "hits": [],
    "rel": [
+    "https://csoma.edu.hu/kozponti-felvetelivel-kapcsolatos-informaciok/",
     "https://csoma.edu.hu/nyilt-napok-leendo-elsosoknek/",
-    "https://csoma.edu.hu/gimnaziumi-nyilt-napok-2/",
-    "https://csoma.edu.hu/esemenyek-eredmenyek/"
+    "https://csoma.edu.hu/gimnaziumi-nyilt-napok-2/"
    ],
    "okAt": "2026-11-03"
   },
@@ -65,7 +73,7 @@
   "c06": {
    "st": "aktiv",
    "url": "https://diadal.hu/",
-   "pages": 7,
+   "pages": 6,
    "hits": [],
    "rel": [
     "https://diadal.hu/elsosoknek/",
@@ -83,7 +91,8 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-03"
+   "okAt": "2026-11-03",
+   "stale": "időtúllépés"
   },
   "c08": {
    "st": "aktiv",
@@ -129,9 +138,13 @@
   "c09": {
    "st": "aktiv",
    "url": "https://jokaim.edu.hu/",
-   "pages": 1,
+   "pages": 5,
    "hits": [],
-   "rel": [],
+   "rel": [
+    "https://jokaim.edu.hu/beiratkozoknak",
+    "https://jokaim.edu.hu/programok",
+    "https://jokaim.edu.hu/cikk-keres.html?k=Programok"
+   ],
    "okAt": "2026-11-03"
   },
   "c10": {
@@ -158,8 +171,7 @@
    "rel": [
     "https://bekecs78.hu/index.php/beiratkozas/"
    ],
-   "okAt": "2026-11-02",
-   "stale": "ECONNRESET"
+   "okAt": "2026-11-03"
   },
   "c21": {
    "st": "aktiv",
@@ -321,7 +333,7 @@
   "c31": {
    "st": "aktiv",
    "url": "https://www.neriiskola.hu/",
-   "pages": 9,
+   "pages": 7,
    "hits": [
     {
      "date": "2026-11-03",
@@ -340,8 +352,8 @@
    ],
    "rel": [
     "https://www.neriiskola.hu/2026/10/nyilt-nap-ovodasok-szulei-szamara-2/",
-    "https://www.neriiskola.hu/okoiskola-2/",
-    "https://www.neriiskola.hu/category/hirek/"
+    "https://www.neriiskola.hu/category/hirek/",
+    "https://www.neriiskola.hu/2026/10/2026-osz-iskolapszichologusi-hirlevel/"
    ],
    "okAt": "2026-11-03"
   },
@@ -470,7 +482,8 @@
     "https://fekete-bp10.edu.hu/esemeny/alsos-nyiltnap/",
     "https://fekete-bp10.edu.hu/esemeny/felsos-nyiltnap/"
    ],
-   "okAt": "2026-11-03"
+   "okAt": "2026-11-03",
+   "stale": "időtúllépés"
   },
   "c43": {
    "st": "aktiv",
@@ -494,7 +507,8 @@
     "https://harmat88.hu/hirek/",
     "https://harmat88.hu/programok/"
    ],
-   "okAt": "2026-11-03"
+   "okAt": "2026-11-03",
+   "stale": "ECONNRESET"
   },
   "c45": {
    "st": "aktiv",
@@ -561,7 +575,8 @@
     "https://janikovszky.net/beiratkozas/",
     "https://janikovszky.net/leendo-elsos-tanito-nenik/"
    ],
-   "okAt": "2026-11-03"
+   "okAt": "2026-11-03",
+   "stale": "a tartalmat JavaScript tölti be, szövegként nem olvasható"
   },
   "c47": {
    "st": "aktiv",
@@ -891,7 +906,8 @@
     "https://budapestschool.org/oldalak/kifir-felveteli/",
     "https://budapestschool.org/blog/a-bocconitol-tokioig-igy-tanulnak-tovabb-a-bps-es-gyerekek/"
    ],
-   "okAt": "2026-11-03"
+   "okAt": "2026-11-03",
+   "stale": "HTTP 403"
   },
   "c70": {
    "st": "aktiv",
