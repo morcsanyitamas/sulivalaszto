@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-06T05:51:14.908Z",
+ "gen": "2026-11-06T12:12:31.425Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -40,7 +40,8 @@
     "https://csoma.edu.hu/nyilt-napok-leendo-elsosoknek/",
     "https://csoma.edu.hu/gimnaziumi-nyilt-napok-2/"
    ],
-   "okAt": "2026-11-06"
+   "okAt": "2026-11-06",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c05": {
    "st": "aktiv",
@@ -91,35 +92,14 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-06"
+   "okAt": "2026-11-06",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c08": {
    "st": "aktiv",
    "url": "https://ujlak.com/",
    "pages": 5,
-   "hits": [
-    {
-     "date": "2026-11-18",
-     "time": "17:00",
-     "text": "…a várjuk őket egy közösen eltöltött izgalmas délutáni programra. Jelentkezés honlapunkon hamarosan. 2026. november 18-án, szerdán 17 órától online szülői fórumot tartunk nagycsoportos óvodások szüleinek. Ennek keretében minden fontos teendőt, programot isme…",
-     "url": "https://ujlak.com/",
-     "found": "2026-10-04"
-    },
-    {
-     "date": "2026-11-23",
-     "time": null,
-     "text": "…a szülők feltehetik felmerülő kérdéseiket is. Ovis angol és német nyelvű játékos foglalkozásainkat 2026. november 23-ától indítjuk . Jelentkezés honlapunkon online hamarosan. 2026. november 25-én, szerdán nyílt napot tartunk leendő elsős tanulóink szülei s…",
-     "url": "https://ujlak.com/",
-     "found": "2026-10-04"
-    },
-    {
-     "date": "2026-11-25",
-     "time": null,
-     "text": "…tékos foglalkozásainkat 2026. november 23-ától indítjuk . Jelentkezés honlapunkon online hamarosan. 2026. november 25-én, szerdán nyílt napot tartunk leendő elsős tanulóink szülei számára . Regisztráció honlapunkon november elején. 2027. február: Nyílt órák…",
-     "url": "https://ujlak.com/",
-     "found": "2026-10-08"
-    }
-   ],
+   "hits": [],
    "rel": [
     "https://ujlak.com/cikk/felhivas-a-tankotelesse-valo-gyermekek-iskolai-beiratasara",
     "https://ujlak.com/oko-programok",
@@ -130,9 +110,12 @@
   "c09": {
    "st": "aktiv",
    "url": "https://jokaim.edu.hu/",
-   "pages": 1,
+   "pages": 4,
    "hits": [],
-   "rel": [],
+   "rel": [
+    "https://jokaim.edu.hu/beiratkozoknak",
+    "https://jokaim.edu.hu/cikk-keres.html?k=Programok"
+   ],
    "okAt": "2026-11-06"
   },
   "c10": {
@@ -149,7 +132,8 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-06"
+   "okAt": "2026-11-06",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c20": {
    "st": "aktiv",
@@ -157,8 +141,7 @@
    "pages": 8,
    "hits": [],
    "rel": [
-    "https://bekecs78.hu/index.php/beiratkozas/",
-    "https://bekecs78.hu/index.php/2026/03/23/felhivas-tankotelesse-valo-gyermekek-altalanos-iskolai-beiratasara-a-2026-2027-es-tanevre/"
+    "https://bekecs78.hu/index.php/beiratkozas/"
    ],
    "okAt": "2026-11-06"
   },
@@ -170,7 +153,8 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-11-06"
+   "okAt": "2026-11-06",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c22": {
    "st": "aktiv",
@@ -192,7 +176,8 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-06"
+   "okAt": "2026-11-06",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c24": {
    "st": "aktiv",
@@ -238,7 +223,8 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-06"
+   "okAt": "2026-11-06",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c29": {
    "st": "aktiv",
@@ -344,7 +330,8 @@
     "https://www.neriiskola.hu/okoiskola-2/",
     "https://www.neriiskola.hu/category/hirek/"
    ],
-   "okAt": "2026-11-06"
+   "okAt": "2026-11-06",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c32": {
    "st": "js",
@@ -471,7 +458,8 @@
     "https://fekete-bp10.edu.hu/esemeny/alsos-nyiltnap/",
     "https://fekete-bp10.edu.hu/esemeny/felsos-nyiltnap/"
    ],
-   "okAt": "2026-11-06"
+   "okAt": "2026-11-06",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c43": {
    "st": "aktiv",
@@ -605,7 +593,8 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-11-06"
+   "okAt": "2026-11-06",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c50": {
    "st": "aktiv",
@@ -930,25 +919,11 @@
    "pages": 8,
    "hits": [
     {
-     "date": "2026-11-06",
-     "time": "10:00",
-     "text": "…ntja 2026. november 18., szerda 13 óra. A részvétel regisztrációhoz kötött. A regisztrációs felület 2026. november 6. péntek 10:00 órától 2026. november 13. péntek 16:00 óráig lesz elérhető itt. Tervezett program: 12:30-12:45 Érkezés az óralátogatásra 13:0…",
-     "url": "https://www.gyermekekhaza.hu/felveteli/gimnazium/",
-     "found": "2026-10-21"
-    },
-    {
-     "date": "2026-11-13",
-     "time": "16:00",
-     "text": "…. A részvétel regisztrációhoz kötött. A regisztrációs felület 2026. november 6. péntek 10:00 órától 2026. november 13. péntek 16:00 óráig lesz elérhető itt. Tervezett program: 12:30-12:45 Érkezés az óralátogatásra 13:00-13:45 Óralátogatás 13:45-14:00 Érkezé…",
-     "url": "https://www.gyermekekhaza.hu/felveteli/gimnazium/",
-     "found": "2026-10-21"
-    },
-    {
      "date": "2026-11-18",
-     "time": "13:00",
-     "text": "…Szeretettel várjuk az érdeklődő 8. osztályos diákokat gimnáziumi nyílt napunkon, melynek időpontja 2026. november 18., szerda 13 óra. A részvétel regisztrációhoz kötött. A regisztrációs felület 2026. november 6. péntek 10:00 órától 2026. november 13. pénte…",
+     "time": null,
+     "text": "…lyos diákok számára Szeretettel várjuk az érdeklődő 8. osztályos diákokat gimnáziumi nyílt napunkra 2026. november 18-án, szerdán. A nyílt napon a diákok tanórákat látogathatnak, a tájékoztatón pedig megismerhetik a GyH gimnáziumát. A két programra külön ke…",
      "url": "https://www.gyermekekhaza.hu/felveteli/gimnazium/",
-     "found": "2026-10-21"
+     "found": "2026-11-06"
     }
    ],
    "rel": [
