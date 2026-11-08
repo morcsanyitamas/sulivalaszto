@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-08T05:58:32.838Z",
+ "gen": "2026-11-08T11:21:13.547Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -96,11 +96,10 @@
    "hits": [],
    "rel": [
     "https://jokaim.edu.hu/beiratkozoknak",
-    "https://jokaim.edu.hu/programok",
+    "https://jokaim.edu.hu/cikk-keres.html?k=H%C3%ADrek",
     "https://jokaim.edu.hu/cikk-keres.html?k=Programok"
    ],
-   "okAt": "2026-11-07",
-   "stale": "HTTP 429"
+   "okAt": "2026-11-08"
   },
   "c10": {
    "st": "aktiv",
@@ -121,10 +120,11 @@
   "c20": {
    "st": "aktiv",
    "url": "https://bekecs78.hu/",
-   "pages": 7,
+   "pages": 6,
    "hits": [],
    "rel": [
-    "https://bekecs78.hu/index.php/beiratkozas/"
+    "https://bekecs78.hu/index.php/beiratkozas/",
+    "https://bekecs78.hu/index.php/2026/03/23/felhivas-tankotelesse-valo-gyermekek-altalanos-iskolai-beiratasara-a-2026-2027-es-tanevre/"
    ],
    "okAt": "2026-11-08"
   },
@@ -170,7 +170,8 @@
     "https://jokai16.hu/naptar/",
     "https://jokai16.hu/naptar/action~oneday/exact_date~2-11-2026/"
    ],
-   "okAt": "2026-11-08"
+   "okAt": "2026-11-08",
+   "stale": "HTTP 403"
   },
   "c25": {
    "st": "aktiv",
@@ -311,7 +312,7 @@
     "https://www.neriiskola.hu/category/hirek/"
    ],
    "okAt": "2026-11-07",
-   "stale": "ECONNRESET"
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c32": {
    "st": "js",
@@ -462,7 +463,8 @@
     "https://harmat88.hu/hirek/",
     "https://harmat88.hu/programok/"
    ],
-   "okAt": "2026-11-08"
+   "okAt": "2026-11-08",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c45": {
    "st": "aktiv",
@@ -474,7 +476,8 @@
     "https://www.kadasuli.hu/iskolankrol/esemenynaptar",
     "https://www.kadasuli.hu/index.php/iskolankrol/esemenynaptar"
    ],
-   "okAt": "2026-11-08"
+   "okAt": "2026-11-08",
+   "stale": "HTTP 403"
   },
   "c46": {
    "st": "aktiv",
