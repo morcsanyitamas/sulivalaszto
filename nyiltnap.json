@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-10T08:17:13.082Z",
+ "gen": "2026-11-10T12:44:18.954Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -40,7 +40,8 @@
     "https://csoma.edu.hu/nyilt-napok-leendo-elsosoknek/",
     "https://csoma.edu.hu/gimnaziumi-nyilt-napok-2/"
    ],
-   "okAt": "2026-11-10"
+   "okAt": "2026-11-10",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c05": {
    "st": "aktiv",
@@ -75,12 +76,13 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-10"
+   "okAt": "2026-11-10",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c08": {
    "st": "aktiv",
    "url": "https://ujlak.com/",
-   "pages": 6,
+   "pages": 5,
    "hits": [],
    "rel": [
     "https://ujlak.com/cikk/felhivas-a-tankotelesse-valo-gyermekek-iskolai-beiratasara",
@@ -92,15 +94,13 @@
   "c09": {
    "st": "aktiv",
    "url": "https://jokaim.edu.hu/",
-   "pages": 5,
+   "pages": 4,
    "hits": [],
    "rel": [
     "https://jokaim.edu.hu/beiratkozoknak",
-    "https://jokaim.edu.hu/cikk/nyilt-nap-a-rendorsegen",
-    "https://jokaim.edu.hu/programok"
+    "https://jokaim.edu.hu/hirek"
    ],
-   "okAt": "2026-11-09",
-   "stale": "HTTP 429"
+   "okAt": "2026-11-10"
   },
   "c10": {
    "st": "aktiv",
@@ -116,7 +116,8 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-10"
+   "okAt": "2026-11-10",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c20": {
    "st": "aktiv",
@@ -127,7 +128,8 @@
     "https://bekecs78.hu/index.php/beiratkozas/",
     "https://bekecs78.hu/index.php/2026/04/15/racz-aladar-zeneiskola-felveteli-idopontok-a-2026-27-es-tanevre/"
    ],
-   "okAt": "2026-11-10"
+   "okAt": "2026-11-10",
+   "stale": "ECONNRESET"
   },
   "c21": {
    "st": "aktiv",
@@ -137,7 +139,8 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-11-10"
+   "okAt": "2026-11-10",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c22": {
    "st": "aktiv",
@@ -159,12 +162,13 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-10"
+   "okAt": "2026-11-10",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c24": {
    "st": "aktiv",
    "url": "https://jokai16.hu/",
-   "pages": 7,
+   "pages": 8,
    "hits": [],
    "rel": [
     "https://jokai16.hu/leendo-elsosoknek/",
@@ -205,7 +209,8 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-10"
+   "okAt": "2026-11-10",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c29": {
    "st": "aktiv",
@@ -438,7 +443,8 @@
     "https://fekete-bp10.edu.hu/esemeny/alsos-nyiltnap/",
     "https://fekete-bp10.edu.hu/esemeny/felsos-nyiltnap/"
    ],
-   "okAt": "2026-11-10"
+   "okAt": "2026-11-10",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c43": {
    "st": "aktiv",
@@ -527,7 +533,8 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-11-10"
+   "okAt": "2026-11-10",
+   "stale": "időtúllépés"
   },
   "c48": {
    "st": "aktiv",
@@ -572,7 +579,8 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-11-10"
+   "okAt": "2026-11-10",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c50": {
    "st": "aktiv",
