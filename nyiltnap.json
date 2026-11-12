@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-12T09:31:39.771Z",
+ "gen": "2026-11-12T12:52:20.194Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -40,7 +40,8 @@
     "https://csoma.edu.hu/kozponti-felvetelivel-kapcsolatos-informaciok/",
     "https://csoma.edu.hu/nyilt-napok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c05": {
    "st": "aktiv",
@@ -74,12 +75,13 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c08": {
    "st": "aktiv",
    "url": "https://ujlak.com/",
-   "pages": 6,
+   "pages": 5,
    "hits": [],
    "rel": [
     "https://ujlak.com/cikk/felhivas-a-tankotelesse-valo-gyermekek-iskolai-beiratasara",
@@ -91,15 +93,12 @@
   "c09": {
    "st": "aktiv",
    "url": "https://jokaim.edu.hu/",
-   "pages": 5,
+   "pages": 3,
    "hits": [],
    "rel": [
-    "https://jokaim.edu.hu/beiratkozoknak",
-    "https://jokaim.edu.hu/cikk/nyilt-nap-a-rendorsegen",
-    "https://jokaim.edu.hu/programok"
+    "https://jokaim.edu.hu/beiratkozoknak"
    ],
-   "okAt": "2026-11-11",
-   "stale": "HTTP 429"
+   "okAt": "2026-11-12"
   },
   "c10": {
    "st": "aktiv",
@@ -115,7 +114,8 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c20": {
    "st": "aktiv",
@@ -145,7 +145,8 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c22": {
    "st": "aktiv",
@@ -167,12 +168,13 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c24": {
    "st": "aktiv",
    "url": "https://jokai16.hu/",
-   "pages": 6,
+   "pages": 8,
    "hits": [],
    "rel": [
     "https://jokai16.hu/leendo-elsosoknek/",
@@ -213,7 +215,8 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c29": {
    "st": "aktiv",
@@ -250,6 +253,20 @@
      "text": "…2026. november 11. - 2026. november 12. Kihelyezett nevelési értekezlet; Nevelőtestületi kirándulás 2026. november 13. Témanap 2026. november 13. A tanulók jelentkezési ideje a központi felvételi írásbeli vizsgára 2026. november 16. Továbbiak ... További es…",
      "url": "https://tancsics16.hu/",
      "found": "2026-11-04"
+    },
+    {
+     "date": "2026-11-23",
+     "time": "17:00",
+     "text": "…eli írásbeli vizsgára 2026. november 16. hét 23 Alsós, felsős és gimnáziumi szaktanárok fogadóestje 2026. november 23. 17:00 - 19:00 csü 26 Játszóház a leendő 1. évfolyam számára 2026. november 26. 16:00 - 17:00 december 2026 csü 3 Szalagavató főpróba (déle…",
+     "url": "https://tancsics16.hu/esemenyek/",
+     "found": "2026-11-12"
+    },
+    {
+     "date": "2026-11-26",
+     "time": "16:00",
+     "text": "…ktanárok fogadóestje 2026. november 23. 17:00 - 19:00 csü 26 Játszóház a leendő 1. évfolyam számára 2026. november 26. 16:00 - 17:00 december 2026 csü 3 Szalagavató főpróba (délelőtt) 2026. december 3. csü 3 Szalagavató 2026. december 3. 17:00 Felsős és gim…",
+     "url": "https://tancsics16.hu/esemenyek/",
+     "found": "2026-11-12"
     },
     {
      "date": "2026-11-30",
@@ -341,7 +358,8 @@
    "pages": 2,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c35": {
    "st": "aktiv",
@@ -439,7 +457,8 @@
     "https://fekete-bp10.edu.hu/esemeny/alsos-nyiltnap/",
     "https://fekete-bp10.edu.hu/esemeny/felsos-nyiltnap/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c43": {
    "st": "aktiv",
@@ -528,7 +547,8 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "időtúllépés"
   },
   "c48": {
    "st": "aktiv",
@@ -603,7 +623,8 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c50": {
    "st": "aktiv",
