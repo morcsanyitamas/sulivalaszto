@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-12T12:52:20.194Z",
+ "gen": "2026-11-13T08:21:00.730Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -8,7 +8,7 @@
    "pages": 4,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c02": {
    "st": "js",
@@ -28,20 +28,48 @@
     "https://www.kossuthiskolarakoskert.hu/wp/?cat=36",
     "https://www.kossuthiskolarakoskert.hu/wp/?tag=leendo-elsosoknek"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c04": {
    "st": "aktiv",
    "url": "https://csoma.edu.hu/",
    "pages": 9,
-   "hits": [],
+   "hits": [
+    {
+     "date": "2026-11-12",
+     "time": null,
+     "text": "…lat Osztályképek Osztálynévsorok Alapítvány Kapcsolat Egyéb 2026.11.12. by Admin &middot; Published 2026.11.12. Jelentkezés szülői fórumra és képességmérésekre Kedves Szülők! Szeretettel várjuk a leendő elsős gyermekeket és szüleiket iskolánk FEBRUÁR…",
+     "url": "https://csoma.edu.hu/",
+     "found": "2026-11-13"
+    },
+    {
+     "date": "2027-02-01",
+     "time": null,
+     "text": "…követő képességmérésekre! A jelentkezés ezen az online űrlapon történik. A jelentkezés határideje: 2027. február 1. https://forms.gle/KG5uQt6yZcs8SDxQ7 Kérjük az űrlapot pontosan töltsék ki, hogy a programok szervezését és a kapcsolattartást gördülékenye…",
+     "url": "https://csoma.edu.hu/",
+     "found": "2026-11-13"
+    },
+    {
+     "date": "2027-02-10",
+     "time": "08:15",
+     "text": "…zajelzést és emlékeztető üzeneteket az Önök által megadott e-mail-címre fogjuk küldeni. Nyílt órák: 2027.02.10. 8:15-9:45 Szülői fórum: 2027.02.10. 10:00-11:00 Helyszín: 1173 Bp. Akácvirág utca 49. – Fehér épület Induló osztályaink: „a” – Művészeti o…",
+     "url": "https://csoma.edu.hu/",
+     "found": "2026-11-13"
+    },
+    {
+     "date": "2027-02-10",
+     "time": "10:00",
+     "text": "…az Önök által megadott e-mail-címre fogjuk küldeni. Nyílt órák: 2027.02.10. 8:15-9:45 Szülői fórum: 2027.02.10. 10:00-11:00 Helyszín: 1173 Bp. Akácvirág utca 49. – Fehér épület Induló osztályaink: „a” – Művészeti osztály (Képességméréshez kötött) – S…",
+     "url": "https://csoma.edu.hu/",
+     "found": "2026-11-13"
+    }
+   ],
    "rel": [
     "https://csoma.edu.hu/leendo-elsosoknek-szervezett-10-12-i-nyilt-nap-programja/",
     "https://csoma.edu.hu/kozponti-felvetelivel-kapcsolatos-informaciok/",
     "https://csoma.edu.hu/nyilt-napok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-12",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-11-13"
   },
   "c05": {
    "st": "aktiv",
@@ -53,7 +81,7 @@
     "https://www.zrinyi.net/index.php?option=com_content&view=article&id=1233:felhivas-a-tankoetelesse-valo-gyermekek-iskolai-beiratasara-a-20262027-tanevre&catid=25:the-project",
     "https://www.zrinyi.net/index.php?option=com_content&view=section&layout=blog&id=23&Itemid=144"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c06": {
    "st": "aktiv",
@@ -63,7 +91,7 @@
    "rel": [
     "https://diadal.hu/elsosoknek/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c07": {
    "st": "aktiv",
@@ -75,20 +103,19 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-12",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-11-13"
   },
   "c08": {
    "st": "aktiv",
    "url": "https://ujlak.com/",
-   "pages": 5,
+   "pages": 6,
    "hits": [],
    "rel": [
     "https://ujlak.com/cikk/felhivas-a-tankotelesse-valo-gyermekek-iskolai-beiratasara",
     "https://ujlak.com/oko-programok",
     "https://ujlak.com/cikk/allashirdetes"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c09": {
    "st": "aktiv",
@@ -98,7 +125,8 @@
    "rel": [
     "https://jokaim.edu.hu/beiratkozoknak"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "HTTP 429"
   },
   "c10": {
    "st": "aktiv",
@@ -106,7 +134,7 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c11": {
    "st": "aktiv",
@@ -114,28 +142,19 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-11-13"
   },
   "c20": {
    "st": "aktiv",
    "url": "https://bekecs78.hu/",
-   "pages": 8,
-   "hits": [
-    {
-     "date": "2026-11-11",
-     "time": null,
-     "text": "…l. Jávor Annamária igazgató Hírek LEGUTÓBBI BEJEGYZÉSEK AranyKaland – iskolaismerkedő foglalkozások 2026.11.11. Értéktár 2026.11.09. Nyári ügyelet 2026 2026.07.02. Családi nap 2026. – Tanári tánc 2026.06.27. Gyerek a neten 2026.05.15. Rácz Aladár Zen…",
-     "url": "https://bekecs78.hu/",
-     "found": "2026-11-12"
-    }
-   ],
+   "pages": 6,
+   "hits": [],
    "rel": [
     "https://bekecs78.hu/index.php/beiratkozas/",
     "https://bekecs78.hu/index.php/tovabbtanulas/felveteli-tajekoztato-8-evfolyam/",
-    "https://bekecs78.hu/index.php/2026/11/11/aranykaland-iskolaismerkedo-foglalkozasok/"
+    "https://bekecs78.hu/index.php/event/kozponti-felvetelire-a-jelentkezesi-lapok-leadasanak-utolso-napja-a-kivalasztott-intezmenybe/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c21": {
    "st": "aktiv",
@@ -145,8 +164,7 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-11-12",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-11-13"
   },
   "c22": {
    "st": "aktiv",
@@ -156,7 +174,7 @@
    "rel": [
     "https://www.centi.hu/var-az-iskola/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c23": {
    "st": "aktiv",
@@ -168,8 +186,7 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-12",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-11-13"
   },
   "c24": {
    "st": "aktiv",
@@ -179,9 +196,9 @@
    "rel": [
     "https://jokai16.hu/leendo-elsosoknek/",
     "https://jokai16.hu/naptar/",
-    "https://jokai16.hu/naptar/action~oneday/exact_date~12-11-2026/"
+    "https://jokai16.hu/naptar/action~oneday/exact_date~13-11-2026/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c25": {
    "st": "aktiv",
@@ -189,7 +206,7 @@
    "pages": 11,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c26": {
    "st": "aktiv",
@@ -199,7 +216,7 @@
    "rel": [
     "https://www.lemhenyi16.hu/index.php/hu/beiratkozas/nyilatkozatok-letoltese"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c27": {
    "st": "aktiv",
@@ -207,7 +224,7 @@
    "pages": 8,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c28": {
    "st": "aktiv",
@@ -215,8 +232,7 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-11-13"
   },
   "c29": {
    "st": "aktiv",
@@ -226,7 +242,7 @@
    "rel": [
     "https://www.szgyaiskola.hu/beiratkozas.html"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c30": {
    "st": "aktiv",
@@ -234,31 +250,10 @@
    "pages": 11,
    "hits": [
     {
-     "date": "2026-11-11",
-     "time": null,
-     "text": "…sével a német nemzetiségi tanulócsoportokban 2026. november 9. - 2026. november 12. „Nyitott kapuk” 2026. november 11. - 2026. november 12. Kihelyezett nevelési értekezlet; Nevelőtestületi kirándulás 2026. november 13. Témanap 2026. november 13. A tanulók j…",
-     "url": "https://tancsics16.hu/",
-     "found": "2026-11-04"
-    },
-    {
-     "date": "2026-11-12",
-     "time": null,
-     "text": "…és a tanórákon a szaktanárok vezetésével a német nemzetiségi tanulócsoportokban 2026. november 9. - 2026. november 12. „Nyitott kapuk” 2026. november 11. - 2026. november 12. Kihelyezett nevelési értekezlet; Nevelőtestületi kirándulás 2026. november 13. Tém…",
-     "url": "https://tancsics16.hu/",
-     "found": "2026-10-06"
-    },
-    {
-     "date": "2026-11-13",
-     "time": null,
-     "text": "…2026. november 11. - 2026. november 12. Kihelyezett nevelési értekezlet; Nevelőtestületi kirándulás 2026. november 13. Témanap 2026. november 13. A tanulók jelentkezési ideje a központi felvételi írásbeli vizsgára 2026. november 16. Továbbiak ... További es…",
-     "url": "https://tancsics16.hu/",
-     "found": "2026-11-04"
-    },
-    {
      "date": "2026-11-23",
      "time": "17:00",
-     "text": "…eli írásbeli vizsgára 2026. november 16. hét 23 Alsós, felsős és gimnáziumi szaktanárok fogadóestje 2026. november 23. 17:00 - 19:00 csü 26 Játszóház a leendő 1. évfolyam számára 2026. november 26. 16:00 - 17:00 december 2026 csü 3 Szalagavató főpróba (déle…",
-     "url": "https://tancsics16.hu/esemenyek/",
+     "text": "…llapodás kötése az iskolával « Összes Események Alsós, felsős és gimnáziumi szaktanárok fogadóestje 2026. november 23. 17:00 - 19:00 « A tanulók jelentkezési ideje a központi felvételi írásbeli vizsgára Játszóház a leendő 1. évfolyam számára » Hozzáadom a n…",
+     "url": "https://tancsics16.hu/esemeny/alsos-felsos-es-gimnaziumi-szaktanarok-fogadoestje-2/",
      "found": "2026-11-12"
     },
     {
@@ -267,13 +262,6 @@
      "text": "…ktanárok fogadóestje 2026. november 23. 17:00 - 19:00 csü 26 Játszóház a leendő 1. évfolyam számára 2026. november 26. 16:00 - 17:00 december 2026 csü 3 Szalagavató főpróba (délelőtt) 2026. december 3. csü 3 Szalagavató 2026. december 3. 17:00 Felsős és gim…",
      "url": "https://tancsics16.hu/esemenyek/",
      "found": "2026-11-12"
-    },
-    {
-     "date": "2026-11-30",
-     "time": null,
-     "text": "…ormációk KÖZELEDŐ ESEMÉNYEK 4. évf. hangos olvasás versenye (November folyamán) 2026. november 1. - 2026. november 30. Márton-nap (11.11.) alkalmából megemlékezés a tanórákon a szaktanárok vezetésével a német nemzetiségi tanulócsoportokban 2026. november 9.…",
-     "url": "https://tancsics16.hu/",
-     "found": "2026-11-11"
     },
     {
      "date": "2027-03-07",
@@ -293,9 +281,9 @@
    "rel": [
     "https://tancsics16.hu/nyitott-kapuk/",
     "https://tancsics16.hu/2026/11/09/jatszohaz-a-leendo-elsosoknek/",
-    "https://tancsics16.hu/esemeny/nyitott-kapuk-2/"
+    "https://tancsics16.hu/esemeny/alsos-felsos-es-gimnaziumi-szaktanarok-fogadoestje-2/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c31": {
    "st": "aktiv",
@@ -322,7 +310,8 @@
     "https://www.neriiskola.hu/okoiskola-2/",
     "https://www.neriiskola.hu/category/hirek/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-12",
+   "stale": "ECONNRESET"
   },
   "c32": {
    "st": "js",
@@ -350,7 +339,7 @@
     "https://www.mullergyorgyiskola.hu/index.php/gyermekfelvetel/iskola",
     "https://www.mullergyorgyiskola.hu/index.php/ovoda/ovodai-gyermekfelvetel"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c34": {
    "st": "aktiv",
@@ -358,8 +347,7 @@
    "pages": 2,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-11-13"
   },
   "c35": {
    "st": "aktiv",
@@ -367,7 +355,7 @@
    "pages": 7,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c40": {
    "st": "aktiv",
@@ -401,7 +389,7 @@
     "http://www.kereszturysuli.shp.hu/hpc/web.php?azonosito=kereszturysuli&oldalkod=hirdetesek_2mtr",
     "http://www.kereszturysuli.shp.hu/hpc/web.php?azonosito=kereszturysuli&oldalkod=programok_PoS6"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c41": {
    "st": "aktiv",
@@ -409,7 +397,7 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c42": {
    "st": "aktiv",
@@ -457,8 +445,7 @@
     "https://fekete-bp10.edu.hu/esemeny/alsos-nyiltnap/",
     "https://fekete-bp10.edu.hu/esemeny/felsos-nyiltnap/"
    ],
-   "okAt": "2026-11-12",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-11-13"
   },
   "c43": {
    "st": "aktiv",
@@ -470,7 +457,7 @@
     "https://www.szechenyibp10.hu/2026/03/a-leendo-elso-osztalyos-gyermekek-iskolavalasztasanak-igenyfelmerese/",
     "https://www.szechenyibp10.hu/hirek/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c44": {
    "st": "aktiv",
@@ -482,7 +469,7 @@
     "https://harmat88.hu/hirek/",
     "https://harmat88.hu/programok/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c45": {
    "st": "aktiv",
@@ -494,7 +481,7 @@
     "https://www.kadasuli.hu/iskolankrol/esemenynaptar",
     "https://www.kadasuli.hu/index.php/iskolankrol/esemenynaptar"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c46": {
    "st": "aktiv",
@@ -535,7 +522,7 @@
     "https://janikovszky.net/beiratkozas/",
     "https://janikovszky.net/leendo-elsos-tanito-nenik/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c47": {
    "st": "aktiv",
@@ -547,8 +534,7 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-11-12",
-   "stale": "időtúllépés"
+   "okAt": "2026-11-13"
   },
   "c48": {
    "st": "aktiv",
@@ -589,7 +575,7 @@
     "https://www.bem-iskola.hu/index.php/sulicsengo-mobil",
     "https://www.bem-iskola.hu/index.php"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c49": {
    "st": "aktiv",
@@ -623,8 +609,7 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-11-12",
-   "stale": "UND_ERR_CONNECT_TIMEOUT"
+   "okAt": "2026-11-13"
   },
   "c50": {
    "st": "aktiv",
@@ -658,7 +643,7 @@
     "https://ulloiiskola.hu/event/nyilt-orak-felso-tagozat/",
     "https://ulloiiskola.hu/?"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c51": {
    "st": "nincs",
@@ -689,20 +674,13 @@
     }
    ],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c53": {
    "st": "aktiv",
    "url": "https://pannonhalmi-bela.baptistaoktatas.hu/",
    "pages": 11,
    "hits": [
-    {
-     "date": "2026-11-11",
-     "time": null,
-     "text": "…dagógusainkat és azt a családias, támogató légkört, amely nálunk várja őket. Márton-napi csipegető (November 11.) Egy vidám, játékos délután a Márton-nap jegyében, ahol a leendő elsősök játékos feladatokon, kreatív tevékenységeken és közös „csipegetés…",
-     "url": "https://pannonhalmi-bela.baptistaoktatas.hu/beiskolazasi-programok-leendo-elsosoknek",
-     "found": "2026-10-04"
-    },
     {
      "date": "2026-11-18",
      "time": null,
@@ -730,7 +708,7 @@
     "https://pannonhalmi-bela.baptistaoktatas.hu/beiskolazasi-programok-leendo-elsosoknek",
     "https://pannonhalmi-bela.baptistaoktatas.hu/beiratkozashoz-szukseges-dokumentumok"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c54": {
    "st": "aktiv",
@@ -778,7 +756,7 @@
     "https://christophoruswaldorf.hu/iskola/altalanos-iskola-nyilt-alkalmak/",
     "https://christophoruswaldorf.hu/iskola/jelentkezes/elsos-jelentkezes/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c55": {
    "st": "aktiv",
@@ -788,7 +766,7 @@
    "rel": [
     "http://kreativiskola.eu/hu_hu/jelentkezes-es-beiratkozas/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c60": {
    "st": "aktiv",
@@ -796,7 +774,7 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c61": {
    "st": "aktiv",
@@ -804,7 +782,7 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c62": {
    "st": "aktiv",
@@ -812,7 +790,7 @@
    "pages": 3,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c63": {
    "st": "aktiv",
@@ -837,7 +815,7 @@
    "rel": [
     "https://laky.ecser.hu/kategoria/lakyhirek/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c64": {
    "st": "aktiv",
@@ -847,7 +825,7 @@
    "rel": [
     "https://www.maglodis.hu/page/2/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c65": {
    "st": "aktiv",
@@ -855,7 +833,7 @@
    "pages": 5,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c66": {
    "st": "aktiv",
@@ -865,7 +843,7 @@
    "rel": [
     "https://halmisuli.hu/page/2/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c67": {
    "st": "aktiv",
@@ -873,7 +851,7 @@
    "pages": 11,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c68": {
    "st": "aktiv",
@@ -893,19 +871,19 @@
     "https://petofivecses.hu/beiratkozas-leendo-elsosoknek/",
     "https://petofivecses.hu/kozepiskolai-felveteli/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c69": {
    "st": "aktiv",
    "url": "https://budapestschool.org/",
-   "pages": 7,
+   "pages": 6,
    "hits": [],
    "rel": [
-    "https://budapestschool.org/nyiltnapok",
     "https://budapestschool.org/oldalak/kifir-felveteli",
-    "https://budapestschool.org/blog/a-bocconitol-tokioig-igy-tanulnak-tovabb-a-bps-es-gyerekek"
+    "https://budapestschool.org/blog/a-bocconitol-tokioig-igy-tanulnak-tovabb-a-bps-es-gyerekek",
+    "https://budapestschool.org/blog/jol-lenni-is-tanulni-kell-uj-tantargy-a-bps-ben"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c70": {
    "st": "aktiv",
@@ -915,7 +893,7 @@
    "rel": [
     "https://kandosuli.hu/blog/2026/05/06/leendo-elsos-diakjaink/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c71": {
    "st": "aktiv",
@@ -923,7 +901,7 @@
    "pages": 5,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c72": {
    "st": "aktiv",
@@ -934,7 +912,7 @@
     "https://www.csillagkapu.suli.hu/hirfolyam/",
     "https://www.csillagkapu.suli.hu/esemenyek/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   },
   "c73": {
    "st": "aktiv",
@@ -952,7 +930,7 @@
    "rel": [
     "https://www.gyermekekhaza.hu/felveteli/gimnazium/"
    ],
-   "okAt": "2026-11-12"
+   "okAt": "2026-11-13"
   }
  }
 }
