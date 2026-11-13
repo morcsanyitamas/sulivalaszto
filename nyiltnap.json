@@ -1,11 +1,11 @@
 {
  "v": 1,
- "gen": "2026-11-13T08:21:00.730Z",
+ "gen": "2026-11-13T12:19:04.267Z",
  "s": {
   "c01": {
    "st": "aktiv",
    "url": "https://czimra.com/",
-   "pages": 4,
+   "pages": 3,
    "hits": [],
    "rel": [],
    "okAt": "2026-11-13"
@@ -108,25 +108,25 @@
   "c08": {
    "st": "aktiv",
    "url": "https://ujlak.com/",
-   "pages": 6,
+   "pages": 4,
    "hits": [],
    "rel": [
     "https://ujlak.com/cikk/felhivas-a-tankotelesse-valo-gyermekek-iskolai-beiratasara",
-    "https://ujlak.com/oko-programok",
-    "https://ujlak.com/cikk/allashirdetes"
+    "https://ujlak.com/oko-programok"
    ],
    "okAt": "2026-11-13"
   },
   "c09": {
    "st": "aktiv",
    "url": "https://jokaim.edu.hu/",
-   "pages": 3,
+   "pages": 5,
    "hits": [],
    "rel": [
-    "https://jokaim.edu.hu/beiratkozoknak"
+    "https://jokaim.edu.hu/beiratkozoknak",
+    "https://jokaim.edu.hu/cikk/nyilt-nap-a-rendorsegen",
+    "https://jokaim.edu.hu/programok"
    ],
-   "okAt": "2026-11-12",
-   "stale": "HTTP 429"
+   "okAt": "2026-11-13"
   },
   "c10": {
    "st": "aktiv",
@@ -147,12 +147,12 @@
   "c20": {
    "st": "aktiv",
    "url": "https://bekecs78.hu/",
-   "pages": 6,
+   "pages": 7,
    "hits": [],
    "rel": [
     "https://bekecs78.hu/index.php/beiratkozas/",
-    "https://bekecs78.hu/index.php/tovabbtanulas/felveteli-tajekoztato-8-evfolyam/",
-    "https://bekecs78.hu/index.php/event/kozponti-felvetelire-a-jelentkezesi-lapok-leadasanak-utolso-napja-a-kivalasztott-intezmenybe/"
+    "https://bekecs78.hu/index.php/2026/11/11/aranykaland-iskolaismerkedo-foglalkozasok/",
+    "https://bekecs78.hu/index.php/2026/04/15/racz-aladar-zeneiskola-felveteli-idopontok-a-2026-27-es-tanevre/"
    ],
    "okAt": "2026-11-13"
   },
@@ -291,11 +291,11 @@
    "pages": 8,
    "hits": [
     {
-     "date": "2026-11-12",
+     "date": "2026-11-13",
      "time": null,
-     "text": "Nyílt nap óvodások szülei számára – Néri Szent Fülöp Katolikus Általános Iskola csütörtök, november 12 Néri Szent Fülöp Katolikus Általános Iskola Kezdőlap Dokumentumok Alapító Okirat Működési engedély Szervezeti és Működési Szabályzat Házire…",
+     "text": "Nyílt nap óvodások szülei számára – Néri Szent Fülöp Katolikus Általános Iskola péntek, november 13 Néri Szent Fülöp Katolikus Általános Iskola Kezdőlap Dokumentumok Alapító Okirat Működési engedély Szervezeti és Működési Szabályzat Házire…",
      "url": "https://www.neriiskola.hu/2026/10/nyilt-nap-ovodasok-szulei-szamara-2/",
-     "found": "2026-11-12"
+     "found": "2026-11-13"
     },
     {
      "date": "2026-11-20",
@@ -310,8 +310,7 @@
     "https://www.neriiskola.hu/okoiskola-2/",
     "https://www.neriiskola.hu/category/hirek/"
    ],
-   "okAt": "2026-11-12",
-   "stale": "ECONNRESET"
+   "okAt": "2026-11-13"
   },
   "c32": {
    "st": "js",
@@ -462,12 +461,41 @@
   "c44": {
    "st": "aktiv",
    "url": "https://harmat88.hu/",
-   "pages": 6,
-   "hits": [],
+   "pages": 7,
+   "hits": [
+    {
+     "date": "2026-11-13",
+     "time": null,
+     "text": "…Határtalanul 2026. Busz Galéria Okos Doboz Hírek NYÍLT ÓRÁK ALSÓ TAGOZATOS TANULÓINK SZÜLEI RÉSZÉRE 2026. november 13. 2026. NOVEMBER 16–19. osztály nap óra tantárgy tanít terem 1.a november 19. csütörtök 1. óra matematika Jánoshalmi Tamás fszt. 5. 2. óra é…",
+     "url": "https://harmat88.hu/hirek/",
+     "found": "2026-11-13"
+    },
+    {
+     "date": "2026-11-16",
+     "time": null,
+     "text": "…yek Iskolapszichológus Diabmentor Harmatos hírek NYÍLT ÓRÁK ALSÓ TAGOZATOS TANULÓINK SZÜLEI RÉSZÉRE 2026. NOVEMBER 16–19. osztály nap óra tantárgy tanít terem 1.a november 19. csütörtök 1. óra matematika Jánoshalmi Tamás fszt. 5. 2. óra ének Berényi Lolita…",
+     "url": "https://harmat88.hu/",
+     "found": "2026-11-13"
+    },
+    {
+     "date": "2026-11-18",
+     "time": null,
+     "text": "…r 19. csütörtök 1. óra matematika Jánoshalmi Tamás fszt. 5. 2. óra ének Berényi Lolita fszt. 5. 1.b november 18. szerda 1. óra matematika Turcsányi-Kardos Ildikó II/1. 2. óra testnevelés Völgyi... Kőbányai beiskolázási fórum 2026. november 1. Kedves l…",
+     "url": "https://harmat88.hu/hirek/",
+     "found": "2026-11-13"
+    },
+    {
+     "date": "2026-11-19",
+     "time": null,
+     "text": "…NK SZÜLEI RÉSZÉRE 2026. november 13. 2026. NOVEMBER 16–19. osztály nap óra tantárgy tanít terem 1.a november 19. csütörtök 1. óra matematika Jánoshalmi Tamás fszt. 5. 2. óra ének Berényi Lolita fszt. 5. 1.b november 18. szerda 1. óra matematika Turcsá…",
+     "url": "https://harmat88.hu/hirek/",
+     "found": "2026-11-13"
+    }
+   ],
    "rel": [
     "https://harmat88.hu/leendo-elsosoknek/",
-    "https://harmat88.hu/hirek/",
-    "https://harmat88.hu/programok/"
+    "https://harmat88.hu/nyilt-orak-also-tagozatos-tanuloink-szulei-reszere/",
+    "https://harmat88.hu/hirek/"
    ],
    "okAt": "2026-11-13"
   },
@@ -534,7 +562,8 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-11-13"
+   "okAt": "2026-11-13",
+   "stale": "időtúllépés"
   },
   "c48": {
    "st": "aktiv",
@@ -876,12 +905,12 @@
   "c69": {
    "st": "aktiv",
    "url": "https://budapestschool.org/",
-   "pages": 6,
+   "pages": 7,
    "hits": [],
    "rel": [
+    "https://budapestschool.org/nyiltnapok",
     "https://budapestschool.org/oldalak/kifir-felveteli",
-    "https://budapestschool.org/blog/a-bocconitol-tokioig-igy-tanulnak-tovabb-a-bps-es-gyerekek",
-    "https://budapestschool.org/blog/jol-lenni-is-tanulni-kell-uj-tantargy-a-bps-ben"
+    "https://budapestschool.org/blog/a-bocconitol-tokioig-igy-tanulnak-tovabb-a-bps-es-gyerekek"
    ],
    "okAt": "2026-11-13"
   },
