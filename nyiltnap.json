@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-17T08:23:57.482Z",
+ "gen": "2026-11-17T13:34:50.745Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -62,7 +62,8 @@
     "https://csoma.edu.hu/leendo-elsosoknek-szervezett-10-12-i-nyilt-nap-programja/",
     "https://csoma.edu.hu/kozponti-felvetelivel-kapcsolatos-informaciok/"
    ],
-   "okAt": "2026-11-17"
+   "okAt": "2026-11-17",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c05": {
    "st": "aktiv",
@@ -96,7 +97,8 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-17"
+   "okAt": "2026-11-17",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c08": {
    "st": "aktiv",
@@ -113,15 +115,13 @@
   "c09": {
    "st": "aktiv",
    "url": "https://jokaim.edu.hu/",
-   "pages": 6,
+   "pages": 3,
    "hits": [],
    "rel": [
-    "https://jokaim.edu.hu/beiratkozoknak",
     "https://jokaim.edu.hu/cikk/nyilt-nap-a-rendorsegen",
-    "https://jokaim.edu.hu/hirek"
+    "https://jokaim.edu.hu/programok"
    ],
-   "okAt": "2026-11-16",
-   "stale": "HTTP 429"
+   "okAt": "2026-11-17"
   },
   "c10": {
    "st": "aktiv",
@@ -137,7 +137,8 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-17"
+   "okAt": "2026-11-17",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c20": {
    "st": "aktiv",
@@ -159,7 +160,8 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-11-17"
+   "okAt": "2026-11-17",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c22": {
    "st": "aktiv",
@@ -181,7 +183,8 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-17"
+   "okAt": "2026-11-17",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c24": {
    "st": "aktiv",
@@ -191,7 +194,7 @@
    "rel": [
     "https://jokai16.hu/leendo-elsosoknek/",
     "https://jokai16.hu/naptar/",
-    "https://jokai16.hu/naptar/action~oneday/exact_date~17-11-2026/"
+    "https://jokai16.hu/naptar/action~oneday/exact_date~18-11-2026/"
    ],
    "okAt": "2026-11-17"
   },
@@ -227,7 +230,8 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-17"
+   "okAt": "2026-11-17",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c29": {
    "st": "aktiv",
@@ -453,7 +457,8 @@
     "https://fekete-bp10.edu.hu/esemeny/alsos-nyiltnap/",
     "https://fekete-bp10.edu.hu/esemeny/felsos-nyiltnap/"
    ],
-   "okAt": "2026-11-17"
+   "okAt": "2026-11-17",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c43": {
    "st": "aktiv",
@@ -632,7 +637,8 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-11-17"
+   "okAt": "2026-11-17",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c50": {
    "st": "aktiv",
@@ -682,8 +688,7 @@
    "pages": 2,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-16",
-   "stale": "időtúllépés"
+   "okAt": "2026-11-17"
   },
   "c53": {
    "st": "aktiv",
@@ -926,19 +931,9 @@
   "c73": {
    "st": "aktiv",
    "url": "https://www.gyermekekhaza.hu/",
-   "pages": 8,
-   "hits": [
-    {
-     "date": "2026-11-18",
-     "time": null,
-     "text": "…lyos diákok számára Szeretettel várjuk az érdeklődő 8. osztályos diákokat gimnáziumi nyílt napunkra 2026. november 18-án, szerdán. A nyílt napon a diákok tanórákat látogathatnak, a tájékoztatón pedig megismerhetik a GyH gimnáziumát. A két programra külön ke…",
-     "url": "https://www.gyermekekhaza.hu/felveteli/gimnazium/",
-     "found": "2026-11-06"
-    }
-   ],
-   "rel": [
-    "https://www.gyermekekhaza.hu/felveteli/gimnazium/"
-   ],
+   "pages": 1,
+   "hits": [],
+   "rel": [],
    "okAt": "2026-11-17"
   }
  }
