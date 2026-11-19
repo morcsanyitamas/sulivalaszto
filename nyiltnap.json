@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-19T07:31:29.789Z",
+ "gen": "2026-11-19T13:24:51.810Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -101,7 +101,7 @@
   "c08": {
    "st": "aktiv",
    "url": "https://ujlak.com/",
-   "pages": 3,
+   "pages": 5,
    "hits": [
     {
      "date": "2026-11-18",
@@ -112,19 +112,35 @@
     }
    ],
    "rel": [
-    "https://ujlak.com/cikk/felhivas-a-tankotelesse-valo-gyermekek-iskolai-beiratasara"
+    "https://ujlak.com/cikk/felhivas-a-tankotelesse-valo-gyermekek-iskolai-beiratasara",
+    "https://ujlak.com/oko-programok",
+    "https://ujlak.com/cikk-keres.html?k=%C3%96ko+programok"
    ],
    "okAt": "2026-11-19"
   },
   "c09": {
    "st": "aktiv",
    "url": "https://jokaim.edu.hu/",
-   "pages": 4,
-   "hits": [],
+   "pages": 3,
+   "hits": [
+    {
+     "date": "2027-01-13",
+     "time": null,
+     "text": "…zetésével: Bartalné Bors Erzsébet Brunnerné Rívó Magdolna Kissné Tóth Zita Melinda Iskolakóstolgató 2027. január13-tól 3 alkalommal „Iskolakóstolgató” foglalkozást szervezünk iskolánkba készülő nagycsoportos óvodásoknak! Február 3-án szülői értekezletet…",
+     "url": "https://jokaim.edu.hu/beiratkozoknak",
+     "found": "2026-11-19"
+    },
+    {
+     "date": "2027-02-03",
+     "time": null,
+     "text": "…alkalommal „Iskolakóstolgató” foglalkozást szervezünk iskolánkba készülő nagycsoportos óvodásoknak! Február 3-án szülői értekezletet tartunk, gyermekfelügyeletet nem tudunk biztosítani. Jelentkezéshez kérjük kitölteni a regisztrációs lapot , melyen…",
+     "url": "https://jokaim.edu.hu/beiratkozoknak",
+     "found": "2026-11-19"
+    }
+   ],
    "rel": [
     "https://jokaim.edu.hu/beiratkozoknak",
-    "https://jokaim.edu.hu/cikk/nyilt-nap-a-rendorsegen",
-    "https://jokaim.edu.hu/cikk-keres.html?k=Programok"
+    "https://jokaim.edu.hu/cikk/nyilt-nap-a-rendorsegen"
    ],
    "okAt": "2026-11-19"
   },
@@ -191,7 +207,7 @@
   "c24": {
    "st": "aktiv",
    "url": "https://jokai16.hu/",
-   "pages": 6,
+   "pages": 7,
    "hits": [],
    "rel": [
     "https://jokai16.hu/leendo-elsosoknek/",
@@ -331,7 +347,8 @@
     "https://www.neriiskola.hu/okoiskola-2/",
     "https://www.neriiskola.hu/category/okoiskolai-hirek/"
    ],
-   "okAt": "2026-11-19"
+   "okAt": "2026-11-19",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c32": {
    "st": "js",
@@ -642,35 +659,9 @@
   "c50": {
    "st": "aktiv",
    "url": "https://ulloiiskola.hu/",
-   "pages": 8,
-   "hits": [
-    {
-     "date": "2026-11-25",
-     "time": "08:00",
-     "text": "…rszágos kompetenciamérés Büszkeségeink Állás Kapcsolat « Összes Események Nyílt órák – alsó tagozat november 25 @ 08:00 - 10:00 « Márton napi kézműves délután Nyílt órák – felső tagozat » Hozzáadom a naptáramhoz Google Naptár iCalendar Outlook 365 Out…",
-     "url": "https://ulloiiskola.hu/event/nyilt-orak-also-tagozat/",
-     "found": "2026-10-22"
-    },
-    {
-     "date": "2026-11-26",
-     "time": "08:00",
-     "text": "…szágos kompetenciamérés Büszkeségeink Állás Kapcsolat « Összes Események Nyílt órák – felső tagozat november 26 @ 08:00 - 10:00 « Nyílt órák – alsó tagozat Behívásos fogadóóra » Hozzáadom a naptáramhoz Google Naptár iCalendar Outlook 365 Outlook Live…",
-     "url": "https://ulloiiskola.hu/event/nyilt-orak-felso-tagozat/",
-     "found": "2026-10-22"
-    },
-    {
-     "date": "2026-11-30",
-     "time": null,
-     "text": "…műves délu… 2026-11-25 08:00 Nyílt órák – alsó tagozat… 2026-11-26 08:00 Nyílt órák – felső tagoza… 2026-11-30 17:00 Behívásos fogadóóra 2026-12-09 16:30 Csukás Csipegető 2026-12-12 08:00 Munkanap 2026-12-18 08:00 Téli szünet előtti utolsó… Kedves Sz…",
-     "url": "https://ulloiiskola.hu/",
-     "found": "2026-11-02"
-    }
-   ],
-   "rel": [
-    "https://ulloiiskola.hu/event/nyilt-orak-also-tagozat/",
-    "https://ulloiiskola.hu/event/nyilt-orak-felso-tagozat/",
-    "https://ulloiiskola.hu/?"
-   ],
+   "pages": 6,
+   "hits": [],
+   "rel": [],
    "okAt": "2026-11-19"
   },
   "c51": {
