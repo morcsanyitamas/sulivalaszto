@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-21T12:39:57.998Z",
+ "gen": "2026-11-21T12:45:34.563Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -101,7 +101,7 @@
   "c08": {
    "st": "aktiv",
    "url": "https://ujlak.com/",
-   "pages": 6,
+   "pages": 5,
    "hits": [],
    "rel": [
     "https://ujlak.com/cikk/felhivas-a-tankotelesse-valo-gyermekek-iskolai-beiratasara",
@@ -113,7 +113,7 @@
   "c09": {
    "st": "aktiv",
    "url": "https://jokaim.edu.hu/",
-   "pages": 7,
+   "pages": 5,
    "hits": [
     {
      "date": "2027-01-13",
@@ -132,11 +132,10 @@
    ],
    "rel": [
     "https://jokaim.edu.hu/beiratkozoknak",
-    "https://jokaim.edu.hu/cikk/nyilt-nap-a-rendorsegen",
-    "https://jokaim.edu.hu/programok"
+    "https://jokaim.edu.hu/programok",
+    "https://jokaim.edu.hu/cikk-keres.html?k=Programok"
    ],
-   "okAt": "2026-11-20",
-   "stale": "HTTP 429"
+   "okAt": "2026-11-21"
   },
   "c10": {
    "st": "aktiv",
