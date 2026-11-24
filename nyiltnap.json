@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-24T08:21:05.308Z",
+ "gen": "2026-11-24T14:57:21.044Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -8,7 +8,8 @@
    "pages": 3,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-24"
+   "okAt": "2026-11-24",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c02": {
    "st": "js",
@@ -79,7 +80,7 @@
   "c06": {
    "st": "aktiv",
    "url": "https://diadal.hu/",
-   "pages": 6,
+   "pages": 7,
    "hits": [],
    "rel": [
     "https://diadal.hu/elsosoknek/"
@@ -101,7 +102,7 @@
   "c08": {
    "st": "aktiv",
    "url": "https://ujlak.com/",
-   "pages": 6,
+   "pages": 5,
    "hits": [
     {
      "date": "2026-11-25",
@@ -141,10 +142,9 @@
    "rel": [
     "https://jokaim.edu.hu/beiratkozoknak",
     "https://jokaim.edu.hu/cikk/nyilt-nap-a-rendorsegen",
-    "https://jokaim.edu.hu/cikk-keres.html?k=H%C3%ADrek"
+    "https://jokaim.edu.hu/programok"
    ],
-   "okAt": "2026-11-23",
-   "stale": "HTTP 429"
+   "okAt": "2026-11-24"
   },
   "c10": {
    "st": "aktiv",
@@ -209,7 +209,7 @@
   "c24": {
    "st": "aktiv",
    "url": "https://jokai16.hu/",
-   "pages": 8,
+   "pages": 7,
    "hits": [],
    "rel": [
     "https://jokai16.hu/leendo-elsosoknek/",
@@ -464,8 +464,7 @@
     "https://fekete-bp10.edu.hu/esemeny/alsos-nyiltnap/",
     "https://fekete-bp10.edu.hu/esemeny/felsos-nyiltnap/"
    ],
-   "okAt": "2026-11-23",
-   "stale": "időtúllépés"
+   "okAt": "2026-11-24"
   },
   "c43": {
    "st": "aktiv",
@@ -487,11 +486,11 @@
      "found": "2026-11-23"
     },
     {
-     "date": "2026-11-24",
+     "date": "2026-12-01",
      "time": null,
-     "text": "…yakran ismételt kérdések Kapcsolat Alapítvány Kőbányai Széchenyi István Általános Iskola Bolha piac 2026.11.24. Fontos közlemények Iskolakóstolgató Kiemelt hírek https://www.szechenyibp10.hu/wp-content/uploads/2026/11/plakat.png 791 528 Adminisztráto…",
+     "text": "…ek Kapcsolat Alapítvány Kőbányai Széchenyi István Általános Iskola Jelentkezés központi felvételire 2026.12.01. Fontos közlemények Iskolakóstolgató Kiemelt hírek https://www.szechenyibp10.hu/wp-content/uploads/2026/11/plakat.png 791 528 Adminisztráto…",
      "url": "https://www.szechenyibp10.hu/",
-     "found": "2026-11-23"
+     "found": "2026-11-24"
     },
     {
      "date": "2026-12-12",
@@ -502,9 +501,9 @@
     }
    ],
    "rel": [
+    "https://www.szechenyibp10.hu/naptar/jelentkezes-kozponti-felvetelire/",
     "https://www.szechenyibp10.hu/2026/11/iskolakostolgato/",
-    "https://www.szechenyibp10.hu/2026/03/felhivas-tankotelesse-valo-gyermekek-iskolai-beiratasara/",
-    "https://www.szechenyibp10.hu/naptar/bolha-piac/"
+    "https://www.szechenyibp10.hu/2026/03/felhivas-tankotelesse-valo-gyermekek-iskolai-beiratasara/"
    ],
    "okAt": "2026-11-24"
   },
@@ -576,8 +575,7 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-11-23",
-   "stale": "időtúllépés"
+   "okAt": "2026-11-24"
   },
   "c48": {
    "st": "aktiv",
