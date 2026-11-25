@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-25T08:25:06.893Z",
+ "gen": "2026-11-25T14:32:03.977Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -96,13 +96,12 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-24",
-   "stale": "időtúllépés"
+   "okAt": "2026-11-25"
   },
   "c08": {
    "st": "aktiv",
    "url": "https://ujlak.com/",
-   "pages": 6,
+   "pages": 4,
    "hits": [
     {
      "date": "2026-11-25",
@@ -114,15 +113,14 @@
    ],
    "rel": [
     "https://ujlak.com/cikk/felhivas-a-tankotelesse-valo-gyermekek-iskolai-beiratasara",
-    "https://ujlak.com/oko-programok",
-    "https://ujlak.com/cikk/allashirdetes"
+    "https://ujlak.com/oko-programok"
    ],
    "okAt": "2026-11-25"
   },
   "c09": {
    "st": "aktiv",
    "url": "https://jokaim.edu.hu/",
-   "pages": 5,
+   "pages": 4,
    "hits": [
     {
      "date": "2027-01-13",
@@ -142,10 +140,9 @@
    "rel": [
     "https://jokaim.edu.hu/beiratkozoknak",
     "https://jokaim.edu.hu/cikk/nyilt-nap-a-rendorsegen",
-    "https://jokaim.edu.hu/programok"
+    "https://jokaim.edu.hu/hirek"
    ],
-   "okAt": "2026-11-24",
-   "stale": "HTTP 429"
+   "okAt": "2026-11-25"
   },
   "c10": {
    "st": "aktiv",
@@ -562,7 +559,8 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-11-25"
+   "okAt": "2026-11-25",
+   "stale": "időtúllépés"
   },
   "c48": {
    "st": "aktiv",
