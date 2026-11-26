@@ -1,6 +1,6 @@
 {
  "v": 1,
- "gen": "2026-11-26T07:53:16.014Z",
+ "gen": "2026-11-26T13:58:48.516Z",
  "s": {
   "c01": {
    "st": "aktiv",
@@ -62,13 +62,50 @@
     "https://csoma.edu.hu/leendo-elsosoknek-szervezett-10-12-i-nyilt-nap-programja/",
     "https://csoma.edu.hu/kozponti-felvetelivel-kapcsolatos-informaciok/"
    ],
-   "okAt": "2026-11-26"
+   "okAt": "2026-11-26",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c05": {
    "st": "aktiv",
    "url": "https://www.zrinyi.net/",
    "pages": 9,
-   "hits": [],
+   "hits": [
+    {
+     "date": "2026-11-26",
+     "time": null,
+     "text": "…árják kis gazdáikat! Szülők és Nevelők Bálja Keresés Beiskolázás – Programjaink leendő elsőseinknek 2026. november 26. Szeretettel várjuk a leendő első osztályosokat és szüleiket beiskolázási programjainkra! Nézz be hozzánk! – Városi fények, falusi csodák k…",
+     "url": "https://www.zrinyi.net/",
+     "found": "2026-11-26"
+    },
+    {
+     "date": "2026-12-01",
+     "time": "16:00",
+     "text": "…nk! – Városi fények, falusi csodák kiállítás A kiállítás megtekintése tanítók vezetésével. Időpont: 2026. december 1., 16.00 Iskolanyitogató Játékos foglalkozások iskolába készülőknek, szülőknek előadások és tájékoztatók. Időpont: 2027. február 2. és 2027.…",
+     "url": "https://www.zrinyi.net/",
+     "found": "2026-11-26"
+    },
+    {
+     "date": "2027-02-02",
+     "time": "17:00",
+     "text": "…nyitogató Játékos foglalkozások iskolába készülőknek, szülőknek előadások és tájékoztatók. Időpont: 2027. február 2. és 2027. február 9., 17 órától A foglalkozáson való részvételhez regisztráció szükséges. Bemutató órák Tájékoztató szülőknek, nyílt foglal…",
+     "url": "https://www.zrinyi.net/",
+     "found": "2026-11-26"
+    },
+    {
+     "date": "2027-02-09",
+     "time": "17:00",
+     "text": "…glalkozások iskolába készülőknek, szülőknek előadások és tájékoztatók. Időpont: 2027. február 2. és 2027. február 9., 17 órától A foglalkozáson való részvételhez regisztráció szükséges. Bemutató órák Tájékoztató szülőknek, nyílt foglalkozások 4. évfolyamo…",
+     "url": "https://www.zrinyi.net/",
+     "found": "2026-11-26"
+    },
+    {
+     "date": "2027-02-16",
+     "time": "08:00",
+     "text": "…ztráció szükséges. Bemutató órák Tájékoztató szülőknek, nyílt foglalkozások 4. évfolyamon. Időpont: 2027. február 16., 8.00–11.00 A foglalkozáson való részvételhez regisztráció szükséges: www.zrinyi.net Kerületi páros váltóverseny 2026. november 26. Novemb…",
+     "url": "https://www.zrinyi.net/",
+     "found": "2026-11-26"
+    }
+   ],
    "rel": [
     "https://www.zrinyi.net/index.php?option=com_content&view=category&layout=blog&id=46&Itemid=58",
     "https://www.zrinyi.net/index.php?option=com_content&view=article&id=1233:felhivas-a-tankoetelesse-valo-gyermekek-iskolai-beiratasara-a-20262027-tanevre&catid=25:the-project",
@@ -84,7 +121,8 @@
    "rel": [
     "https://diadal.hu/elsosoknek/"
    ],
-   "okAt": "2026-11-26"
+   "okAt": "2026-11-26",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c07": {
    "st": "aktiv",
@@ -96,7 +134,8 @@
     "https://sugarsuli.edu.hu/beiratkozas/beiskolazasi-korzetunk/",
     "https://sugarsuli.edu.hu/beiratkozas/leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-26"
+   "okAt": "2026-11-26",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c08": {
    "st": "aktiv",
@@ -122,29 +161,12 @@
    "st": "aktiv",
    "url": "https://jokaim.edu.hu/",
    "pages": 4,
-   "hits": [
-    {
-     "date": "2027-01-13",
-     "time": null,
-     "text": "…zetésével: Bartalné Bors Erzsébet Brunnerné Rívó Magdolna Kissné Tóth Zita Melinda Iskolakóstolgató 2027. január13-tól 3 alkalommal „Iskolakóstolgató” foglalkozást szervezünk iskolánkba készülő nagycsoportos óvodásoknak! Február 3-án szülői értekezletet…",
-     "url": "https://jokaim.edu.hu/beiratkozoknak",
-     "found": "2026-11-23"
-    },
-    {
-     "date": "2027-02-03",
-     "time": null,
-     "text": "…alkalommal „Iskolakóstolgató” foglalkozást szervezünk iskolánkba készülő nagycsoportos óvodásoknak! Február 3-án szülői értekezletet tartunk, gyermekfelügyeletet nem tudunk biztosítani. Jelentkezéshez kérjük kitölteni a regisztrációs lapot , melyen…",
-     "url": "https://jokaim.edu.hu/beiratkozoknak",
-     "found": "2026-11-23"
-    }
-   ],
+   "hits": [],
    "rel": [
-    "https://jokaim.edu.hu/beiratkozoknak",
     "https://jokaim.edu.hu/cikk/nyilt-nap-a-rendorsegen",
-    "https://jokaim.edu.hu/hirek"
+    "https://jokaim.edu.hu/cikk-keres.html?k=Programok"
    ],
-   "okAt": "2026-11-25",
-   "stale": "HTTP 429"
+   "okAt": "2026-11-26"
   },
   "c10": {
    "st": "aktiv",
@@ -160,7 +182,8 @@
    "pages": 1,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-26"
+   "okAt": "2026-11-26",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c20": {
    "st": "aktiv",
@@ -182,7 +205,8 @@
    "rel": [
     "https://cinkota23.edu.hu/aktualis.htm"
    ],
-   "okAt": "2026-11-26"
+   "okAt": "2026-11-26",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c22": {
    "st": "aktiv",
@@ -204,16 +228,17 @@
     "https://www.hermanbp.edu.hu/beiratkozasi-informaciok/",
     "https://www.hermanbp.edu.hu/foglalkozasok-leendo-elsosoknek/"
    ],
-   "okAt": "2026-11-26"
+   "okAt": "2026-11-26",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c24": {
    "st": "aktiv",
    "url": "https://jokai16.hu/",
-   "pages": 7,
+   "pages": 9,
    "hits": [],
    "rel": [
     "https://jokai16.hu/leendo-elsosoknek/",
-    "https://jokai16.hu/event/probafelveteli-8-evfolyam/?instance_id=2288",
+    "https://jokai16.hu/event/a-8-os-tanulok-jelentkezese-a-kozponti-irasbeli-felveteli-vizsgara-2/?instance_id=2091",
     "https://jokai16.hu/naptar/"
    ],
    "okAt": "2026-11-26"
@@ -250,7 +275,8 @@
    "pages": 9,
    "hits": [],
    "rel": [],
-   "okAt": "2026-11-26"
+   "okAt": "2026-11-26",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c29": {
    "st": "aktiv",
@@ -464,7 +490,8 @@
     "https://fekete-bp10.edu.hu/esemeny/alsos-nyiltnap/",
     "https://fekete-bp10.edu.hu/esemeny/felsos-nyiltnap/"
    ],
-   "okAt": "2026-11-26"
+   "okAt": "2026-11-26",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c43": {
    "st": "aktiv",
@@ -494,9 +521,9 @@
     }
    ],
    "rel": [
-    "https://www.szechenyibp10.hu/naptar/",
     "https://www.szechenyibp10.hu/2026/11/iskolakostolgato/",
-    "https://www.szechenyibp10.hu/2026/03/felhivas-tankotelesse-valo-gyermekek-iskolai-beiratasara/"
+    "https://www.szechenyibp10.hu/2026/03/felhivas-tankotelesse-valo-gyermekek-iskolai-beiratasara/",
+    "https://www.szechenyibp10.hu/category/kiemelt-hirek/"
    ],
    "okAt": "2026-11-26"
   },
@@ -568,7 +595,8 @@
     "https://szentlaszlo1.hu/beiratkozas/",
     "https://szentlaszlo1.hu/tanev-rendje/"
    ],
-   "okAt": "2026-11-26"
+   "okAt": "2026-11-26",
+   "stale": "időtúllépés"
   },
   "c48": {
    "st": "aktiv",
@@ -622,7 +650,8 @@
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/aktualis",
     "https://szervatiusz.edu.hu/index.php/en-us/leendo-elsosoeknek-en-us/igenyfelmero-lap"
    ],
-   "okAt": "2026-11-26"
+   "okAt": "2026-11-26",
+   "stale": "UND_ERR_CONNECT_TIMEOUT"
   },
   "c50": {
    "st": "aktiv",
